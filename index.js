@@ -10,8 +10,7 @@ import {
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
-import { initAddMovie} from "./pages/movies/addMovie/addMovie.js";
-
+import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 
 //=========Movie End here=========
 //=========Reservation start here=========
@@ -28,54 +27,60 @@ import { initEditScreening } from "./pages/screenings/editScreening/editScreenin
 
 //=========Theater start here=========
 
-
 //=========Theater end here=========
 
 //=========Employee start here=========
-
 
 //=========Employee end here=========
 
 //=========Shift start here=========
 
-
 //=========Shift end here=========
 
 //=========Seat start here=========
 
-
 //=========Seat end here=========
 //=========SeatChoice start here=========
-
 
 //=========SeatChoice end here=========
 
 window.addEventListener("load", async () => {
-
-    //=========Templates end here=========
+  //=========Templates end here=========
   const templateAbout = await loadTemplate("./pages/about/about.html");
+
   const templateGetAllMovies = await loadTemplate(
     "./pages/movies/getAllMovies/all-movies.html"
   );
-  const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
-  const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
-  const templateAddMovie = await loadTemplate("./pages/movies/addMovie/add-movie.html");
+  const templateGetMovieById = await loadTemplate(
+    "./pages/movies/getSpecificMovie/movie-title.html"
+  );
+  const templateEditMovie = await loadTemplate(
+    "./pages/movies/editMovie/edit-movie.html"
+  );
+  const templateAddMovie = await loadTemplate(
+    "./pages/movies/addMovie/add-movie.html"
+  );
 
-  const templateGetAllScreenings = await loadTemplate("./pages/screenings/getAllScreenings/all-screenings.html");
-  const templateGetSpecificScreening = await loadTemplate("./pages/screenings/getSpecificScreening/screening.html");
-  const templateEditScreening = await loadTemplate("./pages/screenings/editScreening/edit-screening.html");
+  const templateGetAllScreenings = await loadTemplate(
+    "./pages/screenings/getAllScreenings/all-screenings.html"
+  );
+  const templateGetSpecificScreening = await loadTemplate(
+    "./pages/screenings/getSpecificScreening/screening.html"
+  );
+  const templateEditScreening = await loadTemplate(
+    "./pages/screenings/editScreening/edit-screening.html"
+  );
 
-  const templateGetAllReservations = await loadTemplate("./pages/reservation/getAllReservations/all-reservation.html");
-    const templateAbout = await loadTemplate("./pages/about/about.html");
-    const templateGetAllMovies = await loadTemplate("./pages/movies/getAllMovies/all-movies.html");
-    const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
-    const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
+  const templateGetAllReservations = await loadTemplate(
+    "./pages/reservation/getAllReservations/all-reservation.html"
+  );
 
-    const templateGetAllReservations = await loadTemplate("./pages/reservation/getAllReservations/all-reservation.html");
-    const templateGetReservationById = await loadTemplate("./pages/reservation/getSpecificReservation/single-reservation.html");
+  const templateGetReservationById = await loadTemplate(
+    "./pages/reservation/getSpecificReservation/single-reservation.html"
+  );
 
-    //=========>Templates end here=========
-    adjustForMissingHash();
+  //=========>Templates end here=========
+  adjustForMissingHash();
 
   const router = new Navigo("/", { hash: true });
   //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
@@ -120,15 +125,13 @@ window.addEventListener("load", async () => {
         renderTemplate(templateGetAllReservations, "content");
         initGetAllReservations(router);
       },
+    
+
+      "/single-reservation": (match) => {
+        renderTemplate(templateGetReservationById, "content");
+        initGetReservationById(match);
+      },
       //=========Reservations end here=========
-        //=========Movies End here=========
-        //=========Reservations start here=========
-     
-        "/single-reservation": (match) => {
-            renderTemplate(templateGetReservationById, "content");
-            initGetReservationById(match);
-        },
-        //=========Reservations end here=========
 
       //=========Screening start here=========
       "/all-screenings": () => {
@@ -139,9 +142,9 @@ window.addEventListener("load", async () => {
         renderTemplate(templateGetSpecificScreening, "content");
         initGetSpecificScreening(match);
       },
-      "/edit-screening": (match,router) => {
+      "/edit-screening": (match, router) => {
         renderTemplate(templateEditScreening, "content");
-        initEditScreening(match,router);
+        initEditScreening(match, router);
       },
 
       //=========Screening end here=========
