@@ -14,7 +14,7 @@ import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
 //=========Movie End here=========
 //=========Reservation start here=========
 import { initGetAllReservations } from "./pages/reservation/getAllReservations/getAllReservations.js";
-
+import { initGetReservationById } from "./pages/reservation/getSpecificReservation/singleReservation.js";
 
 //=========Reservation end here=========
 
@@ -50,18 +50,16 @@ import { initGetAllReservations } from "./pages/reservation/getAllReservations/g
 window.addEventListener("load", async () => {
 
     //=========Templates end here=========
-  const templateAbout = await loadTemplate("./pages/about/about.html");
-  const templateGetAllMovies = await loadTemplate(
-    "./pages/movies/getAllMovies/all-movies.html"
-  );
-  const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
-  const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
+    const templateAbout = await loadTemplate("./pages/about/about.html");
+    const templateGetAllMovies = await loadTemplate("./pages/movies/getAllMovies/all-movies.html");
+    const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
+    const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
 
-  const templateGetAllReservations = await loadTemplate("./pages/reservation/getAllReservations/all-reservation.html");
-
+    const templateGetAllReservations = await loadTemplate("./pages/reservation/getAllReservations/all-reservation.html");
+    const templateGetReservationById = await loadTemplate("./pages/reservation/getSpecificReservation/single-reservation.html");
 
     //=========>Templates end here=========
-  adjustForMissingHash();
+    adjustForMissingHash();
 
   const router = new Navigo("/", { hash: true });
   //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
@@ -101,6 +99,10 @@ window.addEventListener("load", async () => {
         "/all-reservations": (match,router) => {
             renderTemplate(templateGetAllReservations, "content");
             initGetAllReservations(match,router);
+        },
+        "/single-reservation": (match) => {
+            renderTemplate(templateGetReservationById, "content");
+            initGetReservationById(match);
         },
         //=========Reservations end here=========
 
