@@ -1,0 +1,145 @@
+:root{
+    --primary-white: #fcfafa;
+    --primary-background: #F2F2F2;
+    --button-darkblue: #112844;
+    --alert-red: #B22727;
+    --alert-green: #3c805c;
+    --text-xxs: 0.8rem;
+    --text-xs: 1.3rem;
+    --text-s: 1.4rem;
+    --text-m: 1.8rem;
+    --text-l: 2rem;
+    --text-xl: 2.3rem;
+    --text-xxl: 2.6rem;
+    --h6: 1.3rem;
+    --h5: 1.4rem;
+    --h4: 1.8rem;
+    --h3: 2rem;
+    --h2: 2.3rem;
+    --h1: 2.6rem;
+    --space-xs: 1.896rem;
+    --space-s: 2.133rem;
+    --space-m: 2.4rem;
+    --space-l: 2.7rem;
+    --space-xl: 3.038rem;
+    --space-xxl: 3.42rem;
+    --section-space-xs: 3.84rem;
+    --section-space-s: 4.8rem;
+    --section-space-m: 6rem;
+    --section-space-l: 7.5rem;
+    --section-space-xl: 9.375rem;
+    --section-space-xxl: 11.719rem;
+    --width-xs: calc((128*0.1)*1rem);
+    --width-s: calc((128*0.2)*1rem);
+    --width-m: calc((128*0.4)*1rem);
+    --width-l: calc((128*0.6)*1rem);
+    --width-xl: calc((128*0.8)*1rem);
+    --width-xxl: calc((128*0.9)*1rem);
+    --width-vp-max: calc((128 - 3*2)*1rem);
+    --width-50: calc((128/2)*1rem);
+    --width-full: 100%;
+    --section-padding-x: 2.4rem;
+    --color__accent: #03415b;
+    --field__background: #f5f5f5;
+    --field__background--hover: #e9e9e9;
+    --input__border: rgb(16, 137, 185);
+    --input__border--hover: rgba(0, 0, 0, 0.62);
+    --label__color: #252424;
+    --font__size: 15px;
+    --font__family: OpenSans-regular;
+}
+
+@supports (font-size:calc(1vw+ 2vw)) {
+    :root {
+        --text-xs: calc(.9004501688rem + (.1125562711*((100vw - 32rem)/96)));
+        --text-s: calc(1.200300075rem + (.1500375094*((100vw - 32rem)/96)));
+        --text-m: calc(1.6rem + (.2*((100vw - 32rem)/96)));
+        --text-l: calc(1.92rem + (.4794*((100vw - 32rem)/96)));
+        --text-xl: calc(2.304rem + (.8944002*((100vw - 32rem)/96)));
+        --text-xxl: calc(2.7648rem + (1.4986674666*((100vw - 32rem)/96)));
+        --h6: calc(.9004501688rem + (.1125562711*((100vw - 32rem)/96)));
+        --h5: calc(1.200300075rem + (.1500375094*((100vw - 32rem)/96)));
+        --h4: calc(1.6rem + (.2*((100vw - 32rem)/96)));
+        --h3: calc(1.92rem + (.4794*((100vw - 32rem)/96)));
+        --h2: calc(2.304rem + (.8944002*((100vw - 32rem)/96)));
+        --h1: calc(2.7648rem + (1.4986674666*((100vw - 32rem)/96)));
+    }
+    @media (min-width:1279px) {
+        :root {
+            --text-xs: 1.0130064399rem;
+            --text-s: 1.3503375844rem;
+            --text-m: 1.8rem;
+            --text-l: 2.3994rem;
+            --text-xl: 3.1984002rem;
+            --text-xxl: 4.2634674666rem;
+            --h6: 1.0130064399rem;
+            --h5: 1.3503375844rem;
+            --h4: 1.8rem;
+            --h3: 2.3994rem;
+            --h2: 3.1984002rem;
+            --h1: 4.2634674666rem;
+        }
+    }}@supports (font-size:clamp(1vw, 2vw, 3vw)) {
+    :root {
+        --text-xs: clamp(.9004501688rem, calc(.1172461157vw + .8629314118rem), 1.0130064399rem);
+        --text-s: clamp(1.200300075rem, calc(.1562890723vw + 1.1502875719rem), 1.3503375844rem);
+        --text-m: clamp(1.6rem, calc(.2083333333vw + 1.5333333333rem), 1.8rem);
+        --text-l: clamp(1.92rem, calc(.499375vw + 1.7602rem), 2.3994rem);
+        --text-xl: clamp(2.304rem, calc(.931666875vw + 2.0058666rem), 3.1984002rem);
+        --text-xxl: clamp(2.7648rem, calc(1.5611119444vw + 2.2652441778rem), 4.2634674666rem);
+        --h6: clamp(.9004501688rem, calc(.1172461157vw + .8629314118rem), 1.0130064399rem);
+        --h5: clamp(1.200300075rem, calc(.1562890723vw + 1.1502875719rem), 1.3503375844rem);
+        --h4: clamp(1.6rem, calc(.2083333333vw + 1.5333333333rem), 1.8rem);
+        --h3: clamp(1.92rem, calc(.499375vw + 1.7602rem), 2.3994rem);
+        --h2: clamp(2.304rem, calc(.931666875vw + 2.0058666rem), 3.1984002rem);
+        --h1: clamp(2.7648rem, calc(1.5611119444vw + 2.2652441778rem), 4.2634674666rem);
+    }
+}@supports (padding:calc(1vw+ 2vw)) {
+    :root {
+        --space-xs: calc(1.0666666667rem + (.2666666667*((100vw - 32rem)/96)));
+        --space-s: calc(1.6rem + (.4*((100vw - 32rem)/96)));
+        --space-m: calc(2.4rem + (.6*((100vw - 32rem)/96)));
+        --space-l: calc(3.1992rem + (1.3008*((100vw - 32rem)/96)));
+        --space-xl: calc(4.2645336rem + (2.4854664*((100vw - 32rem)/96)));
+        --space-xxl: calc(5.6846232888rem + (4.4403767112*((100vw - 32rem)/96)));
+        --section-space-xs: calc(3.2rem + (2.1333333333*((100vw - 32rem)/96)));
+        --section-space-s: calc(4.8rem + (3.2*((100vw - 32rem)/96)));
+        --section-space-m: calc(7.2rem + (4.8*((100vw - 32rem)/96)));
+        --section-space-l: calc(9.5976rem + (8.4024*((100vw - 32rem)/96)));
+        --section-space-xl: calc(12.7936008rem + (14.2063992*((100vw - 32rem)/96)));
+        --section-space-xxl: calc(17.0538698664rem + (23.4461301336*((100vw - 32rem)/96)));
+        --section-padding-x: calc(2.4rem + (.6*((100vw - 32rem)/96)));
+    }
+    @media (min-width:1279px) {
+        :root {
+            --space-xs: 1.3333333333rem;
+            --space-s: 2rem;
+            --space-m: 3rem;
+            --space-l: 4.5rem;
+            --space-xl: 6.75rem;
+            --space-xxl: 10.125rem;
+            --section-space-xs: 5.3333333333rem;
+            --section-space-s: 8rem;
+            --section-space-m: 12rem;
+            --section-space-l: 18rem;
+            --section-space-xl: 27rem;
+            --section-space-xxl: 40.5rem;
+            --section-padding-x: 3rem;
+        }
+    }}@supports (padding:clamp(1vw, 2vw, 3vw)) {
+    :root {
+        --space-xs: clamp(1.0666666667rem, calc(.2777777778vw + .9777777778rem), 1.3333333333rem);
+        --space-s: clamp(1.6rem, calc(.4166666667vw + 1.4666666667rem), 2rem);
+        --space-m: clamp(2.4rem, calc(.625vw + 2.2rem), 3rem);
+        --space-l: clamp(3.1992rem, calc(1.355vw + 2.7656rem), 4.5rem);
+        --space-xl: clamp(4.2645336rem, calc(2.5890275vw + 3.4360448rem), 6.75rem);
+        --space-xxl: clamp(5.6846232888rem, calc(4.6253924075vw + 4.2044977184rem), 10.125rem);
+        --section-space-xs: clamp(3.2rem, calc(2.2222222222vw + 2.4888888889rem), 5.3333333333rem);
+        --section-space-s: clamp(4.8rem, calc(3.3333333333vw + 3.7333333333rem), 8rem);
+        --section-space-m: clamp(7.2rem, calc(5vw + 5.6rem), 12rem);
+        --section-space-l: clamp(9.5976rem, calc(8.7525vw + 6.7968rem), 18rem);
+        --section-space-xl: clamp(12.7936008rem, calc(14.7983325vw + 8.0581344rem), 27rem);
+        --section-space-xxl: clamp(17.0538698664rem, calc(24.4230522225vw + 9.2384931552rem), 40.5rem);
+        --section-padding-x: clamp(2.4rem, calc(.625vw + 2.2rem), 3rem);
+    }
+}
