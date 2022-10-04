@@ -1,5 +1,4 @@
-let URL_SHIFTS = "http://localhost:8080/api/shifts/";
-
+import {URL_SHIFTS} from "../shiftSettings.js";
 let router;
 
 async function addShift(){
