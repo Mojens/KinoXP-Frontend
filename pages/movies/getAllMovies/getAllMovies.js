@@ -1,5 +1,5 @@
 const url = "http://localhost:8080/api/movies";
-import { encode } from "../../utils.js";
+import { encode } from "../../../utils.js";
 
 let movies = [];
 let router;

@@ -4,10 +4,11 @@
 
 ul.menu-horizontal {
   list-style-type: none;
-  margin: 0;
+  margin-left: 20px;
+  margin-right: auto;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #ffffff;
 }
 
 ul.menu-horizontal li {
@@ -16,19 +17,21 @@ ul.menu-horizontal li {
 
 ul.menu-horizontal li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 ul.menu-horizontal li a:hover:not(.active) {
-  background-color: #111;
+  background-color: #112844FF;
+  color: #ffff;
 }
 
 
 ul.menu-horizontal a.active {
-  background-color: #04aa6d;
+  background-color: #112844FF;
+  color: #ffff;
 }
 
 /* 
@@ -55,7 +58,7 @@ ul.menu-vertical li a {
 }
 
 ul.menu-vertical li a.active {
-  background-color: #04aa6d;
+  background-color: #112844FF;
   color: white;
 }
 
@@ -91,7 +94,55 @@ ul.menu-simple li {
   display: inline;
   margin-right: 5px;
 }
+.bg-light {
+  background-color: #112844FF!important;
+
+}
+.nav-link{
+  color: #ffff!important;
+  padding: 1.7em 1em!important;
+  font-size: 15px!important;
+  font-weight: 600!important;
+
+}
+
+.nav-link:hover{
+  color: black!important;
+
+  padding: 1.7em 1em!important;
+  font-size: 15px!important;
+  font-weight: 600!important;
+}
+.nav-item{
+  padding: 0 0!important;
+}
+
+.nav-item:hover{
+  color: black!important;
+}
+
+
+
+.navbar{
+  padding: 0!important;
+}
+
+.navbar-brand{
+  padding-left: 10%!important;
+  color: #ffff!important;
+}
+.active{
+  color: black!important;
+  background-color: #f1f1f1;
+}
+
+.container-fluid{
+  padding-left: 0!important;
+}
+
+
 
 /* 
  Simple style END
 */
+
