@@ -19,15 +19,17 @@ export async function getAllEmployees(){
 }
 
 function showAllEmployees(data){
-    document.getElementById("tbody-all").innerHTML = data.map(
+    document.getElementById("tbody-all").innerHTML = data
+        .map(
         employee =>
             `
-            <tr>
-                <td>${employee.id}</td>
-                <td>${employee.name}</td>
-                <td>${employee.userName}</td>
-                <td>${employee.type}</td> 
-            </tr>           
+                <tr>
+                    <td>${employee.id}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.userName}</td>
+                    <td>${employee.type}</td> 
+                </tr>           
             `
-    ).join("");
+        )
+        .join("");
 }
