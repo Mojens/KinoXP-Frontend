@@ -61,7 +61,7 @@ async function showMovieDetails(evt) {
     document.getElementById("exampleModalLabel").innerText =
       "Details for Movie: " + id;
     const movie = await fetch(url + '/' + id).then((res) => res.json());
-     
+    document.getElementById("id").innerText = movie.id;
         document.getElementById("title").innerText =  "Title: " + movie.title;
         document.getElementById("description").innerText = "Description: " + movie.description;
         document.getElementById("rating").innerText = "Rating: " + movie.rating;

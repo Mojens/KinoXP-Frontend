@@ -21,8 +21,9 @@ import { initGetAllReservations } from "./pages/reservation/getAllReservations/g
 //=========Reservation end here=========
 
 //=========Screening start here=========
-
-
+import { initGetAllScreenings } from "./pages/screenings/getAllScreenings/allScreenings.js";
+import { initGetSpecificScreening } from "./pages/screenings/getSpecificScreening/getSpecificScreening.js";
+import { initEditScreening } from "./pages/screenings/editScreening/editScreening.js";
 //=========Screening end here=========
 
 //=========Theater start here=========
@@ -60,6 +61,9 @@ window.addEventListener("load", async () => {
   const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
   const templateAddMovie = await loadTemplate("./pages/movies/addMovie/add-movie.html");
 
+  const templateGetAllScreenings = await loadTemplate("./pages/screenings/getAllScreenings/all-screenings.html");
+  const templateGetSpecificScreening = await loadTemplate("./pages/screenings/getSpecificScreening/screening.html");
+  const templateEditScreening = await loadTemplate("./pages/screenings/editScreening/edit-screening.html");
 
   const templateGetAllReservations = await loadTemplate("./pages/reservation/getAllReservations/all-reservation.html");
 
@@ -86,7 +90,7 @@ window.addEventListener("load", async () => {
       </p>
      `),
       "/about": () => renderTemplate(templateAbout, "content"),
-        //=========Movies start here=========
+      //=========Movies start here=========
 
       "/all-movies": () => {
         renderTemplate(templateGetAllMovies, "content");
@@ -104,42 +108,48 @@ window.addEventListener("load", async () => {
         renderTemplate(templateAddMovie, "content");
         initAddMovie(router);
       },
-        //=========Movies End here=========
-        //=========Reservations start here=========
-        "/all-reservations": (match,router) => {
-            renderTemplate(templateGetAllReservations, "content");
-            initGetAllReservations(match,router);
-        },
-        //=========Reservations end here=========
+      //=========Movies End here=========
+      //=========Reservations start here=========
+      "/all-reservations": (router) => {
+        renderTemplate(templateGetAllReservations, "content");
+        initGetAllReservations(router);
+      },
+      //=========Reservations end here=========
 
-        //=========Screening start here=========
+      //=========Screening start here=========
+      "/all-screenings": () => {
+        renderTemplate(templateGetAllScreenings, "content");
+        initGetAllScreenings(router);
+      },
+      "/screening": (match) => {
+        renderTemplate(templateGetSpecificScreening, "content");
+        initGetSpecificScreening(match);
+      },
+      "/edit-screening": (match,router) => {
+        renderTemplate(templateEditScreening, "content");
+        initEditScreening(match,router);
+      },
 
+      //=========Screening end here=========
 
-        //=========Screening end here=========
+      //=========Theater start here=========
 
-        //=========Theater start here=========
+      //=========Theater end here=========
 
+      //=========Employee start here=========
 
-        //=========Theater end here=========
+      //=========Employee end here=========
 
-        //=========Employee start here=========
+      //=========Shift start here=========
 
+      //=========Shift end here=========
 
-        //=========Employee end here=========
+      //=========Seat start here=========
 
-        //=========Shift start here=========
+      //=========Seat end here=========
+      //=========SeatChoice start here=========
 
-
-        //=========Shift end here=========
-
-        //=========Seat start here=========
-
-
-        //=========Seat end here=========
-        //=========SeatChoice start here=========
-
-
-        //=========SeatChoice end here=========
+      //=========SeatChoice end here=========
     })
     .notFound(
       () =>

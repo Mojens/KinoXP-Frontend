@@ -105,7 +105,7 @@ async function editMovie(id) {
 
   const response = await fetch(url + id, options);
   const data = await response.json();
-  let sucess = (document.getElementById("edited").innerText = "Car edited");
+  let sucess = (document.getElementById("edited").innerText = "Movie edited");
   // reload page after submit
   setTimeout(function () {
     location.reload();

@@ -1,20 +1,15 @@
 <template id="btn4-template">
-  <h2>Get all Movies</h2>
-  <button id="btn-get-all" class="btn">Get All Movies</button>
+  <h2>Get all Screenings</h2>
+  <button id="btn-get-all" class="btn">Get All Screenings</button>
   <table class="table">
     <thead>
       <tr class="thRow">
         <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Rating</th>
-        <th>Genre</th>
-        <th>Duration</th>
-        <th>Age Limit</th>
-        <th>Price</th>
-        <th>Show Start Date</th>
-        <th>Show End Date</th>
-        
+        <th>Performance</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Movie</th>
+        <th>Theater</th>    
       </tr>
     </thead>
     <tbody id="tbody-all"></tbody>
@@ -41,19 +36,15 @@
      
           <div id="movie-content">
             <p id="id"></p>
-            <p id="title"></p>
-            <p id="description"></p>
-            <p id="rating"></p>
-            <p id="genre"></p>
-            <p id="duration"></p>
-            <p id="ageLimit"></p>
-            <p id="price"></p>
-            <p id="showStartDate"></p>
-             <p id="showEndDate"></p>
+            <p id="performance"></p>
+            <p id="starttime"></p>
+            <p id="endtime"></p>
+            <p id="movie"></p>
+            <p id="theater"></p>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" id="deleteMovie" data-bs-dismiss="modal" class="btn btn-red">Delete Movie</button>
+          <button type="button" id="deleteScreening" data-bs-dismiss="modal" class="btn btn-red">Delete Screening</button>
           <button
             type="button"
             class="btn btn-secondary"
