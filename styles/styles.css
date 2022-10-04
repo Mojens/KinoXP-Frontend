@@ -213,10 +213,16 @@ p#pricePrDay:before {
   font-weight: 300;
   font-size: 1rem;
 }
-#inputfield5,
-#inputfield6,
-#inputfield7,
-#inputfield8 {
+#if1,
+#if2,
+#if3,
+#if4,
+#if5,
+#if6,
+#if7,
+#if8,
+#if9
+ {
   width: 80%;
   justify-content: center;
   align-items: center;

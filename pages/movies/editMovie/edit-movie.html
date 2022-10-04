@@ -1,0 +1,59 @@
+<template id="btn2-template">
+  <h1>Edit a Movie</h1>
+  <input id="text-for-id" placeholder="id" />
+  <button id="findEdit">Find Movie to edit</button>
+  <form>
+    <table class="table">
+      <thead>
+        <tr class="thRow">
+          <th>Id</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Rating</th>
+          <th>Genre</th>
+          <th>Duration</th>
+          <th>Age Limit</th>
+          <th>Price</th>
+          <th>Show Start Date</th>
+          <th>Show End Date</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-all">
+        <tr>
+          <td id="id"></td>
+          <td id="title">
+            <input id="if1" type="text" />
+          </td>
+          <td id="description">
+            <input id="if2" type="text" />
+          </td>
+           <td id="rating">
+            <input id="if3" type="number" />
+          </td>
+           <td id="genre">
+            <input id="if4" type="text" />
+          </td>
+           <td id="duration">
+            <input id="if5" type="text" />
+          </td>
+           <td id="ageLimit">
+            <input id="if6" type="number" />
+          </td>
+           <td id="price">
+            <input id="if7" type="number" />
+          </td>
+           <td id="showStartDate">
+            <input id="if8" type="date" />
+          </td>
+           <td id="showEndDate">
+            <input id="if9" type="date" />
+          </td>
+         
+        </tr>
+        <p id="error" style="color: red"></p>
+      </tbody>
+    </table>
+    <p id="edited"></p>
+    <button id="submitEdit">Gem Opdateret Bil</button>
+  </form>
+</template>

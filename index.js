@@ -9,6 +9,7 @@ import {
 
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
+import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
 
 window.addEventListener("load", async () => {
   const templateAbout = await loadTemplate("./pages/about/about.html");
@@ -16,6 +17,7 @@ window.addEventListener("load", async () => {
     "./pages/movies/getAllMovies/all-movies.html"
   );
   const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
+  const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
 
   adjustForMissingHash();
 
@@ -46,6 +48,10 @@ window.addEventListener("load", async () => {
       "/movie-title": (match) => {
         renderTemplate(templateGetMovieById, "content");
         initGetMovieById(match);
+      },
+      "/edit-movie": (match,router) => {
+        renderTemplate(templateEditMovie, "content");
+        initEditMovie(match,router);
       },
     })
     .notFound(
