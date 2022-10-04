@@ -1,0 +1,8 @@
+Index: .vscode/settings.json
+===================================================================
+diff --git a/.vscode/settings.json b/.vscode/settings.json
+deleted file mode 100644
+--- a/.vscode/settings.json	(revision 66dc502e33eef79c7fc3e599386f5239945cda91)
++++ /dev/null	(revision 66dc502e33eef79c7fc3e599386f5239945cda91)
+@@ -1,1 +0,0 @@
+-{}

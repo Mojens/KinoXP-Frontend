@@ -7,17 +7,18 @@ import {
   loadTemplate,
 } from "./utils.js";
 
+
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
+import { initGetAllEmployees } from "./pages/employees/getAllEmployees/getAllEmployees.js";
 
 window.addEventListener("load", async () => {
   const templateAbout = await loadTemplate("./pages/about/about.html");
-  const templateGetAllMovies = await loadTemplate(
-    "./pages/movies/getAllMovies/all-movies.html"
-  );
+  const templateGetAllMovies = await loadTemplate("./pages/movies/getAllMovies/all-movies.html");
   const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
   const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
+  const templateGetAllEmployees = await loadTemplate("./pages/employees/getAllEmployees/all-employees.html");
 
   adjustForMissingHash();
 
@@ -52,6 +53,10 @@ window.addEventListener("load", async () => {
       "/edit-movie": (match,router) => {
         renderTemplate(templateEditMovie, "content");
         initEditMovie(match,router);
+      },
+      "/all-employees": () => {
+        renderTemplate(templateGetAllEmployees, "content");
+        initGetAllEmployees(router);
       },
     })
     .notFound(
