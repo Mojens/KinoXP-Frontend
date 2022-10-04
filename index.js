@@ -10,6 +10,7 @@ import {
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
+import { initAddShift } from "./pages/Shifts/addShift/addShift.js";
 
 window.addEventListener("load", async () => {
   const templateAbout = await loadTemplate("./pages/about/about.html");
@@ -18,6 +19,7 @@ window.addEventListener("load", async () => {
   );
   const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
   const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
+  const templateAddShift = await loadTemplate("./pages/Shifts/addShift/addShift.html");
 
   adjustForMissingHash();
 
@@ -53,6 +55,10 @@ window.addEventListener("load", async () => {
         renderTemplate(templateEditMovie, "content");
         initEditMovie(match,router);
       },
+      "/addShift": () => {
+        renderTemplate(templateAddShift, "content");
+        initAddShift(router);
+      }
     })
     .notFound(
       () =>
