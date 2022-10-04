@@ -1,5 +1,5 @@
 <template id="btn4-template">
- <h2>Get all Movies</h2>
+  <h2>Get all Movies</h2>
   <button id="btn-get-all" class="btn">Get All Movies</button>
   <table class="table">
     <thead>
@@ -14,11 +14,56 @@
         <th>Price</th>
         <th>Show Start Date</th>
         <th>Show End Date</th>
-
+        
       </tr>
     </thead>
-    <tbody id="tbody-all">
-      
-    </tbody>
+    <tbody id="tbody-all"></tbody>
   </table>
+   <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+     
+          <div id="movie-content">
+           
+            <p id="title"></p>
+            <p id="description"></p>
+            <p id="rating"></p>
+            <p id="genre"></p>
+            <p id="duration"></p>
+            <p id="ageLimit"></p>
+            <p id="price"></p>
+            <p id="showStartDate"></p>
+             <p id="showEndDate"></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="deleteMovie" data-bs-dismiss="modal" class="btn btn-red">Delete Movie</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </template>
