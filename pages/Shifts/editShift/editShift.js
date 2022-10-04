@@ -2,9 +2,9 @@ import { URL_SHIFTS } from "../shiftSettings.js";
 let router;
 
 
-function findShiftToEdit() {
+async function findShiftToEdit() {
     const shiftId = document.getElementById("shiftToEdit").value;
-    fetch(URL_SHIFTS + shiftId).then(response => {
+    await fetch(URL_SHIFTS + shiftId).then(response => {
         return response.json();
     }).then(shifts => {
     
@@ -14,7 +14,7 @@ function findShiftToEdit() {
     })
 }
 
-function editShift() {
+async function editShift() {
     const shiftId = document.getElementById("shiftToEdit").value;
 
     const shiftInfo = {
@@ -29,7 +29,7 @@ function editShift() {
     opts.headers = { "Content-type": "application/json" }
     opts.body = JSON.stringify(shiftInfo)
 
-    fetch(URL_SHIFTS + shiftId, opts)
+    await fetch(URL_SHIFTS + shiftId, opts)
     alert("Shift edited");
 }
 

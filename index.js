@@ -12,6 +12,7 @@ import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMov
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
 import { initAddShift } from "./pages/Shifts/addShift/addShift.js";
 import { initEditShift } from "./pages/Shifts/editShift/editShift.js";
+import { initAllShifts } from "./pages/Shifts/getAllShifts/getAllShifts.js";
 
 window.addEventListener("load", async () => {
   const templateAbout = await loadTemplate("./pages/about/about.html");
@@ -22,6 +23,7 @@ window.addEventListener("load", async () => {
   const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
   const templateAddShift = await loadTemplate("./pages/Shifts/addShift/addShift.html");
   const templateEditShift = await loadTemplate("./pages/Shifts/editShift/editShift.html");
+  const templateAllShifts = await loadTemplate("./pages/Shifts/getAllShifts/getAllShifts.html");
 
   adjustForMissingHash();
 
@@ -64,6 +66,10 @@ window.addEventListener("load", async () => {
       "/editShift": () => {
         renderTemplate(templateEditShift, "content");
         initEditShift(router);
+      },
+      "/AllShifts": () => {
+        renderTemplate(templateAllShifts, "content");
+        initAllShifts(router);
       }
     })
     .notFound(
