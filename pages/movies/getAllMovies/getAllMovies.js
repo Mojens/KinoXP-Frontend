@@ -36,6 +36,7 @@ function showAllMovies(data) {
             <td>${movie.duration}</td>
             <td>${movie.ageLimit}</td>
             <td>${movie.price}</td>
+           <td><img src="${movie.photo}" alt="photo" width="100" height="100"></td>
             <td>${movie.showStartDate}</td>
             <td>${movie.showEndDate}</td>
           <td>
@@ -46,6 +47,7 @@ function showAllMovies(data) {
            
         </tr>`
   );
+
   const tableRowsString = tableRowsArray.join("\n");
   document.getElementById("tbody-all").innerHTML = tableRowsString;
 }

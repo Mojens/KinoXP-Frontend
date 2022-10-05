@@ -11,6 +11,7 @@ import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
+import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
 
 //=========Movie End here=========
 //=========Reservation start here=========
@@ -60,6 +61,9 @@ window.addEventListener("load", async () => {
   );
   const templateAddMovie = await loadTemplate(
     "./pages/movies/addMovie/add-movie.html"
+  );
+  const templateImdbMovieTest = await loadTemplate(
+    "./pages/movies/imdbMovieTest/imdb.html"
   );
 
   const templateGetAllScreenings = await loadTemplate(
@@ -122,6 +126,10 @@ window.addEventListener("load", async () => {
       "/add-movie": () => {
         renderTemplate(templateAddMovie, "content");
         initAddMovie(router);
+      },
+      "/add-movie-imdb": () => {
+        renderTemplate(templateImdbMovieTest, "content");
+        initImdbMovieTest(router);
       },
       //=========Movies End here=========
       //=========Reservations start here=========

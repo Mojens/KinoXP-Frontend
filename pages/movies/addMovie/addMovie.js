@@ -2,7 +2,7 @@ const url = "http://localhost:8080/api/movies";
 import { encode } from "../../../utils.js";
 
 let router;
-let car = [];
+let movie = [];
 
 export function initAddMovie(navigoRouter) {
   document.getElementById("addMovie").onclick = addMovie;
