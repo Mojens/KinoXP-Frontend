@@ -8,6 +8,7 @@ export function initGetAllScreenings(navigoRouter) {
   document.getElementById("btn-get-all").onclick = getAllScreenings;
   document.getElementById("tbody-all").onclick = showScreeningDetails;
   document.getElementById("deleteScreening").onclick = deleteScreening;
+  document.getElementById("editScreening").onclick = toEditScreening;
   getAllScreenings();
   router = navigoRouter;
 }
@@ -16,7 +17,9 @@ export async function getAllScreenings() {
   try {
     const screeningsFromServer = await fetch(url).then((res) => res.json());
     showAllScreenings(screeningsFromServer);
+
     screenings = screeningsFromServer;
+
   } catch (err) {
     console.log(err);
   }
@@ -51,6 +54,7 @@ function showAllScreenings(data) {
     });
 
     tbody.appendChild(tr);
+    
     // append child only once
     if (tbody.children.length > data.length) {
       tbody.removeChild(tbody.children[0]);
@@ -77,20 +81,19 @@ async function showScreeningDetails(evt) {
       "Start Time: " + screening.startTime;
     document.getElementById("endtime").innerText =
       "End Time: " + screening.endTime;
-      // get movie title from movie id
-    
+    // get movie title from movie id
 
     getMovieTitle(screening.movieId).then((title) => {
-        document.getElementById("movie").innerText = "Movie: " + title;
+      document.getElementById("movie").innerText = "Movie: " + title;
     });
-   
+
     document.getElementById("theater").innerText =
       "Theater: " + screening.theaterId;
   }
 }
 
 async function deleteScreening(id) {
-  id = document.getElementById("deleteScreening").innerText;
+  id = document.getElementById("id").innerText;
   const options = {
     method: "DELETE",
     headers: {
@@ -102,8 +105,37 @@ async function deleteScreening(id) {
     const json = await response.json();
     console.log("Deleted screening with id: " + id);
     console.log(json);
-    getAllScreenings();
+    updateTable(id);
+  
   } catch (error) {
     console.log(error);
   }
+}
+
+function toEditScreening() {
+  const id = document.getElementById("id").innerText;
+  router.navigate("edit-screening?id=" + id);
+}
+
+// update rows in table after delete
+async function updateTable(id) {
+  const tbody = document.getElementById("tbody-all");
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td ></td>
+    <td ></td>
+    <td ></td>
+    <td  id=deleteMe>Deleted Screening: ${id}</td>
+    <td ></td>
+    <td ></td>
+    <td ></td>
+    `;
+
+  tbody.appendChild(tr);
+  tr.classList.add("deleteRow");
+  setTimeout(() => {
+    tbody.removeChild(tbody.lastChild);
+  }, 3000);
+
+  tbody.removeChild(document.getElementById(id + "-column-id").parentElement);
 }

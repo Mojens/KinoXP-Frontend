@@ -23,6 +23,7 @@ import { initGetReservationById } from "./pages/reservation/getSpecificReservati
 import { initGetAllScreenings } from "./pages/screenings/getAllScreenings/allScreenings.js";
 import { initGetSpecificScreening } from "./pages/screenings/getSpecificScreening/getSpecificScreening.js";
 import { initEditScreening } from "./pages/screenings/editScreening/editScreening.js";
+import { initAddScreening } from "./pages/screenings/addScreening/addScreening.js";
 //=========Screening end here=========
 
 //=========Theater start here=========
@@ -69,6 +70,9 @@ window.addEventListener("load", async () => {
   );
   const templateEditScreening = await loadTemplate(
     "./pages/screenings/editScreening/edit-screening.html"
+  );
+  const templateAddScreening = await loadTemplate(
+    "./pages/screenings/addScreening/add-screening.html"
   );
 
   const templateGetAllReservations = await loadTemplate(
@@ -125,7 +129,6 @@ window.addEventListener("load", async () => {
         renderTemplate(templateGetAllReservations, "content");
         initGetAllReservations(router);
       },
-    
 
       "/single-reservation": (match) => {
         renderTemplate(templateGetReservationById, "content");
@@ -145,6 +148,10 @@ window.addEventListener("load", async () => {
       "/edit-screening": (match, router) => {
         renderTemplate(templateEditScreening, "content");
         initEditScreening(match, router);
+      },
+      "/add-screening": () => {
+        renderTemplate(templateAddScreening, "content");
+        initAddScreening(router);
       },
 
       //=========Screening end here=========

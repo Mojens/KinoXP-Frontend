@@ -9,12 +9,12 @@
         <th>Start Time</th>
         <th>End Time</th>
         <th>Movie</th>
-        <th>Theater</th>    
+        <th>Theater</th>
       </tr>
     </thead>
     <tbody id="tbody-all"></tbody>
   </table>
-   <div
+  <div
     class="modal fade"
     id="exampleModal"
     tabindex="-1"
@@ -33,7 +33,6 @@
           ></button>
         </div>
         <div class="modal-body">
-     
           <div id="movie-content">
             <p id="id"></p>
             <p id="performance"></p>
@@ -44,7 +43,22 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" id="deleteScreening" data-bs-dismiss="modal" class="btn btn-red">Delete Screening</button>
+          <button
+            type="button"
+            id="editScreening"
+            data-bs-dismiss="modal"
+            class="btn btn-primary"
+          >
+            Edit Screening
+          </button>
+          <button
+            type="button"
+            id="deleteScreening"
+            data-bs-dismiss="modal"
+            class="btn btn-red"
+          >
+            Delete Screening
+          </button>
           <button
             type="button"
             class="btn btn-secondary"
@@ -56,5 +70,4 @@
       </div>
     </div>
   </div>
-
 </template>

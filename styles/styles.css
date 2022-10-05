@@ -35,6 +35,10 @@ button {
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.8px;
+
+}
+.button-pri{
+    width: 90%;
 }
 .btn-red {
   background-color: rgb(136, 35, 35) !important;
@@ -253,4 +257,20 @@ p#pricePrDay:before {
   outline-color: rgb(84 105 212 / 0.5);
   background-color: rgb(255, 255, 255);
   box-shadow: none !important;
+}
+
+#deleteMe{
+  background-color: transparent;
+  color: black;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  font-size: 18px;
+
+}
+.deleteRow{
+  background-color: transparent;
+  border: 2px solid black;
+  box-shadow: rgba(212, 8, 8, 0.514) 0px 1px 3px 0px,
+    rgba(212, 62, 62, 0.596) 0px 0px 0px 1px!important;
 }

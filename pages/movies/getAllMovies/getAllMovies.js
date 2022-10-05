@@ -8,6 +8,7 @@ export function initGetAllMovies(navigoRouter) {
   document.getElementById("btn-get-all").onclick = getAllMovies;
     document.getElementById("tbody-all").onclick = showMovieDetails;
   document.getElementById("deleteMovie").onclick = deleteMovie;
+  document.getElementById("editMovie").onclick = toEditMovie;
   getAllMovies();
   router = navigoRouter;
 }
@@ -92,4 +93,10 @@ async function deleteMovie(id) {
   } catch (error) {
     console.log(error);
   }
+}
+
+// redirect to edit movie page
+function toEditMovie() {
+  const id = document.getElementById("id").innerText;
+  router.navigate("edit-movie?id=" + id);
 }
