@@ -197,3 +197,7 @@ window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
       errorObj
   );
 };
+
+// add active class to parent of dropdown when dropdown is hovered
+    
+  

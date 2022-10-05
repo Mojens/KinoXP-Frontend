@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/styles.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+    <script src="dropdown.js" type="module"></script>
 
     <script src="index.js" type="module"></script>
   </head>
@@ -38,53 +39,39 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul id="menu" class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/" data-navigo>Homepage</a>
-            </li>
+          <ul id="menu" class="navbar-nav navbar-links">
+           
             <li class="nav-item">
               <a class="nav-link" href="/about" data-navigo>About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/all-movies" data-navigo>All Movies</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/movie-title" data-navigo>Find Movie</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/edit-movie" data-navigo>Edit Movie</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/add-movie" data-navigo>Add Movie</a>
+            <li class="navbar-dropdown">
+              <a class="nav-link" href="/all-movies" data-navigo>Movies</a>
+              <div class="dropdown">
+                <a href="/all-movies" data-navigo>All Movies</a>
+                <a  href="/movie-title" data-navigo>Find Movie</a>
+                <a  href="/edit-movie" data-navigo>Edit Movie</a>
+                <a  href="/add-movie" data-navigo>Add Movie</a>
+              </div>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/all-reservations" data-navigo
-                >All reservations</a
-              >
+            <li class="navbar-dropdown">
+              <a class="nav-link" href="/all-reservations" data-navigo>Reservations</a>
+              <div class="dropdown">
+               <a href="/all-reservations" data-navigo>All reservations</a>
+               <a href="/single-reservation" data-navigo>Find Reservation</a>
+              </div>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/single-reservation" data-navigo>Find Reservation</a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/all-screenings" data-navigo
-                >All Screenings</a
-              >
+
+            <li class="navbar-dropdown">
+              <a class="nav-link" href="/all-screenings" data-navigo>Screenings</a>
+              <div class="dropdown">
+                <a href="/all-screenings" data-navigo>All Screenings</a>
+                <a href="/screening" data-navigo>Find Screening</a>
+                <a href="/edit-screening" data-navigo>Edit Screening</a>
+                <a href="/add-screening" data-navigo>Add Screening</a>              
+              </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/screening" data-navigo
-                >Find Screening</a
-              >
-            </li>
-               <li class="nav-item">
-            <a class="nav-link" href="/edit-screening" data-navigo>Edit Screening</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="/add-screening" data-navigo>Add Screening</a>
-          </li>
-          
-          
-          
+      
         </ul>
       </div>
     </nav>
