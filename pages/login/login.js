@@ -24,16 +24,25 @@ async function login() {
         if (response.status == 404) {
             removeSession();
             throw new Error("User not found");
-        } else if (response.status == 202) {
-            console.log("Login successful");
-            startSession
-            console.log("Redirecting now.....");
-            router.navigate(`all-screenings`);
         } else if (response.status == 400) {
             removeSession();
             throw new Error("Incorrect password");
-        }
+        }else
+        console.log("Login successful");
+            return response.json();
         
+    }).then(data => {
+        console.log(data);
+        if (data.type == 1) {
+            startSession(1);
+            console.log("Redirecting now..... Type 1");
+            router.navigate(`all-screenings`);
+        }else if(data.type == 2){
+            console.log("Redirecting now..... Type 2");
+            router.navigate(`edit-movie`);
+            startSession(2);
+        }
     })
 }
+
 

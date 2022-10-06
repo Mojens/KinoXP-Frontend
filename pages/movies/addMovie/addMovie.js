@@ -6,7 +6,7 @@ let router;
 let movie = [];
 
 export function initAddMovie(navigoRouter) {
-  checkSession();
+  checkSession(1);
   document.getElementById("addMovie").onclick = addMovie;
   router = navigoRouter;
 }

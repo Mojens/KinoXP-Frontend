@@ -6,7 +6,7 @@ let router;
 let movies = [];
 
 export function initEditMovie(match, navigoRouter) {
-  checkSession();
+  checkSession(2);
   document.getElementById("findEdit").onclick = fetchMovieData;
   const submitEdit = document.getElementById("submitEdit");
   const getEdit = document.getElementById("text-for-id");
