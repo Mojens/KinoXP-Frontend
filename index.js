@@ -10,6 +10,9 @@ import {
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
+import { initGetAllTheaters } from "./pages/theater/getAllTheaters/allTheaters.js";
+import { initGetSpecificTheater } from "./pages/theater/getSpecificTheater/specificTheater.js";
+
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
 
@@ -78,7 +81,13 @@ window.addEventListener("load", async () => {
   const templateAddScreening = await loadTemplate(
     "./pages/screenings/addScreening/add-screening.html"
   );
+  const templateGetAllMovies = await loadTemplate("./pages/movies/getAllMovies/all-movies.html");
+  const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
+  const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
+  const templateGetAllTheaters = await loadTemplate("./pages/theater/getAllTheaters/all-theaters.html");
+  const templateGetSpecificTheater = await loadTemplate("./pages/theater/getSpecificTheater/specific-theater.html");
 
+    adjustForMissingHash();
   const templateGetAllReservations = await loadTemplate(
     "./pages/reservation/getAllReservations/all-reservation.html"
   );
@@ -123,6 +132,14 @@ window.addEventListener("load", async () => {
         renderTemplate(templateEditMovie, "content");
         initEditMovie(match, router);
       },
+        "/specific-theater": (match,router) => {
+            renderTemplate(templateGetSpecificTheater, "content");
+            initGetSpecificTheater(match,router);
+        },
+        "/all-theaters": (match,router) => {
+            renderTemplate(templateGetAllTheaters, "content");
+            initGetAllTheaters(match,router);
+            },
       "/add-movie": () => {
         renderTemplate(templateAddMovie, "content");
         initAddMovie(router);
@@ -207,5 +224,5 @@ window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
 };
 
 // add active class to parent of dropdown when dropdown is hovered
-    
-  
+
+
