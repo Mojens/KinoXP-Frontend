@@ -37,7 +37,7 @@ function slide() {
 }
 
 // show all movies in a card view
-function showAllMovies(movies) {
+ function showAllMovies(movies) {
   const card = document.getElementById("cellphone-container");
   card.innerHTML = "";
   movies.forEach((movie) => {
