@@ -124,6 +124,7 @@ th {
   font-size: 1.1rem;
   font-weight: 900;
   border-style: none !important;
+  color: white;
 }
 .thRow {
   background: rgba(252, 250, 250, 0) !important;
