@@ -24,6 +24,7 @@ async function login() {
             }
             throw new Error("User not found");
         } else if (response.status == 202) {
+            console.log("Login successful");
             sessionStorage.setItem("user", "true");
         } else if (response.status == 400) {
             if(sessionStorage.getItem("user")!== null){
