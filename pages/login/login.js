@@ -26,6 +26,8 @@ async function login() {
         } else if (response.status == 202) {
             console.log("Login successful");
             sessionStorage.setItem("user", "true");
+            console.log("Redirecting now.....");
+            router.navigate(`all-screenings`);
         } else if (response.status == 400) {
             if(sessionStorage.getItem("user")!== null){
                 sessionStorage.removeItem("user");

@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/movies";
 import { encode } from "../../../utils.js";
+import { checkSession } from "../../login/loginSettings.js";
 
 let router;
 let movie = [];
 
 export function initAddMovie(navigoRouter) {
+  checkSession();
   document.getElementById("addMovie").onclick = addMovie;
   router = navigoRouter;
 }

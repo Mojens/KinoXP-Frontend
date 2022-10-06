@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/movies/";
 import { encode } from "../../../utils.js";
+import { checkSession } from "../../login/loginSettings.js";
 
 let router;
 let movies = [];
 
 export function initEditMovie(match, navigoRouter) {
+  checkSession();
   document.getElementById("findEdit").onclick = fetchMovieData;
   const submitEdit = document.getElementById("submitEdit");
   const getEdit = document.getElementById("text-for-id");
