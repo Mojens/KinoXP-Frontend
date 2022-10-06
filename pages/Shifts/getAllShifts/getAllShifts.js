@@ -1,18 +1,54 @@
-import { URL_SHIFTS } from "../shiftSettings.js";
+import {URL_SHIFTS} from "../shiftSettings.js";
+
 let router;
 
+async function getEmployeeNameById(id){
+    const employee = await fetch("http://localhost:8080/api/employees/"+id).then(r => r.json())
+    return employee.name
+}
 
 async function getAllShifts() {
-    const allShifts = await fetch(URL_SHIFTS).then(r => r.json());
-    const rows = allShifts.map(shift =>
-        `<tr>
-        <td>${shift.id}</td>
-        <td>${shift.startTime}</td>
-        <td>${shift.endTime}</td>
-        <td>${shift.employeeId}</td>
-        <td><button id="${shift.id}-deletebtn">Delete Shift</button></td>
-        </tr>`);
-    document.getElementById("tbl-body-Shifts").innerHTML = rows;
+    const allShifts = await fetch(URL_SHIFTS).then(r => r.json())
+
+    allShifts.forEach(shift => {
+        const tr = document.createElement("tr")
+        getEmployeeNameById(shift.employeeId)
+            .then(employeeName => {
+                tr.innerHTML = `
+                <td>${employeeName}</td>
+                <td>${shift.startTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
+                <td>${shift.endTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
+                <td><button id="${shift.id}-edit-btn">Edit</button></td>
+                <td><button id="${shift.id}-deletebtn">Delete</button></td>
+                `
+            })
+
+        document.getElementById("tbl-body-Shifts").appendChild(tr)
+    })
+}
+
+async function getAllShiftsByDate() {
+    document.getElementById("tbl-body-Shifts").innerHTML=""
+    let requestedDate = document.getElementById("date-to-find").value.split("-").reverse().join("-")
+
+    const allShifts = await fetch(URL_SHIFTS)
+        .then(r => r.json())
+        .then(data => data.filter(shift => shift.startTime.split(" ")[0] === requestedDate))
+
+    allShifts.forEach(shift => {
+        const tr = document.createElement("tr")
+        getEmployeeNameById(shift.employeeId)
+            .then(employeeName => {
+                tr.innerHTML = `
+                <td>${employeeName}</td>
+                <td>${shift.startTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
+                <td>${shift.endTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
+                <td><button id="${shift.id}-edit-btn">Edit</button></td>
+                <td><button id="${shift.id}-deletebtn">Delete Shift</button></td>
+                `
+            })
+        document.getElementById("tbl-body-Shifts").appendChild(tr)
+    })
 }
 
 async function deleteShift(id){
@@ -38,5 +74,7 @@ export function initAllShifts(navigoRouter) {
       }
       window.addEventListener('click', onClick);
     getAllShifts()
+
+    document.getElementById("btn-find-shifts-by-date").onclick = getAllShiftsByDate
     router = navigoRouter
 }
