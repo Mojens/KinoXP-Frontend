@@ -1,0 +1,88 @@
+  
+  .icon_h2 {
+    font-size: 1.75rem;
+  }
+  
+  #passwordInput {
+    background-image: none;
+    border: none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  } 
+  #userNameInput {
+    background-image: none;
+    border: none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+
+  
+  
+  .login_icon {
+    fill: currentcolor;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+  }
+  
+  /* ---------- LOGIN ---------- */
+  .login {
+    width: 400px;
+  }
+  
+  .login__header {
+    background-color: #f95252;
+    border-top-left-radius: 1.25em;
+    border-top-right-radius: 1.25em;
+    color: #fff;
+    padding: 1.25em 1.625em;
+  }
+  
+  .login__header :first-child {
+    margin-top: 0;
+  }
+  
+  .login__header :last-child {
+    margin-bottom: 0;
+  }
+  
+  .login h2 .icon {
+    margin-right: 14px;
+  }
+  
+  .login__form {
+    background-color: #fff;
+    border-bottom-left-radius: 1.25em;
+    border-bottom-right-radius: 1.25em;
+    color: #777;
+    display: grid;
+    grid-gap: 0.875em;
+    gap: 0.875em;
+    padding: 1.25em 1.625em;
+  }
+  
+  .login input {
+    border-radius: 0.1875em;
+  }
+  
+  .login input[type="text"],
+  .login input[type="password"] {
+    background-color: #eee;
+    color: #777;
+    padding: 0.25em 0.625em;
+    width: 100%;
+  }
+  
+  .login input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+  }

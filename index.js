@@ -6,6 +6,9 @@ import {
   renderTemplate,
   loadTemplate,
 } from "./utils.js";
+//=========Login start here=========
+
+//=========Login end here=========
 //=========Movie start here=========
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
@@ -93,6 +96,7 @@ window.addEventListener("load", async () => {
   const templateGetReservationById = await loadTemplate(
     "./pages/reservation/getSpecificReservation/single-reservation.html"
   );
+  const templateLogin = await loadTemplate("./pages/login/login.html");
 
   //=========>Templates end here=========
   adjustForMissingHash();
@@ -196,7 +200,12 @@ window.addEventListener("load", async () => {
       //=========Seat end here=========
       //=========SeatChoice start here=========
 
-      //=========SeatChoice end here=========
+      //=========SeatChoice end here========= 
+      //=========Login start here=========
+      "/login": () => {
+        renderTemplate(templateLogin, "content");
+    },
+      //=========Login end here=========
     })
     .notFound(
       () =>
