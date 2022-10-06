@@ -24,6 +24,8 @@ async function fetchScreeningData() {
   }
   try {
     renderScreening(id);
+    getReservedSeatsFromScreening(id);
+    getAllSeats(id)
   } catch (err) {
     console.log("UPS " + err.message);
   }
@@ -32,12 +34,31 @@ async function fetchScreeningData() {
 async function getMovieTitle(movieId) {
   const movie = await fetch("http://localhost:8080/api/movies/" + movieId).then(
     (res) => res.json()
+
   );
   return movie.title;
 }
 
+//Tester seatChoice
+async function getReservedSeatsFromScreening(id)  {
+  console.log("id is:"+ id)
+  const seats = await fetch("http://localhost:8080/api/reservations/fromScreening/" + id).then((res) => res.json());
+  console.log(seats)
+  if(!seats) {
+    document.getElementById("error").innerHTML = "Could not find seats: " + id;
+    return;
+  }
+  try {
+    document.getElementById("seat-test").innerText = seats;
+  } catch (err) {
+    console.log("UPS " + err.message);
+  }
+
+}
+
 async function renderScreening(id) {
   const screening = await fetch(url + id).then((res) => res.json());
+  
   if (!screening) {
     document.getElementById("error").innerText = "Could not find Screening: " + id;
     return;
@@ -55,4 +76,21 @@ async function renderScreening(id) {
   } catch (err) {
     console.log("UPS " + err.message);
   }
+}
+
+
+async function getAllSeats(id){
+  const allSeats = await fetch("http://localhost:8080/api/seats/theaterid/" + id).then((res) => res.json());
+  makeAllSeats(allSeats)
+}
+
+function makeAllSeats(allSeats) {
+  const main = document.getElementById("seats")
+
+  let divInsert = ""
+  allSeats.forEach((seat) => {
+    divInsert += `<il class="seats">${seat.rowNum}${seat.seatNumber} </il>`
+  })
+  main.innerHTML = divInsert
+
 }
