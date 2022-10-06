@@ -18,6 +18,35 @@ body {
   height: 100px;
   width: 100px;
 }
+.paragraf-about{
+  color: white;
+}
+.header-container{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  align-content: center;
+  justify-content: center;
+  margin-left: 40%;
+  margin-right: 25%;
+}
+.header2{
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+}
+.paragraf-container{
+  align-content: center;
+  margin-right: 13%;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  font-size: 18px;
+  padding: 2%;
+
+  border-radius: 0px;
+  background: linear-gradient(145deg, #292929, #222222);
+  box-shadow:  33px 33px 67px #171717,
+  -33px -33px 67px #353535;
+
 #content {
   width: 100%;
 
