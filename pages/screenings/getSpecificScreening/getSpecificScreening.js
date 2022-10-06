@@ -148,7 +148,8 @@ function showAllMovies(movies) {
         link.innerHTML = movie.screeningResponse[i].startTime;
 
         divScreening.className = "screening";
-
+        const startT = document.getElementById("starttime");
+        startT.innerText = movie.screeningResponse[i].startTime;
         const theaterRoom = document.getElementById("theater-room");
         theaterRoom.innerHTML = "Sal " + movie.screeningResponse[i].theaterId;
         const getScreen = document.getElementById("screen");
