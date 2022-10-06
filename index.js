@@ -10,9 +10,6 @@ import {
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
-import { initAddShift } from "./pages/Shifts/addShift/addShift.js";
-import { initEditShift } from "./pages/Shifts/editShift/editShift.js";
-import { initAllShifts } from "./pages/Shifts/getAllShifts/getAllShifts.js";
 
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
@@ -42,7 +39,9 @@ import { initGetSpecificTheater } from "./pages/theater/getSpecificTheater/speci
 //=========Employee end here=========
 
 //=========Shift start here=========
-
+import { initAddShift } from "./pages/Shifts/addShift/addShift.js";
+import { initEditShift } from "./pages/Shifts/editShift/editShift.js";
+import { initAllShifts } from "./pages/Shifts/getAllShifts/getAllShifts.js";
 //=========Shift end here=========
 
 //=========Seat start here=========
@@ -59,13 +58,6 @@ window.addEventListener("load", async () => {
   const templateGetAllMovies = await loadTemplate(
     "./pages/movies/getAllMovies/all-movies.html"
   );
-<<<<<<< HEAD
-  const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
-  const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
-  const templateAddShift = await loadTemplate("./pages/Shifts/addShift/addShift.html");
-  const templateEditShift = await loadTemplate("./pages/Shifts/editShift/editShift.html");
-  const templateAllShifts = await loadTemplate("./pages/Shifts/getAllShifts/getAllShifts.html");
-=======
   const templateGetMovieById = await loadTemplate(
     "./pages/movies/getSpecificMovie/movie-title.html"
   );
@@ -103,7 +95,10 @@ window.addEventListener("load", async () => {
   const templateGetReservationById = await loadTemplate(
     "./pages/reservation/getSpecificReservation/single-reservation.html"
   );
->>>>>>> master
+
+  const templateAddShift = await loadTemplate("./pages/Shifts/addShift/addShift.html");
+  const templateEditShift = await loadTemplate("./pages/Shifts/editShift/editShift.html");
+  const templateAllShifts = await loadTemplate("./pages/Shifts/getAllShifts/getAllShifts.html");
 
   //=========>Templates end here=========
   adjustForMissingHash();
@@ -179,20 +174,6 @@ window.addEventListener("load", async () => {
         renderTemplate(templateAddScreening, "content");
         initAddScreening(router);
       },
-<<<<<<< HEAD
-      "/addShift": () => {
-        renderTemplate(templateAddShift, "content");
-        initAddShift(router);
-      },
-      "/editShift": () => {
-        renderTemplate(templateEditShift, "content");
-        initEditShift(router);
-      },
-      "/AllShifts": () => {
-        renderTemplate(templateAllShifts, "content");
-        initAllShifts(router);
-      }
-=======
 
       //=========Screening end here=========
         "/specific-theater": (match,router) => {
@@ -213,7 +194,18 @@ window.addEventListener("load", async () => {
       //=========Employee end here=========
 
       //=========Shift start here=========
-
+      "/addShift": () => {
+        renderTemplate(templateAddShift, "content");
+        initAddShift(router);
+      },
+      "/editShift": () => {
+        renderTemplate(templateEditShift, "content");
+        initEditShift(router);
+      },
+      "/AllShifts": () => {
+        renderTemplate(templateAllShifts, "content");
+        initAllShifts(router);
+      }
       //=========Shift end here=========
 
       //=========Seat start here=========
@@ -222,7 +214,6 @@ window.addEventListener("load", async () => {
       //=========SeatChoice start here=========
 
       //=========SeatChoice end here=========
->>>>>>> master
     })
     .notFound(
       () =>
