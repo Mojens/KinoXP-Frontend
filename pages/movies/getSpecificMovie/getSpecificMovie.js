@@ -1,5 +1,6 @@
 const url = "http://localhost:8080/api/movies/";
 
+
 export async function initGetMovieById(match) {
   document.getElementById("singleMovie").onclick = fetchMovieData;
   if (match?.params?.id) {

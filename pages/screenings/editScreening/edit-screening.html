@@ -1,0 +1,44 @@
+<template id="btn2-template">
+  <div class="main-container">
+  <h1>Edit a Screening</h1>
+  <input id="text-for-id" placeholder="id" />
+  <button id="findEdit">Find Screening to edit</button>
+  <form>
+    <table class="table">
+      <thead>
+        <tr class="thRow">
+          <th>Id</th>
+          <th>Performance</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Movie</th>
+          <th>Theater</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-all">
+        <tr>
+          <td id="id"></td>
+          <td id="performance">
+            <input id="if1" type="number" />
+          </td>
+          <td id="startTime">
+            <input id="if2" type="datetime-local" />
+          </td>
+          <td id="endTime">
+            <input id="if3" type="datetime-local" />
+          </td>
+          <td id="movie">
+            
+          </td>
+          <td id="theater">
+           
+          </td>
+        </tr>
+        <p id="error" style="color: red"></p>
+      </tbody>
+    </table>
+    <p id="edited"></p>
+    <button id="submitEdit">Gem Opdateret Screening</button>
+  </form>
+  </div>
+</template>
