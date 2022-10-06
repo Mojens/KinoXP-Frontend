@@ -137,6 +137,7 @@ a .nav-link:hover{
 
 .navbar{
   padding: 0!important;
+  z-index: 10;
 }
 
 .navbar-brand{

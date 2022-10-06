@@ -83,13 +83,13 @@ async function makeAllSeats(allSeats, screeningId) {
   allSeats.forEach((seat) => {
     if(seat.rowNum === lastSeat.rowNum){
       if(reservedSeats.includes(seat.id)){
-        divInsert += `<il class="seats" style="background-color: red">${seat.rowNum}${seat.seatNumber} </il>`
+        divInsert += `<li class="seats" style="background-color: red">${seat.rowNum}${seat.seatNumber} </li>`
       }else{
-        divInsert += `<il class="seats">${seat.rowNum}${seat.seatNumber} </il>`
+        divInsert += `<li class="seats">${seat.rowNum}${seat.seatNumber} </li>`
       }
 
     }else{
-      divInsert += `<br><il class="seats">${seat.rowNum}${seat.seatNumber} </il>`
+      divInsert += `<br><li class="seats">${seat.rowNum}${seat.seatNumber} </li>`
     }
     lastSeat = seat;
   })

@@ -153,8 +153,8 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  z-index: 10;
-  position: relative;
+  
+ 
   
 }
 
@@ -164,6 +164,8 @@ body {
   color: white;
   top: 0%;
   left: 0%;
+  
+  width: 100vw;
   height: 100vh;
   background: linear-gradient(to top, rgba(2, 2, 2, 0) 0vh, rgb(0, 0, 0) 100vh);
   transition: opacity 3s ease;
