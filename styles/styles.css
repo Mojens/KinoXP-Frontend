@@ -339,8 +339,34 @@ background: linear-gradient(180deg, rgba(38,38,38,1) 0%, rgba(38,38,38,0.2189250
 
 
 .seats{
-  size: 5px;
-  width: 40px;
 
-  background-color: red;
+  display: inline-block;
+  font-size: 12px;
+  width: 30px;
+  lenght: 30px;
+  padding:0;
+  margin: 5px 3px 5px 3px;
+  background-color: green;
+}
+
+.screen {
+  margin: auto;
+  width: 30%;
+  height: 70px;
+  background-color: #fff;
+
+  box-shadow: 0 5px 12px rgba(255, 255, 255, 0.7);
+
+}
+
+.seatSpace{
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; !important;
+}
+#seats{
+  padding: 0;
 }
