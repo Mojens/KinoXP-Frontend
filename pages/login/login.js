@@ -1,6 +1,9 @@
 let URL_LOGIN = "http://localhost:8080/api/employees/login";
 let router;
 
+import { startSession } from "./loginSettings.js";
+import { removeSession } from "./loginSettings.js";
+
 export function initLogin(navigo) {
     let button = document.getElementById("login_btn");
     button.onclick = login;
@@ -19,19 +22,15 @@ async function login() {
 
     await fetch(URL_LOGIN, opts).then(response => {
         if (response.status == 404) {
-            if(sessionStorage.getItem("user")!== null){
-                sessionStorage.removeItem("user");
-            }
+            removeSession();
             throw new Error("User not found");
         } else if (response.status == 202) {
             console.log("Login successful");
-            sessionStorage.setItem("user", "true");
+            startSession
             console.log("Redirecting now.....");
             router.navigate(`all-screenings`);
         } else if (response.status == 400) {
-            if(sessionStorage.getItem("user")!== null){
-                sessionStorage.removeItem("user");
-            }
+            removeSession();
             throw new Error("Incorrect password");
         }
         

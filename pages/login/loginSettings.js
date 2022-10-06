@@ -17,9 +17,13 @@ export function checkSession() {
 }
 
 export function removeSession() {
-    sessionStorage.removeItem("user");
+    if(sessionStorage.getItem("user")!== null){
+        sessionStorage.removeItem("user");
+    }
 }
 
 export function startSession() {
-    sessionStorage.setItem("user", "true");
+    if(sessionStorage.getItem("user") == null){
+        sessionStorage.setItem("user", "true");
+    }
 }
