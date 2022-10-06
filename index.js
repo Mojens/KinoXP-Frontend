@@ -1,23 +1,26 @@
 import "https://unpkg.com/navigo"; //Will create the global Navigo object used below
 
 import {
-  setActiveLink,
-  adjustForMissingHash,
-  renderTemplate,
-  loadTemplate,
+    setActiveLink,
+    adjustForMissingHash,
+    renderTemplate,
+    loadTemplate, loadTemplateFromDom,
 } from "./utils.js";
 
 
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
+//Employee function imports
 import { initGetAllEmployees } from "./pages/employees/getAllEmployees/getAllEmployees.js";
+
 
 window.addEventListener("load", async () => {
   const templateAbout = await loadTemplate("./pages/about/about.html");
   const templateGetAllMovies = await loadTemplate("./pages/movies/getAllMovies/all-movies.html");
   const templateGetMovieById = await loadTemplate("./pages/movies/getSpecificMovie/movie-title.html");
   const templateEditMovie = await loadTemplate("./pages/movies/editMovie/edit-movie.html");
+  //Employee templates
   const templateGetAllEmployees = await loadTemplate("./pages/employees/getAllEmployees/all-employees.html");
 
   adjustForMissingHash();
