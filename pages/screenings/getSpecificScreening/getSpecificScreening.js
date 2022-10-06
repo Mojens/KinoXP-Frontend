@@ -24,8 +24,8 @@ async function fetchScreeningData() {
   }
   try {
     renderScreening(id);
-    getReservedSeatsFromScreening(id);
-    getAllSeats(id)
+
+
   } catch (err) {
     console.log("UPS " + err.message);
   }
@@ -39,22 +39,6 @@ async function getMovieTitle(movieId) {
   return movie.title;
 }
 
-//Tester seatChoice
-async function getReservedSeatsFromScreening(id)  {
-  console.log("id is:"+ id)
-  const seats = await fetch("http://localhost:8080/api/reservations/fromScreening/" + id).then((res) => res.json());
-  console.log(seats)
-  if(!seats) {
-    document.getElementById("error").innerHTML = "Could not find seats: " + id;
-    return;
-  }
-  try {
-    document.getElementById("seat-test").innerText = seats;
-  } catch (err) {
-    console.log("UPS " + err.message);
-  }
-
-}
 
 async function renderScreening(id) {
   const screening = await fetch(url + id).then((res) => res.json());
@@ -73,23 +57,41 @@ async function renderScreening(id) {
         document.getElementById("movie").innerText = title;
     });
     document.getElementById("theater").innerText = screening.theaterId;
+
+    getAllSeats(screening.theaterId, id)
   } catch (err) {
     console.log("UPS " + err.message);
   }
 }
 
 
-async function getAllSeats(id){
-  const allSeats = await fetch("http://localhost:8080/api/seats/theaterid/" + id).then((res) => res.json());
-  makeAllSeats(allSeats)
+async function getAllSeats(theaterId, screeningId){
+  const allSeats = await fetch("http://localhost:8080/api/seats/theaterid/" + theaterId).then((res) => res.json());
+  makeAllSeats(allSeats, screeningId)
 }
 
-function makeAllSeats(allSeats) {
+async function makeAllSeats(allSeats, screeningId) {
   const main = document.getElementById("seats")
 
+  const seatResponse = await fetch("http://localhost:8080/api/reservations/fromScreening/" + screeningId).then((res) => res.json());
+  const reservedSeats = seatResponse.map(seat => seat.id)
+  console.log(reservedSeats)
+
   let divInsert = ""
+  let lastSeat = allSeats[0];
+
   allSeats.forEach((seat) => {
-    divInsert += `<il class="seats">${seat.rowNum}${seat.seatNumber} </il>`
+    if(seat.rowNum === lastSeat.rowNum){
+      if(reservedSeats.includes(seat.id)){
+        divInsert += `<il class="seats" style="background-color: red">${seat.rowNum}${seat.seatNumber} </il>`
+      }else{
+        divInsert += `<il class="seats">${seat.rowNum}${seat.seatNumber} </il>`
+      }
+
+    }else{
+      divInsert += `<br><il class="seats">${seat.rowNum}${seat.seatNumber} </il>`
+    }
+    lastSeat = seat;
   })
   main.innerHTML = divInsert
 
