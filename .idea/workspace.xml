@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/employees/getAllEmployees/all-employees.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/employees/getAllEmployees/all-employees.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/employees/getSpecificEmployee/get-employee-by-id.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/employees/getSpecificEmployee/get-employee-by-id.html" afterDir="false" />
-    </list>
+    <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -59,7 +53,7 @@
       <workItem from="1664790143380" duration="1294000" />
       <workItem from="1664792975273" duration="999000" />
       <workItem from="1664888514644" duration="8055000" />
-      <workItem from="1665041843301" duration="689000" />
+      <workItem from="1665041843301" duration="1242000" />
     </task>
     <servers />
   </component>
