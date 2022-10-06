@@ -11,16 +11,19 @@ body {
   font-family: "Poppins", sans-serif;
   background: #262626;
   font-size: 14px;
-  
-}
-.main-container{
-  padding: 0 10%;
-   margin: 50px 0;
 }
 
+.logo-contianer{
+  margin-left: 3%;
+  margin-right: -6%;
+}
+.Logo{
+  height: 100px;
+  width: 100px;
+}
 #content {
   width: 100%;
- 
+
 }
 h1,
 h2,
@@ -321,6 +324,7 @@ background: linear-gradient(180deg, rgba(38,38,38,1) 0%, rgba(38,38,38,0.2189250
   box-shadow: rgba(212, 8, 8, 0.514) 0px 1px 3px 0px,
     rgba(212, 62, 62, 0.596) 0px 0px 0px 1px !important;
 }
+<<<<<<< HEAD
 #screening-link{
   color: white;
   text-decoration: none;
@@ -358,3 +362,54 @@ background: linear-gradient(180deg, rgba(38,38,38,1) 0%, rgba(38,38,38,0.2189250
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
+=======
+
+#deleteMe {
+  background-color: transparent;
+  color: black;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  font-size: 18px;
+}
+.deleteRow {
+  background-color: transparent;
+  border: 2px solid black;
+  box-shadow: rgba(212, 8, 8, 0.514) 0px 1px 3px 0px,
+    rgba(212, 62, 62, 0.596) 0px 0px 0px 1px !important;
+}
+
+
+.seats{
+
+  display: inline-block;
+  font-size: 12px;
+  width: 30px;
+  lenght: 30px;
+  padding:0;
+  margin: 5px 3px 5px 3px;
+  background-color: green;
+}
+
+.screen {
+  margin: auto;
+  width: 30%;
+  height: 70px;
+  background-color: #fff;
+
+  box-shadow: 0 5px 12px rgba(255, 255, 255, 0.7);
+
+}
+
+.seatSpace{
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; !important;
+}
+#seats{
+  padding: 0;
+}
+>>>>>>> master

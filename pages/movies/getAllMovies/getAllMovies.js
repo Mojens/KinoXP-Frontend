@@ -45,7 +45,7 @@ function showAllMovies(movies) {
     divMovie.className = "movie";
     console.log(movie);
 
-    divMovie.innerHTML = ` 
+        divMovie.innerHTML = ` 
     <div class="movie-img">
       <img class="movie-img" src="${movie.photo}"  alt="movie image ${movie.title}"/>
     </div>
