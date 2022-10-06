@@ -8,16 +8,19 @@ body {
   font-family: "Poppins", sans-serif;
   background: #262626;
   font-size: 14px;
-  
-}
-.main-container{
-  padding: 0 10%;
-   margin: 50px 0;
 }
 
+.logo-contianer{
+  margin-left: 3%;
+  margin-right: -6%;
+}
+.Logo{
+  height: 100px;
+  width: 100px;
+}
 #content {
   width: 100%;
- 
+
 }
 h1,
 h2,
