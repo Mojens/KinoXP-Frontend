@@ -1,14 +1,17 @@
 const url = "http://localhost:8080/api/movies";
+const screeningsUrl = "http://localhost:8080/api/screenings";
 import { encode } from "../../../utils.js";
+import { getAllScreenings } from "../../screenings/getAllScreenings/allScreenings.js";
 
 let movies = [];
 let router;
 
 export function initGetAllMovies(navigoRouter) {
   document.getElementById("btn-get-all").onclick = getAllMovies;
-    document.getElementById("tbody-all").onclick = showMovieDetails;
-  document.getElementById("deleteMovie").onclick = deleteMovie;
-  document.getElementById("editMovie").onclick = toEditMovie;
+  /*  document.getElementById("tbody-all").onclick = showMovieDetails;*/
+  /* document.getElementById("deleteMovie").onclick = deleteMovie; */
+  /*  document.getElementById("editMovie").onclick = toEditMovie; */
+
   getAllMovies();
   router = navigoRouter;
 }
@@ -16,13 +19,133 @@ export function initGetAllMovies(navigoRouter) {
 export async function getAllMovies() {
   try {
     const moviesFromServer = await fetch(url).then((res) => res.json());
-    showAllMovies(moviesFromServer);
+    const screeningsFromServer = await fetch(screeningsUrl).then((res) =>
+      res.json()
+    );
+    showAllMovies(moviesFromServer, screeningsFromServer);
+    getAllScreenings();
+    slide();
     movies = moviesFromServer;
   } catch (err) {
     console.log(err);
   }
 }
+function slide() {
+  document.getElementsByClassName("curtainContainer")[0].style.transform =
+    "translatex(-150vw) ";
+  document.getElementsByClassName("curtainContainer")[1].style.transform =
+    "translatex(150vw)";
+}
 
+// get screening by movie id
+
+// show all movies in a card view
+function showAllMovies(movies, screenings) {
+  const card = document.getElementById("cellphone-container");
+  card.innerHTML = "";
+  movies.forEach((movie) => {
+    const divMovie = document.createElement("div");
+    divMovie.className = "movie";
+    screenings.forEach((screening) => {
+      // For each movie, get all available times
+
+      if (movie.id === screening.movieId) {
+        // get all screenings for each movie
+        const divScreening = document.createElement("ul");
+        divScreening.className = "movie-gen";
+        divScreening.innerHTML = `
+                <li class="screening-time">${screening.startTime}</li>
+
+               
+                `;
+                // for each screening time append child
+              
+        divMovie.appendChild(divScreening);
+        
+
+        // get all screenings for each movie
+        
+      
+        
+        
+        
+      
+
+        divMovie.innerHTML = ` 
+    <div class="movie-img">
+      <img class="movie-img" src="${movie.photo}"  alt="movie image ${movie.title}"/>
+    </div>
+    <div class="text-movie-cont">
+      <div class="mr-grid">
+        <div class="col1">
+          <h2 class="h2">${movie.title}</h2>
+          <ul class="movie-gen">
+            <li>${movie.ageLimit}</li>
+            <li>${movie.duration}</li>
+            <li>${movie.genre}</li>   
+          </ul >
+            
+        </div>
+      </div>
+      <div class="mr-grid summary-row">
+        <div class="col2">
+          <h5 class=h5>Summary</h5>
+        </div>  
+        <div class="col2">
+          <ul class="movie-likes">
+            <li><i class="material-icons">&#xE813;</i>${movie.rating}</li>
+            </ul>
+        </div>
+      </div>
+      <div class="movie-info-content">
+      <div class="mr-grid">
+        <div class="col1">
+          <p class="movie-description">${movie.description}</p>
+
+      </div>
+      </div>
+      <div class="mr-grid actors-row">
+        <div class="col1">
+        <p class="movie-actors">${movie.stars}</p>
+        </div>
+        </div>
+        </div>
+        <div class="mr-grid action-row">
+        <div class="col2">
+       
+        <div class="watch-btn">
+         <a id="watch-trailer-embed" href="${movie.trailers}" target="_blank" >
+          <h3 class="h3">Watch Trailer
+          <i class="material-icons">&#xE037;</i>
+          
+          </h3>
+       </a>
+          </div>
+          </div> 
+          <div class="col6 action-btn">
+            <i class="material-icons">&#xe54d;</i>
+
+          </div>
+          <div class="col6 action-btn">
+            <i class="material-icons">&#xe5cd;</i>
+          </div>
+
+        </div>
+      </div>
+            
+            
+      `;
+      
+        divMovie.appendChild(divScreening);
+        card.appendChild(divMovie);
+      }
+    });
+  });
+}
+
+
+
+/*
 function showAllMovies(data) {
   const tableRowsArray = data.map(
     (movie) =>
@@ -51,7 +174,8 @@ function showAllMovies(data) {
   const tableRowsString = tableRowsArray.join("\n");
   document.getElementById("tbody-all").innerHTML = tableRowsString;
 }
-
+*/
+/*
 async function showMovieDetails(evt) {
   const target = evt.target;
   if (!target.id.includes("-column-id")) {
@@ -77,7 +201,8 @@ async function showMovieDetails(evt) {
    
   }
 }
-
+*/
+/*
 async function deleteMovie(id) {
   id = document.getElementById("id").innerText;
   const options = {
@@ -101,4 +226,4 @@ async function deleteMovie(id) {
 function toEditMovie() {
   const id = document.getElementById("id").innerText;
   router.navigate("edit-movie?id=" + id);
-}
+}*/

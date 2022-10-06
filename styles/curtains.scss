@@ -1,0 +1,162 @@
+$accent: #dd3232;
+//$accent:#e0952c;
+body {
+  padding: 0px;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+.content {
+  display: block;
+
+  height: 100%;
+  width: 100%;
+  color: black;
+    
+}
+.content img {
+  width: 100%;
+  //height: 100%;
+}
+
+.curtainContainer {
+  position: absolute;
+  display: flex;
+  top: -10%;
+  width: 100%;
+  height: 110%;
+  margin: auto;
+  transform-style: preserve-3d;
+  //background: $accent;
+  overflow: hidden;
+  transition: transform 6s ease;
+}
+
+.curtainContainer:nth-child(1) {
+  transform-origin: -120% top;
+  justify-content: flex-start;
+  transform: translatex(-5vw);
+}
+.curtainContainer:nth-child(2) {
+  transform-origin: 120% top;
+  justify-content: flex-end;
+  transform: translatex(15vw);
+}
+
+.rollLeft {
+  transform: translatex(-150vw) scaleX(0);
+}
+.rollRight {
+  transform: translatex(150vw) scaleX(0);
+}
+
+.curtainBody:hover .curtainContainer:nth-child(1) {
+  transform: translatex(-150vw) scaleX(0);
+}
+.curtainBody:hover .curtainContainer:nth-child(2) {
+  transform: translatex(150vw) scaleX(0);
+}
+
+.unCurtain {
+  display: inline-block;
+  width: 15vw;
+  margin: 0;
+  padding: 0;
+  height: 120vh;
+  background-size: 100% 100%;
+  background: repeating-linear-gradient(
+    to left,
+    $accent 4vw,
+    darken($accent, 20%) 12vw,
+    lighten($accent, 20%) 15vw
+  );
+
+  transform-origin: 0 0%;
+  transform: rotate(3deg);
+  transition: transform 4s ease;
+  animation: swing 2s ease infinite;
+}
+
+@keyframes swing {
+  50% {
+    transform: rotate(-3deg);
+  }
+}
+
+.unCurtain:nth-child(2) {
+  margin-left: -10vw;
+  animation-delay: -0.1s;
+}
+.unCurtain:nth-child(3) {
+  margin-left: -10vw;
+  animation-delay: -0.2s;
+}
+.unCurtain:nth-child(4) {
+  margin-left: -10vw;
+  animation-delay: -0.3s;
+}
+.unCurtain:nth-child(5) {
+  margin-left: -10vw;
+  animation-delay: -0.4s;
+}
+.unCurtain:nth-child(6) {
+  margin-left: -10vw;
+  animation-delay: -0.5s;
+}
+
+.unCurtain:nth-child(7) {
+  margin-left: -10vw;
+  animation-delay: -0.6s;
+}
+.unCurtain:nth-child(8) {
+  margin-left: -10vw;
+  animation-delay: -0.7s;
+}
+.unCurtain:nth-child(9) {
+  margin-left: -10vw;
+  animation-delay: -0.8s;
+}
+.unCurtain:nth-child(10) {
+  margin-left: -10vw;
+  animation-delay: -0.9s;
+}
+.unCurtain:nth-child(11) {
+  margin-left: -10vw;
+  animation-delay: -1s;
+}
+.unCurtain:nth-child(12) {
+  width: 10vw;
+  background: repeating-linear-gradient(
+    to left,
+    $accent 4vw,
+    darken($accent, 20%) 8vw,
+    lighten($accent, 20%) 10vw
+  );
+  margin-left: -10vw;
+  animation-delay: -1.1s;
+}
+
+.curtainBody {
+  display: block;
+  
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  //background: black;
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  color: white;
+  top: 0%;
+  left: 0%;
+ 
+  height: 100vh;
+  background: linear-gradient(to top, rgba(2, 2, 2, 0) 0vh, rgb(0, 0, 0) 100vh);
+  transition: opacity 3s ease;
+}
+
+.curtainBody:hover .overlay {
+  opacity: 0;
+}

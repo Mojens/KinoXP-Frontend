@@ -13,7 +13,7 @@ export function initImdbMovieTest(navigoRouter) {
     // Find movie by title
 async function imdbSearch() {
     const title = document.getElementById("imdbSearch").value;
-    const newUrl = url + title;
+    const newUrl = url + title + "/Trailer"; 
     const response = await fetch(newUrl);
     const data = await response.json();
     console.log(data);
@@ -21,15 +21,18 @@ async function imdbSearch() {
    
 }
 
+
 // create placeholdertext from API data
 function createPlaceholderText(movie) {
   document.getElementById("if1").value = movie.title;
   document.getElementById("if2").value = movie.plotLocal;
   document.getElementById("if3").value = movie.imDbRating;
   document.getElementById("if4").value = movie.genres;
-  document.getElementById("if5").value = movie.runtimeMins;
+  document.getElementById("if5").value = movie.runtimeStr;
   document.getElementById("if6").value = movie.contentRating;
   document.getElementById("image").value = movie.image;
+  document.getElementById("stars").value = movie.stars;
+  document.getElementById("trailer").value = movie.trailer.link;
   
 }
 
@@ -44,6 +47,8 @@ async function addMovie() {
     const showStartDate = document.getElementById("if8").value;
     const showEndDate = document.getElementById("if9").value;
     const image = document.getElementById("image").value;
+    const stars = document.getElementById("stars").value;
+    const trailer = document.getElementById("trailer").value;
 
     const newMovie = {
         title,
@@ -54,6 +59,8 @@ async function addMovie() {
         ageLimit,
         price,
         photo:image,
+        stars,
+        trailers:trailer,
         showStartDate,
         showEndDate,
         
