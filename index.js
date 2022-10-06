@@ -17,6 +17,9 @@ import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
 //=========Reservation start here=========
 import { initGetAllReservations } from "./pages/reservation/getAllReservations/getAllReservations.js";
 import { initGetReservationById } from "./pages/reservation/getSpecificReservation/singleReservation.js";
+import { initEditReservation } from "./pages/reservation/editReservation/editReservation.js";
+import { initAddReservation } from "./pages/reservation/addReservation/addReservation.js";
+import { initDeleteReservation } from "./pages/reservation/deleteReservation/deleteReservation.js";
 
 //=========Reservation end here=========
 
@@ -47,9 +50,10 @@ import { initAddScreening } from "./pages/screenings/addScreening/addScreening.j
 //=========SeatChoice end here=========
 
 window.addEventListener("load", async () => {
-  //=========Templates end here=========
+  //=========Templates Start here=========
   const templateAbout = await loadTemplate("./pages/about/about.html");
 
+  //=========Movie start here=========
   const templateGetAllMovies = await loadTemplate(
     "./pages/movies/getAllMovies/all-movies.html"
   );
@@ -65,6 +69,8 @@ window.addEventListener("load", async () => {
   const templateImdbMovieTest = await loadTemplate(
     "./pages/movies/imdbMovieTest/imdb.html"
   );
+  //=========Movie End here=========
+  //=========Screening start here=========
 
   const templateGetAllScreenings = await loadTemplate(
     "./pages/screenings/getAllScreenings/all-screenings.html"
@@ -78,6 +84,8 @@ window.addEventListener("load", async () => {
   const templateAddScreening = await loadTemplate(
     "./pages/screenings/addScreening/add-screening.html"
   );
+  //=========Screening End here=========
+  //=========Reservation start here=========
 
   const templateGetAllReservations = await loadTemplate(
     "./pages/reservation/getAllReservations/all-reservation.html"
@@ -86,6 +94,17 @@ window.addEventListener("load", async () => {
   const templateGetReservationById = await loadTemplate(
     "./pages/reservation/getSpecificReservation/single-reservation.html"
   );
+
+  const templateEditReservation = await loadTemplate(
+      "./pages/reservation/editReservation/edit-reservation.html"
+  );
+  const templateAddReservation = await loadTemplate(
+      "./pages/reservation/addReservation/add-reservation.html"
+  );
+  const templateDeleteReservation = await loadTemplate(
+      "./pages/reservation/deleteReservation/delete-reservation.html"
+  );
+  //=========Reservation end here=========
 
   //=========>Templates end here=========
   adjustForMissingHash();
@@ -141,6 +160,18 @@ window.addEventListener("load", async () => {
       "/single-reservation": (match) => {
         renderTemplate(templateGetReservationById, "content");
         initGetReservationById(match);
+      },
+        "/edit-reservation": (match, router) => {
+        renderTemplate(templateEditReservation, "content");
+        initEditReservation(match, router);
+    },
+      "/add-reservation": () => {
+        renderTemplate(templateAddReservation, "content");
+        initAddReservation(router);
+      },
+      "/delete-reservation": (router) => {
+        renderTemplate(templateDeleteReservation, "content");
+        initDeleteReservation(router);
       },
       //=========Reservations end here=========
 
@@ -205,6 +236,10 @@ window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
       errorObj
   );
 };
+
+// add active class to parent of dropdown when dropdown is hovered
+    
+  
 
 // add active class to parent of dropdown when dropdown is hovered
     
