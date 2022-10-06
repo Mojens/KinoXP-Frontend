@@ -11,6 +11,8 @@ export function initLogin(navigo) {
 }
 
 async function login() {
+    removeSession(1);
+    removeSession(2);
     const loginInfo = {
         userName: document.getElementById("userNameInput").value,
         password: document.getElementById("passwordInput").value
@@ -36,11 +38,11 @@ async function login() {
         if (data.type == 1) {
             startSession(1);
             console.log("Redirecting now..... Type 1");
-            router.navigate(`all-screenings`);
+            router.navigate(`add-movie`);
         }else if(data.type == 2){
             console.log("Redirecting now..... Type 2");
-            router.navigate(`edit-movie`);
             startSession(2);
+            router.navigate(`edit-movie`);
         }
     })
 }
