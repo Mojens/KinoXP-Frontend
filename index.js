@@ -7,7 +7,7 @@ import {
   loadTemplate,
 } from "./utils.js";
 //=========Login start here=========
-
+import { initLogin } from "./pages/login/login.js";
 //=========Login end here=========
 //=========Movie start here=========
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
@@ -204,6 +204,7 @@ window.addEventListener("load", async () => {
       //=========Login start here=========
       "/login": () => {
         renderTemplate(templateLogin, "content");
+        initLogin(router);
     },
       //=========Login end here=========
     })

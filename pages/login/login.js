@@ -1,8 +1,10 @@
 let URL_LOGIN = "http://localhost:8080/api/employees/login";
 let router;
 
-export function initLogin() {
-    document.getElementById("login_btn").addEventListener("click", login);
+export function initLogin(navigo) {
+    let button = document.getElementById("login_btn");
+    button.onclick = login;
+    router = navigo;
 }
 
 async function login() {
