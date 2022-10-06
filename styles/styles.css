@@ -324,7 +324,6 @@ background: linear-gradient(180deg, rgba(38,38,38,1) 0%, rgba(38,38,38,0.2189250
   box-shadow: rgba(212, 8, 8, 0.514) 0px 1px 3px 0px,
     rgba(212, 62, 62, 0.596) 0px 0px 0px 1px !important;
 }
-<<<<<<< HEAD
 #screening-link{
   color: white;
   text-decoration: none;
@@ -362,7 +361,6 @@ background: linear-gradient(180deg, rgba(38,38,38,1) 0%, rgba(38,38,38,0.2189250
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
-=======
 
 #deleteMe {
   background-color: transparent;
@@ -407,9 +405,8 @@ background: linear-gradient(180deg, rgba(38,38,38,1) 0%, rgba(38,38,38,0.2189250
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0; !important;
+  padding: 0!important;
 }
 #seats{
   padding: 0;
 }
->>>>>>> master
