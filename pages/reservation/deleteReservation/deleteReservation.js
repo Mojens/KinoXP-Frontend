@@ -8,6 +8,21 @@ export function initDeleteReservation(navigoRouter) {
     document.getElementById("deleteReservation").onclick = fetchReservationData;
     router = navigoRouter
 }
+async function deleteReservation(reservationId) {
+    console.log("Url is: " + url + reservationId)
+    await fetch(url + reservationId, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: "",
+    }).then(response => {
+        if (response.status>1){
+            router.navigate(`all-reservations`);
+        }
+    })
+
+}
 
 async function fetchReservationData() {
     document.getElementById("error").innerText = "";
@@ -28,19 +43,4 @@ async function fetchReservationData() {
     } catch (err) {
         console.log("UPS " + err.message);
     }
-}
-
-async function deleteReservation(reservationId) {
-    console.log("Url is: " + url + reservationId)
-    await fetch(url + reservationId, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: "",
-    })
-        .then((res) => res.json())
-
-    await router.navigate('all-reservation');
-
 }
