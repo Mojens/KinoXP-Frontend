@@ -23,6 +23,7 @@ export function initEditScreening(match, navigoRouter) {
     }
   }
 }
+
 async function getMovieTitle(movieId) {
   const movie = await fetch("http://localhost:8080/api/movies/" + movieId).then(
     (res) => res.json()
@@ -47,8 +48,6 @@ async function fetchScreeningData() {
 function createPlaceholderText(screening) {
   document.getElementById("if2").value = screening.startTime;
   document.getElementById("if3").value = screening.endTime;
-  
-
 }
 
 async function findScreening(id) {

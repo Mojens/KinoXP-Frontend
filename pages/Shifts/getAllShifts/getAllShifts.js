@@ -19,10 +19,9 @@ async function getAllShifts() {
                 <td>${shift.startTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
                 <td>${shift.endTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
                 <td><button id="${shift.id}-edit-btn">Edit</button></td>
-                <td><button id="${shift.id}-deletebtn">Delete</button></td>
+                <td><button id="${shift.id}-delete-btn">Delete</button></td>
                 `
             })
-
         document.getElementById("tbl-body-Shifts").appendChild(tr)
     })
 }
@@ -44,7 +43,7 @@ async function getAllShiftsByDate() {
                 <td>${shift.startTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
                 <td>${shift.endTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
                 <td><button id="${shift.id}-edit-btn">Edit</button></td>
-                <td><button id="${shift.id}-deletebtn">Delete Shift</button></td>
+                <td><button id="${shift.id}-delete-btn">Delete Shift</button></td>
                 `
             })
         document.getElementById("tbl-body-Shifts").appendChild(tr)
@@ -64,13 +63,17 @@ export function initAllShifts(navigoRouter) {
     const onClick = (event) => {
         if (event.target.nodeName === 'BUTTON') {
           let id = event.target.id;
-          if(id.endsWith("-deletebtn")){
-          id = id.split("-")[0];
-          console.log(id);
-            deleteShift(id);
-        }else
-        console.log(id);
+          if(id.endsWith("-delete-btn")){
+              id = id.split("-")[0];
+              console.log(id);
+              deleteShift(id);
+          }else if(id.endsWith("-edit-btn")){
+              id = id.split("-"[0]);
+          }
+
+
         }
+        console.log("This is not delete btn")
       }
       window.addEventListener('click', onClick);
     getAllShifts()

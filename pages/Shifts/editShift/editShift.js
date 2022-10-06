@@ -2,8 +2,10 @@ import { URL_SHIFTS } from "../shiftSettings.js";
 let router;
 
 
-async function findShiftToEdit() {
-    const shiftId = document.getElementById("shiftToEdit").value;
+async function findShiftToEdit(id) {
+    if (id == null){
+        id = document.getElementById("shiftToEdit").value;
+    }
     await fetch(URL_SHIFTS + shiftId).then(response => {
         return response.json();
     }).then(shifts => {
@@ -36,6 +38,16 @@ async function editShift() {
 export function initEditShift(navigoRouter) {
     document.getElementById("findShiftToEdit").onclick = findShiftToEdit;
     document.getElementById("editShiftbtn").onclick = editShift;
+
+    if (match?.params?.id) {
+        const id = match.params.id;
+
+        try {
+            findShiftToEdit(id);
+        } catch (error) {
+            console.log("A shift with ID: "+id+" could not be found")
+        }
+    }
 
     router = navigoRouter;
 }
