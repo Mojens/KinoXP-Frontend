@@ -58,18 +58,8 @@ function showAllMovies(movies, screenings) {
 
                
                 `;
-                // for each screening time append child
               
         divMovie.appendChild(divScreening);
-        
-
-        // get all screenings for each movie
-        
-      
-        
-        
-        
-      
 
         divMovie.innerHTML = ` 
     <div class="movie-img">
