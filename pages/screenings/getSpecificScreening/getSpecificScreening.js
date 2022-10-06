@@ -24,7 +24,8 @@ async function fetchScreeningData() {
   }
   try {
     renderScreening(id);
-    getSeatsFromScreening(id);
+    getReservedSeatsFromScreening(id);
+    getAllSeats(id)
   } catch (err) {
     console.log("UPS " + err.message);
   }
@@ -33,12 +34,13 @@ async function fetchScreeningData() {
 async function getMovieTitle(movieId) {
   const movie = await fetch("http://localhost:8080/api/movies/" + movieId).then(
     (res) => res.json()
+
   );
   return movie.title;
 }
 
 //Tester seatChoice
-async function getSeatsFromScreening(id)  { 
+async function getReservedSeatsFromScreening(id)  {
   console.log("id is:"+ id)
   const seats = await fetch("http://localhost:8080/api/reservations/fromScreening/" + id).then((res) => res.json());
   console.log(seats)
@@ -74,4 +76,21 @@ async function renderScreening(id) {
   } catch (err) {
     console.log("UPS " + err.message);
   }
+}
+
+
+async function getAllSeats(id){
+  const allSeats = await fetch("http://localhost:8080/api/seats/theaterid/" + id).then((res) => res.json());
+  makeAllSeats(allSeats)
+}
+
+function makeAllSeats(allSeats) {
+  const main = document.getElementById("seats")
+
+  let divInsert = ""
+  allSeats.forEach((seat) => {
+    divInsert += `<il class="seats">${seat.rowNum}${seat.seatNumber} </il>`
+  })
+  main.innerHTML = divInsert
+
 }
