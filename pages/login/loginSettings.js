@@ -67,7 +67,7 @@ export function startSession(type) {
     }
 }
 
-function changeLoginText() {
+export function changeLoginText() {
     if (sessionStorage.getItem("user1") != null || sessionStorage.getItem("user2") != null) {
         document.getElementById("loginNav1").innerText = "Logout";
         console.log("logout")
