@@ -4,6 +4,10 @@ const movieUrl = "http://localhost:8080/api/movies";
 export function initGetSpecificScreening(match) {
   document.getElementById("singleScreening").onclick = fetchScreeningData;
   document.getElementById("btn-get-all").onclick = getAllMovies;
+  document.getElementById("seat-space").onclick = (element) =>{
+    const x = "You have clicked: " + element.target.id
+    console.log(x)
+  }
   if (match?.params?.id) {
     const id = match.params.id;
     try {
@@ -211,28 +215,24 @@ async function makeAllSeats(allSeats, screeningId) {
     "http://localhost:8080/api/reservations/fromScreening/" + screeningId
   ).then((res) => res.json());
   const reservedSeats = seatResponse.map((seat) => seat.id);
-  console.log(reservedSeats);
-
   let divInsert = "";
   let lastSeat = allSeats[0];
 
   allSeats.forEach((seat) => {
+    let id = "seat-" + seat.id
     
     if (seat.rowNum === lastSeat.rowNum) {
       
       if (reservedSeats.includes(seat.id)) {
-        
-        
-        
-        divInsert += `<li class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
+
+        divInsert += `<li id="${id}" class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
       } else {
-        
-        
-        divInsert += `<li class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+
+        divInsert += `<li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
       }
     } else {
       
-      divInsert += `<br><li class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+      divInsert += `<br><li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
     }
 
     // insert row number every 12 seats
@@ -248,4 +248,6 @@ async function makeAllSeats(allSeats, screeningId) {
     
   });
   main.innerHTML = divInsert;
+
 }
+
