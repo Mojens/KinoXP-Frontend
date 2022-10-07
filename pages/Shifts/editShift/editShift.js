@@ -1,4 +1,5 @@
 import { URL_SHIFTS } from "../shiftSettings.js";
+import { checkSession1 } from "../../login/loginSettings.js";
 let router;
 
 async function findShiftToEdit(id) {
@@ -55,6 +56,7 @@ async function editShift() {
 }
 
 export function initEditShift(match, navigoRouter) {
+  checkSession1();
   document.getElementById("findShiftToEdit").onclick = findShiftToEditWithoutId;
   document.getElementById("editShiftbtn").onclick = editShift;
 

@@ -1,4 +1,5 @@
 import {URL_SHIFTS} from "../shiftSettings.js";
+import { checkSession1 } from "../../login/loginSettings.js";
 let router;
 
 async function addShift(){
@@ -23,6 +24,7 @@ async function addShift(){
     })
 }
 export function initAddShift(navigoRouter) {
+    checkSession1();
     document.getElementById("addShiftbtn").onclick = addShift;
     router = navigoRouter
   }
