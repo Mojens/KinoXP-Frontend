@@ -26,26 +26,26 @@ async function getAllShifts() {
             })
         document.getElementById("tbl-body-Shifts").appendChild(tr)
 
-
-        getEmployeeNameById(shift.employeeId).then(employeeName => {
-            document.getElementById("tbl-body-Shifts-Employee").innerHTML =
-                `
-                <tr>
+        const tr1 = document.createElement("tr")
+        getEmployeeNameById(shift.employeeId)
+            .then(employeeName => {
+                tr1.innerHTML = `
                 <td>${employeeName}</td>
                 <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
                 <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
-                </tr>
                 `
-        })
+            })
+        document.getElementById("tbl-body-Shifts-Employee").appendChild(tr1)
 
     })
 }
 
 async function getAllShiftsByDate() {
     document.getElementById("tbl-body-Shifts").innerHTML = ""
+    document.getElementById("tbl-body-Shifts-Employee").innerHTML = ""
     let requestedDate = document.getElementById("date-to-find").value.split("-").reverse().join("-")
-    document.getElementById("chosendate2shift").innerText = requestedDate
-    document.getElementById("chosendate1shift").innerText = requestedDate
+    document.getElementById("chosendateshift").innerText = ""
+    document.getElementById("chosendateshift").innerText = requestedDate
 
     const allShifts = await fetch(URL_SHIFTS)
         .then(r => r.json())
@@ -63,19 +63,21 @@ async function getAllShiftsByDate() {
                 <td><button class="deletebtnshift" id="${shift.id}-delete-btn">Delete</button></td>
                 `
             })
+            
         document.getElementById("tbl-body-Shifts").appendChild(tr)
-
-
-        getEmployeeNameById(shift.employeeId).then(employeeName => {
-            document.getElementById("tbl-body-Shifts-Employee").innerHTML =
-                `
-                <tr>
+    })
+    allShifts.forEach(shift => {
+        const tr2 = document.createElement("tr")
+        getEmployeeNameById(shift.employeeId)
+            .then(employeeName => {
+                tr2.innerHTML = `
                 <td>${employeeName}</td>
                 <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
                 <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
-                </tr>
                 `
-        })
+            })
+            
+        document.getElementById("tbl-body-Shifts-Employee").appendChild(tr2)
     })
 }
 
