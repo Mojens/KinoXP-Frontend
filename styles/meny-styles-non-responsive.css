@@ -98,6 +98,17 @@ ul.menu-simple li {
   background-color: #262626!important;
 
 }
+
+/* Force display to the end */
+.rightNav{
+  position: absolute;
+  right: 30px;
+
+}
+#loginNav{
+  
+  
+}
 .dropdown a {
   color: black;
   font-size: 15px;
