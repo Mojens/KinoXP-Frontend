@@ -1,41 +1,51 @@
 <template id="btn3-template">
   <div class="main-container">
-    <h2>Find Screening</h2>
-    <input type="number" id="text-for-id" placeholder="id"/>
-          <button id="singleScreening">Find Screening</button>
-      <table class="table">
-    <thead>
-      <tr class="thRow">
-       <th>Id</th>
-        <th>Performance</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        <th>Movie</th>
-        <th>Theater</th>  
-      </tr>
-    </thead>
-    <tbody id="tbody-all">
-      <tr>
-        <td id="id"></td>
-        <td id="performance"></td>
-        <td id="startTime"></td>
-        <td id="endTime"></td>
-        <td id="movie"></td>
-        <td id="theater"></td>
-      </tr>
-    </tbody>
-<<<<<<< HEAD
-    <div>
-      
-    </div>
-    
-=======
-    <!-- Tester seatChoice -->
->>>>>>> 366c8ba5bb0f3d0b7948bf050e2d5056a2c606dd
-  </table>
-      <ol id="seats">
-      </ol>
+    <h2 id="btn-get-all">Find Screening</h2>
+    <input type="number" id="text-for-id" placeholder="id" />
+    <button id="singleScreening">Find Screening</button>
+    <table hidden class="table">
+      <thead>
+        <tr class="thRow">
+          <th>Id</th>
+          <th>Performance</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Movie</th>
+          <th>Theater</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-all">
+        <tr>
+          <td id="id"></td>
+          <td id="performance"></td>
+          <td id="startTime"></td>
+          <td id="endTime"></td>
+          <td id="movie"></td>
+          <td id="theater"></td>
+        </tr>
+      </tbody>
 
-           <p id="error" style="color:red"> </p>
-           </div>
+      <!-- Tester seatChoice -->
+    </table>
+    <div class="multi-container">
+      <div>
+        <div class="movie-container-big content" id="cellphone-container-big">
+          <div class="cellphone-container-big"></div>
+        </div>
+      </div>
+      <div class="top">
+        <h4 id="starttime"></h4>
+        <h4 id="theater-room"></h4>
+
+        <div id="screen" class="screen"></div>
+        <br />
+        <br />
+
+        <div class="seatSpace">
+          <ol id="seats"></ol>
+        </div>
+        <p id="error" style="color: red"></p>
+      </div>
+    </div>
+  </div>
 </template>
