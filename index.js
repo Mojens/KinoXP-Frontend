@@ -13,7 +13,6 @@ import { initLogin } from "./pages/login/login.js";
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
-
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
 
@@ -46,7 +45,9 @@ import { initGetSpecificTheater } from "./pages/theater/getSpecificTheater/speci
 //=========Employee end here=========
 
 //=========Shift start here=========
-
+import { initAddShift } from "./pages/Shifts/addShift/addShift.js";
+import { initEditShift } from "./pages/Shifts/editShift/editShift.js";
+import { initAllShifts } from "./pages/Shifts/getAllShifts/getAllShifts.js";
 //=========Shift end here=========
 
 //=========Seat start here=========
@@ -118,6 +119,9 @@ window.addEventListener("load", async () => {
       "./pages/reservation/deleteReservation/delete-reservation.html"
   );
   //=========Reservation end here=========
+  const templateAddShift = await loadTemplate("./pages/Shifts/addShift/addShift.html");
+  const templateEditShift = await loadTemplate("./pages/Shifts/editShift/editShift.html");
+  const templateAllShifts = await loadTemplate("./pages/Shifts/getAllShifts/getAllShifts.html");
 
   //=========>Templates end here=========
   adjustForMissingHash();
@@ -220,7 +224,18 @@ window.addEventListener("load", async () => {
       //=========Employee end here=========
 
       //=========Shift start here=========
-
+      "/addShift": () => {
+        renderTemplate(templateAddShift, "content");
+        initAddShift(router);
+      },
+      "/editShift": (match, router) => {
+        renderTemplate(templateEditShift, "content");
+        initEditShift(match, router);
+      },
+      "/AllShifts": () => {
+        renderTemplate(templateAllShifts, "content");
+        initAllShifts(router);
+      }
       //=========Shift end here=========
 
       //=========Seat start here=========

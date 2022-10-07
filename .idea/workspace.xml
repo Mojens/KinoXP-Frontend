@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="roster" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FcLbAfOOiXX4pqkFdS7QdAxcFI" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jensryge/Documents/Uddannelse/Dat21b - 3. semester/Projekter js/KinoXP-Frontend&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="" />
+      <created>1664786494525</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664786494525</updated>
+      <workItem from="1664786495797" duration="14000" />
+      <workItem from="1664790143380" duration="1294000" />
+      <workItem from="1664792975273" duration="999000" />
+      <workItem from="1664888514644" duration="8055000" />
+      <workItem from="1665041843301" duration="1242000" />
+      <workItem from="1665058423788" duration="17404000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
