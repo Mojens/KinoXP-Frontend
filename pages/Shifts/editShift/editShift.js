@@ -5,14 +5,28 @@ let router;
 async function findShiftToEdit(id) {
     if (id == null){
         id = document.getElementById("shiftToEdit").value;
+        console.log(id)
     }
-    await fetch(URL_SHIFTS + shiftId).then(response => {
+    await fetch(URL_SHIFTS + id).then(response => {
         return response.json();
     }).then(shifts => {
-    
+            document.getElementById("shiftToEdit").value = shifts.id
             document.getElementById("editStartTimeInput").value = shifts.startTime;
             document.getElementById("editEndTimeInput").value = shifts.endTime;
             document.getElementById("editEmployeeIdInput").value = shifts.employeeId;
+    })
+}
+
+async function findShiftToEditWithoutId() {
+    const id = document.getElementById("shiftToEdit").value;
+
+    await fetch(URL_SHIFTS + id).then(response => {
+        return response.json();
+    }).then(shifts => {
+        document.getElementById("shiftToEdit").value = shifts.id
+        document.getElementById("editStartTimeInput").value = shifts.startTime;
+        document.getElementById("editEndTimeInput").value = shifts.endTime;
+        document.getElementById("editEmployeeIdInput").value = shifts.employeeId;
     })
 }
 
@@ -35,8 +49,8 @@ async function editShift() {
     alert("Shift edited");
 }
 
-export function initEditShift(navigoRouter) {
-    document.getElementById("findShiftToEdit").onclick = findShiftToEdit;
+export function initEditShift(match, navigoRouter) {
+    document.getElementById("findShiftToEdit").onclick = findShiftToEditWithoutId;
     document.getElementById("editShiftbtn").onclick = editShift;
 
     if (match?.params?.id) {

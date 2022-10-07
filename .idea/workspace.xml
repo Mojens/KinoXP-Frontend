@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/screenings/editScreening/editScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/editScreening/editScreening.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +68,7 @@
       <workItem from="1664792975273" duration="999000" />
       <workItem from="1664888514644" duration="8055000" />
       <workItem from="1665041843301" duration="1242000" />
-      <workItem from="1665058423788" duration="9153000" />
+      <workItem from="1665058423788" duration="17404000" />
     </task>
     <servers />
   </component>

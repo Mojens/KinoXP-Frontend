@@ -57,6 +57,10 @@ async function deleteShift(id){
     await fetch(URL_SHIFTS+id, opts);
 }
 
+function toEditShift(id){
+    router.navigate("editShift?id=" + id);
+}
+
 
 
 export function initAllShifts(navigoRouter) {
@@ -67,13 +71,14 @@ export function initAllShifts(navigoRouter) {
               id = id.split("-")[0];
               console.log(id);
               deleteShift(id);
+              location.reload()
           }else if(id.endsWith("-edit-btn")){
-              id = id.split("-"[0]);
+              id = id.split("-")[0];
+              toEditShift(id);
           }
 
 
         }
-        console.log("This is not delete btn")
       }
       window.addEventListener('click', onClick);
     getAllShifts()

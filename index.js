@@ -10,10 +10,8 @@ import {
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
 import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMovie.js";
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
-
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
-
 //=========Movie End here=========
 //=========Reservation start here=========
 import { initGetAllReservations } from "./pages/reservation/getAllReservations/getAllReservations.js";
@@ -198,9 +196,9 @@ window.addEventListener("load", async () => {
         renderTemplate(templateAddShift, "content");
         initAddShift(router);
       },
-      "/editShift": () => {
+      "/editShift": (match, router) => {
         renderTemplate(templateEditShift, "content");
-        initEditShift(router);
+        initEditShift(match, router);
       },
       "/AllShifts": () => {
         renderTemplate(templateAllShifts, "content");
