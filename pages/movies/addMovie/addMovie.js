@@ -6,8 +6,6 @@ let router;
 let movie = [];
 
 export function initAddMovie(navigoRouter) {
-  console.log(sessionStorage.getItem("user1")+"<-- USER1");
-  console.log(sessionStorage.getItem("user2")+"<-- USER2");
   checkSession1();
   document.getElementById("addMovie").onclick = addMovie;
   router = navigoRouter;
