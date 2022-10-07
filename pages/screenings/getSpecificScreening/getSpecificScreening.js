@@ -1,6 +1,7 @@
 const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
 let reservedSeats = []
+let currentScreeningId;
 
 let router;
 
@@ -8,7 +9,6 @@ export function initGetSpecificScreening(match, navigoRouter) {
   document.getElementById("singleScreening").onclick = fetchScreeningData;
   document.getElementById("btn-get-all").onclick = getAllMovies;
   document.getElementById("seats").onclick = (element) =>{
-    const id = document.getElementById("text-for-id").value;
     const x = element.target.id
     reserveSeats(x)
 
@@ -21,6 +21,7 @@ export function initGetSpecificScreening(match, navigoRouter) {
   if (match?.params?.id) {
     const id = match.params.id;
     try {
+      currentScreeningId = id
       renderScreening(id);
       getAllMovies();
     } catch (error) {
@@ -38,6 +39,7 @@ async function fetchScreeningData() {
     return;
   }
   try {
+    currentScreeningId = id
     renderScreening(id);
     getAllMovies();
   } catch (err) {
@@ -269,9 +271,8 @@ async function makeAllSeats(allSeats, screeningId) {
 }
 
 function reserveSeats(seatId){
-  const greenColor = "rgb(241, 241, 241)"
   const redColor = "rgb(178, 39, 39)"
-  const blueColor = "rgb(0, 0, 255)"
+
   let seat = document.getElementById(seatId)
   let seatColor = window.getComputedStyle(seat).backgroundColor;
 
@@ -296,7 +297,8 @@ async function addReservation() {
   const email = document.getElementById("if1").value;
   const phoneNumber = document.getElementById("if2").value;
   const employeeId = 1;
-  const screeningId = document.getElementById("text-for-id").value;
+  const screeningId = currentScreeningId
+  console.log(screeningId)
 
   const newReservation = {
     email,
@@ -332,11 +334,9 @@ async function addSeatChoices(resId) {
       reservationId
     };
     newSeatChoices.push(newSeatChoice)
-    console.log(newSeatChoice)
+
   }
 
-  console.log("All choices")
-  console.log(newSeatChoices)
 
     const opts = {
       method: "POST",
@@ -347,6 +347,6 @@ async function addSeatChoices(resId) {
     }
 
      await fetch(urlForSeatChoice, opts);
-  router.navigate(`all-screenings`);
+  //router.navigate(`all-screenings`);
 }
 
