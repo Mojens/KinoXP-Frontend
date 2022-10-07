@@ -251,8 +251,12 @@ async function makeAllSeats(allSeats, screeningId) {
         divInsert += `<li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
       }
     } else {
-      
-      divInsert += `<br><li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+      if (reservedSeats.includes(seat.id)) {
+        divInsert += `<br><li id="${id}" class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
+      } else {
+
+        divInsert += `<br><li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+      }
     }
 
     // insert row number every 12 seats
