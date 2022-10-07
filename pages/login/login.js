@@ -3,6 +3,7 @@ let router;
 
 import { startSession } from "./loginSettings.js";
 import { removeSession } from "./loginSettings.js";
+import { changeLoginText } from "./loginSettings.js";
 
 export function initLogin(navigo) {
     let button = document.getElementById("login_btn");
@@ -36,11 +37,13 @@ async function login() {
         console.log(data);
         if (data.type == 1) {
             startSession(1);
+            changeLoginText();
             console.log("Redirecting now..... Type 1");
             router.navigate(`add-movie`);
         }else if(data.type == 2){
             console.log("Redirecting now..... Type 2");
             startSession(2);
+            changeLoginText();
             router.navigate(`edit-movie`);
         }
     })

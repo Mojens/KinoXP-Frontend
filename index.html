@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Kino</title>
+    <title>KinoXP</title>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -52,50 +52,49 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul id="menu" class="navbar-nav navbar-links">
-
                 <li class="nav-item">
                     <a class="nav-link" href="#/about" data-navigo>About</a>
                 </li>
-                <li class="navbar-dropdown">
-                    <a class="nav-link" href="#/all-movies" data-navigo>Movies</a>
+                <li class="navbar-dropdown" style="display: none;" id="movieAdminNav">
+                    <a class="nav-link" href="#/all-movies" id="movieAdminNav6" data-navigo>Movies</a>
                     <div class="dropdown">
-                        <a href="#/all-movies" data-navigo>All Movies</a>
-                        <a href="#/movie-title" data-navigo>Find Movie</a>
-                        <a href="#/edit-movie" data-navigo>Edit Movie</a>
-                        <a href="#/add-movie" data-navigo>Add Movie</a>
-                        <a href="#/add-movie-imdb" data-navigo>Add Movie IMDB</a>
+                        <a href="#/all-movies" id="movieAdminNav1" data-navigo>All Movies</a>
+                        <a href="#/movie-title" id="movieAdminNav2" data-navigo>Find Movie</a>
+                        <a href="#/edit-movie" id="movieAdminNav3" data-navigo>Edit Movie</a>
+                        <a href="#/add-movie" id="movieAdminNav4" data-navigo>Add Movie</a>
+                        <a href="#/add-movie-imdb" id="movieAdminNav5" data-navigo>Add Movie IMDB</a>
                     </div>
                 </li>
 
-            <li class="navbar-dropdown">
-              <a class="nav-link" href="/all-reservations" data-navigo>Reservations</a>
+            <li class="navbar-dropdown" style="display: none;" id="reservationsBothNav">
+              <a class="nav-link" href="/all-reservations" id="reservationsBothNav6" data-navigo>Reservations</a>
               <div class="dropdown">
-               <a href="/all-reservations" data-navigo>All reservations</a>
-               <a href="/single-reservation" data-navigo>Find Reservation</a>
-               <a href="/edit-reservation" data-navigo>Edit Reservation</a>
-               <a href="/add-reservation" data-navigo>Add Reservation</a>
-               <a href="/delete-reservation" data-navigo>Delete Reservation</a>
+               <a href="/all-reservations" id="reservationsBothNav1" data-navigo>All reservations</a>
+               <a href="/single-reservation" id="reservationsBothNav2" data-navigo>Find Reservation</a>
+               <a href="/edit-reservation" id="reservationsBothNav3" data-navigo>Edit Reservation</a>
+               <a href="/add-reservation" id="reservationsBothNav4" data-navigo>Add Reservation</a>
+               <a href="/delete-reservation" id="reservationsBothNav5" data-navigo>Delete Reservation</a>
               </div>
             </li>
 
-                <li class="navbar-dropdown">
-                    <a class="nav-link" href="#/all-screenings" data-navigo>Screenings</a>
+                <li class="navbar-dropdown" style="display: none;" id="screeningsAdminNav">
+                    <a class="nav-link" href="#/all-screenings" id="screeningsAdminNav5" data-navigo>Screenings</a>
                     <div class="dropdown">
-                        <a href="#/all-screenings" data-navigo>All Screenings</a>
-                        <a href="#/screening" data-navigo>Find Screening</a>
-                        <a href="#/edit-screening" data-navigo>Edit Screening</a>
-                        <a href="#/add-screening" data-navigo>Add Screening</a>
+                        <a href="#/all-screenings" id="screeningsAdminNav1" data-navigo>All Screenings</a>
+                        <a href="#/screening" id="screeningsAdminNav2" data-navigo>Find Screening</a>
+                        <a href="#/edit-screening" id="screeningsAdminNav3" data-navigo>Edit Screening</a>
+                        <a href="#/add-screening" id="screeningsAdminNav4" data-navigo>Add Screening</a>
                     </div>
                 </li>
-                <li class="navbar-dropdown">
-                    <a class="nav-link" href="/all-theaters" data-navigo>All Theaters</a>
+                <li class="navbar-dropdown" style="display: none;" id="theatersAdminNav">
+                    <a class="nav-link" href="/all-theaters" id="theatersAdminNav3" data-navigo>All Theaters</a>
                     <div class="dropdown">
-                        <a href="/all-theaters" data-navigo>All Theaters</a>
-                        <a href="/specific-theater" data-navigo>Specific Theater</a>
+                        <a href="/all-theaters" id="theatersAdminNav1" data-navigo>All Theaters</a>
+                        <a href="/specific-theater" id="theatersAdminNav2" data-navigo>Specific Theater</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#/login" ata-navigo>Login</a>
+                <li class="nav-item" id="loginNav">
+                    <a class="nav-link" id="loginNav1" href="#/login" data-navigo>Login</a>
                 </li>
 
 
@@ -105,10 +104,11 @@
 </nav>
 <div id="content"></div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous">
+</script>
+<script src="./pages/login/navLogin.js" type="module">
 </script>
 </body>
 
