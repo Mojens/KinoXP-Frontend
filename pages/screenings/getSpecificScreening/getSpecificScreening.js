@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
 let reservedSeats = []
+import { checkFindScreeningAdmin } from "../../../pages/login/loginSettings.js";
 
 let router;
 
 export function initGetSpecificScreening(match, navigoRouter) {
+  checkFindScreeningAdmin();
   document.getElementById("singleScreening").onclick = fetchScreeningData;
   document.getElementById("btn-get-all").onclick = getAllMovies;
   document.getElementById("seats").onclick = (element) =>{
@@ -14,7 +16,6 @@ export function initGetSpecificScreening(match, navigoRouter) {
 
   }
   document.getElementById("addReservation").onclick = addReservation;
-
   router = navigoRouter;
 
 

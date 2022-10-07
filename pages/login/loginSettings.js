@@ -94,7 +94,7 @@ export function checkSessionBoth() {
         boxes2.forEach(box2 => {
             box2.style.display = "none";
         });
-    }else if (localStorage.getItem("user1") !== null && localStorage.getItem("user2") == null) {
+    } else if (localStorage.getItem("user1") !== null && localStorage.getItem("user2") == null) {
 
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
@@ -141,31 +141,31 @@ export function logOut() {
         changeLoginText();
     }
 }
-    export function CheckEditDeleteBtnShift(){
-        if (localStorage.getItem("user1") != null) {
-            document.getElementById("adminTable").style.display = "inline-block";
-            document.getElementById("EmployeeTable").style.display = "none";
-    
+export function CheckEditDeleteBtnShift() {
+    if (localStorage.getItem("user1") != null) {
+        document.getElementById("adminTable").style.display = "inline-block";
+        document.getElementById("EmployeeTable").style.display = "none";
 
-        }else if(localStorage.getItem("user1") == null){
-            document.getElementById("adminTable").style.display = "none";
-            document.getElementById("EmployeeTable").style.display = "inline-block";
-        
 
-            
-        }
+    } else if (localStorage.getItem("user1") == null) {
+        document.getElementById("adminTable").style.display = "none";
+        document.getElementById("EmployeeTable").style.display = "inline-block";
 
 
 
     }
 
-    export function checkFindScreeningAdmin(){
-        if (localStorage.getItem("user1") != null) {
-        document.getElementById("adminInputScreening").style.display = "inline-block";
-    }else if(localStorage.getItem("user1") == null){
+
+
+}
+
+export function checkFindScreeningAdmin() {
+    if (localStorage.getItem("user1") !== null) {
+        document.getElementById("adminInputScreening").style.display = "inline";
+    } else if (localStorage.getItem("user1") === null) {
         document.getElementById("adminInputScreening").style.display = "none";
     }
-
+}
 
 
 // Language: javascript
