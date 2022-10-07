@@ -130,7 +130,14 @@ function slide() {
       link.id = "screening-link";
       link.href = "#/screening?id=" + movie.screeningResponse[i].id;
 
-      link.innerHTML = movie.screeningResponse[i].startTime;
+      link.innerHTML = movie.screeningResponse[i].startTime
+       // Dont display year
+        .split("T")[0]
+        .split("-")
+        .slice(1)
+        .join("-")
+        
+       
 
       divScreening.className = "screening";
 
