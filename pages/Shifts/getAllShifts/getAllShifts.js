@@ -1,5 +1,6 @@
 import { URL_SHIFTS } from "../shiftSettings.js";
 import { CheckEditDeleteBtnShift } from "../../login/loginSettings.js";
+import { checkSessionBoth } from "../../login/loginSettings.js";
 
 let router;
 
@@ -43,6 +44,8 @@ async function getAllShifts() {
 async function getAllShiftsByDate() {
     document.getElementById("tbl-body-Shifts").innerHTML = ""
     let requestedDate = document.getElementById("date-to-find").value.split("-").reverse().join("-")
+    document.getElementById("chosendate2shift").innerText = requestedDate
+    document.getElementById("chosendate1shift").innerText = requestedDate
 
     const allShifts = await fetch(URL_SHIFTS)
         .then(r => r.json())
@@ -62,7 +65,7 @@ async function getAllShiftsByDate() {
             })
         document.getElementById("tbl-body-Shifts").appendChild(tr)
 
-        
+
         getEmployeeNameById(shift.employeeId).then(employeeName => {
             document.getElementById("tbl-body-Shifts-Employee").innerHTML =
                 `
@@ -90,6 +93,7 @@ function toEditShift(id) {
 
 
 export function initAllShifts(navigoRouter) {
+    checkSessionBoth();
     const onClick = (event) => {
         if (event.target.nodeName === 'BUTTON') {
             let id = event.target.id;
