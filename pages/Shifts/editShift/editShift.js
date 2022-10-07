@@ -41,21 +41,17 @@ async function editShift() {
 
   const shiftInfo = {
     id: shiftId,
-    startTime: startTime,
-    endTime: endTime,
-    employeeId: employeeId,
+    startTime,
+    endTime,
+    employeeId,
   };
 
-  const options = {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(shiftInfo),
-  };
-
-  const response = await fetch(URL_SHIFTS + shiftId, options);
-  const data = await response.json();
+  const opts = {};
+  opts.method = "PUT";
+  opts.headers = { "Content-type": "application/json" };
+  (opts.body = JSON.stringify(shiftInfo)),
+    await fetch(URL_SHIFTS + shiftId, opts);
+  alert("Shift edited");
 }
 
 export function initEditShift(match, navigoRouter) {

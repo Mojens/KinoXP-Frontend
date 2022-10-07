@@ -74,14 +74,9 @@ async function findScreening(id) {
 async function editScreening(id) {
   const startTime = document.getElementById("if2").value;
   const endTime = document.getElementById("if3").value;
-    const performance = document.getElementById("performance").innerText;
-    const theater = document.getElementById("theater").innerText;
+  const performance = document.getElementById("performance").innerText;
+  const theater = document.getElementById("theater").innerText;
   // show movie id
-
- 
-
-
-
   const updatedScreening = {
     id: id,
     performance: performance,
