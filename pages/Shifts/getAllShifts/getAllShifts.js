@@ -71,7 +71,7 @@ export function initAllShifts(navigoRouter) {
               id = id.split("-")[0];
               console.log(id);
               deleteShift(id);
-              location.reload()
+              router.navigate(`AllShifts`);
           }else if(id.endsWith("-edit-btn")){
               id = id.split("-")[0];
               toEditShift(id);
