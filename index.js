@@ -12,11 +12,8 @@ import { initGetMovieById } from "./pages/movies/getSpecificMovie/getSpecificMov
 import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
-<<<<<<< HEAD
 
 
-=======
->>>>>>> roster
 //=========Movie End here=========
 //=========Reservation start here=========
 import { initGetAllReservations } from "./pages/reservation/getAllReservations/getAllReservations.js";
@@ -108,7 +105,6 @@ window.addEventListener("load", async () => {
     "./pages/reservation/getSpecificReservation/single-reservation.html"
   );
 
-<<<<<<< HEAD
   const templateEditReservation = await loadTemplate(
       "./pages/reservation/editReservation/edit-reservation.html"
   );
@@ -119,11 +115,9 @@ window.addEventListener("load", async () => {
       "./pages/reservation/deleteReservation/delete-reservation.html"
   );
   //=========Reservation end here=========
-=======
   const templateAddShift = await loadTemplate("./pages/Shifts/addShift/addShift.html");
   const templateEditShift = await loadTemplate("./pages/Shifts/editShift/editShift.html");
   const templateAllShifts = await loadTemplate("./pages/Shifts/getAllShifts/getAllShifts.html");
->>>>>>> roster
 
   //=========>Templates end here=========
   adjustForMissingHash();
