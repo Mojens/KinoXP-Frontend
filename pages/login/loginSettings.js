@@ -4,7 +4,6 @@ export function checkSession1() {
         document.getElementById("movieAdminNav").style.display = "inline-block";
         document.getElementById("screeningsAdminNav").style.display = "inline-block";
         document.getElementById("theatersAdminNav").style.display = "inline-block";
-        document.getElementById("reservationsBothNav").style.display = "inline-block";
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
             box.style.display = "inline-block";
@@ -34,7 +33,6 @@ export function checkSession1() {
 
 export function checkSession2() {
     if (sessionStorage.getItem("user2") !== null) {
-
         const boxes = document.querySelectorAll('.sessionCheck2');
         boxes.forEach(box => {
             box.style.display = "inline-block";
