@@ -494,8 +494,8 @@ img {
   vertical-align: middle;
   text-align: center;
   font-weight: 700;
-  width: 30px;
-  height: 30px;
+  width: var(--space-xs);
+  height: var(--space-xs);
   padding: 0;
   margin: 0 3px 25px 3px;
   background-color: #3c805c;
@@ -510,8 +510,8 @@ img {
   vertical-align: middle;
   text-align: center;
   font-weight: 700;
-  width: 30px;
-  height: 30px;
+   width: var(--space-xs);
+  height: var(--space-xs);
   padding: 0;
   margin: 5px 3px 5px 3px;
 
@@ -519,9 +519,9 @@ img {
 }
 
 .screen {
-  margin: 10px auto;
+  margin: var(--space-xs) auto;
   width: 60%;
-  height: 14%;
+  height: var(--section-space-l);
   background-color: #fff;
 
   transform: rotateX(-45deg);
@@ -564,5 +564,5 @@ img {
 }
 #seats {
   padding: 0;
-  margin: 0 0 0 30px;
+  margin: 0 0 0 10px;
 }
