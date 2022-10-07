@@ -39,12 +39,12 @@ async function login() {
             startSession(1);
             changeLoginText();
             console.log("Redirecting now..... Type 1");
-            router.navigate(`add-movie`);
+            router.navigate(`login`);
         }else if(data.type == 2){
             console.log("Redirecting now..... Type 2");
             startSession(2);
             changeLoginText();
-            router.navigate(`edit-movie`);
+            router.navigate(`login`);
         }
     })
 }
