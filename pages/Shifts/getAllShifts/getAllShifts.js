@@ -20,8 +20,8 @@ async function getAllShifts() {
                 <td>${employeeName}</td>
                 <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
                 <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
-                <td><button class="editbtnshift" id="${shift.id}-edit-btn">Edit</button></td>
-                <td><button class="deletebtnshift" id="${shift.id}-delete-btn">Delete</button></td>
+                <td><button id="${shift.id}-edit-btn">Edit</button></td>
+                <td><button id="${shift.id}-delete-btn">Delete</button></td>
                 `
             })
         document.getElementById("tbl-body-Shifts").appendChild(tr)
@@ -59,8 +59,8 @@ async function getAllShiftsByDate() {
                 <td>${employeeName}</td>
                 <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
                 <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
-                <td><button class="editbtnshift" id="${shift.id}-edit-btn">Edit</button></td>
-                <td><button class="deletebtnshift" id="${shift.id}-delete-btn">Delete</button></td>
+                <td><button id="${shift.id}-edit-btn">Edit</button></td>
+                <td><button id="${shift.id}-delete-btn">Delete</button></td>
                 `
             })
             
@@ -86,6 +86,7 @@ async function deleteShift(id) {
         method: "DELETE"
     }
     await fetch(URL_SHIFTS + id, opts);
+    location.reload();
 }
 
 function toEditShift(id) {
