@@ -1,12 +1,97 @@
+
+
 <template id="template">
+    <div class="slider-container">
+        <div class="menu">
+            <label for="slide-dot-1"></label>
+            <label for="slide-dot-2"></label>
+            <label for="slide-dot-3"></label>
+        </div>
+
+        <input id="slide-dot-1" type="radio" name="slides" checked>
+        <div class="slide slide-1"></div>
+
+        <input id="slide-dot-2" type="radio" name="slides">
+        <div class="slide slide-2"></div>
+
+        <input id="slide-dot-3" type="radio" name="slides">
+        <div class="slide slide-3"></div>
+    </div>
     <div>
-        <div class=content>
-            <div class="hero">
+        <div id="btn-get-all" class=content>
+            <!--<div class="hero">
                 <img class="heroImage" src="/images/blackAdamlogo.jpg" alt="">
+            </div>-->
+
+
+           <div class="header-container">
+               <h1 class="header2">Forza Cinema</h1>
+           </div>
+            <div class="paragraf-container">
+                <p class="paragraf-about">
+                    Her på kino.dk kan du bestille og købe biografbilletter. Du kan læse og se mere fra aktuelle og
+                    kommende premierefilm og blive inspireret til din næste biograftur. Du kan samtidig deltage i
+                    debatter om film, skrive dine egen filmanmeldelser og læse andre brugeres kommentarer og holdninger.
+                    Du kan også læse mediernes dom over de nyeste film og give dem svar på tiltale.
+
+                    Kino.dk er dit filmunivers. Én udbyder, der via flere platforme, samler alt, når det kommer til
+                    filmoplevelse.
+                </p>
+                <p class="paragraf-about">
+                    Kino.dk er ejet af Nordisk Film Biografer og CinemaxX. Vi står for at formidle salget af
+                    biografbilletter mellem biografgængerne og indtil videre 52 danske biografer, som er fordelt over
+                    hele landet. Alle landets biografer er velkomne på sitet.
+
+                    ForzaCinema.dk er et 360 graders filmunivers. Derfor giver vi dig muligheden for at bestille
+                    billetter, hvor som helst og når som helst bl.a. via vores app til smartphone og vores mobilsite.
+                </p>
+                <p class="paragraf-about">
+                    Filmnyheder er en stor del af kino.dk, der udover seneste trailers, billeder og rygter også tilbyder
+                    afstemninger, konkurrencer og meget andet, der alt sammen har noget med film at gøre. Vi producerer
+                    også ForzaCinema TV-indhold i form af interviews med filmstjerner, rapporter fra den røde løber osv.
+                </p>
+                <p class="paragraf-about">
+                    Når du reserverer eller køber biografbilletter gennem ForzaCinema.dk, får du samtidig muligheden for
+                    at oprette en profil og deltage aktivt på sitet. Som bruger på ForzaCinema.dk kan du både give din
+                    mening til kende, følge og dele filmsmag med andre brugere samt diskutere dine holdninger til film.
+                    Alle dine aktiviteter på ForzaCinema.dk samles på din personlige profil, som du kan vælge at dele
+                    med andre brugere.
+
+                    Virksomheden består af i alt 7 fuldtidsansatte, der udgør en redaktion, salgsafdeling, IT og
+                    support.
+                </p>
             </div>
         </div>
-        <div class="header">
-            <h1 class="header1">Forza Cinema</h1>
-        </div>
     </div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
 </template>
+

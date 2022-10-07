@@ -14,6 +14,7 @@ import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
 
+
 //=========Movie End here=========
 //=========Reservation start here=========
 import { initGetAllReservations } from "./pages/reservation/getAllReservations/getAllReservations.js";
@@ -54,7 +55,8 @@ import { initGetSpecificTheater } from "./pages/theater/getSpecificTheater/speci
 
 window.addEventListener("load", async () => {
   //=========Templates Start here=========
-  const templateAbout = await loadTemplate("./pages/about/about.html");
+  const templateAbout = await loadTemplate(
+      "./pages/about/about.html");
 
   //=========Movie start here=========
   const templateGetAllMovies = await loadTemplate(
@@ -134,7 +136,9 @@ window.addEventListener("load", async () => {
       This is the content of the Home Route
       </p>
      `),
-      "/about": () => renderTemplate(templateAbout, "content"),
+      "/about": () => {
+        renderTemplate(templateAbout, "content");
+      },
       //=========Movies start here=========
 
       "/all-movies": () => {
@@ -209,7 +213,6 @@ window.addEventListener("load", async () => {
             renderTemplate(templateGetAllTheaters, "content");
             initGetAllTheaters(match,router);
         },
-
       //=========Theater start here=========
 
       //=========Theater end here=========

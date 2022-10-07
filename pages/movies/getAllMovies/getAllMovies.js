@@ -1,5 +1,5 @@
 const url = "http://localhost:8080/api/movies";
-const screeningsUrl = "http://localhost:8080/api/screenings";
+
 import { encode } from "../../../utils.js";
 import { getAllScreenings } from "../../screenings/getAllScreenings/allScreenings.js";
 
@@ -8,6 +8,7 @@ let router;
 
 export function initGetAllMovies(navigoRouter) {
   document.getElementById("btn-get-all").onclick = getAllMovies;
+
   /*  document.getElementById("tbody-all").onclick = showMovieDetails;*/
   /* document.getElementById("deleteMovie").onclick = deleteMovie; */
   /*  document.getElementById("editMovie").onclick = toEditMovie; */
@@ -19,11 +20,9 @@ export function initGetAllMovies(navigoRouter) {
 export async function getAllMovies() {
   try {
     const moviesFromServer = await fetch(url).then((res) => res.json());
-    const screeningsFromServer = await fetch(screeningsUrl).then((res) =>
-      res.json()
-    );
-    showAllMovies(moviesFromServer, screeningsFromServer);
-    getAllScreenings();
+
+    showAllMovies(moviesFromServer);
+
     slide();
     movies = moviesFromServer;
   } catch (err) {
@@ -37,29 +36,14 @@ function slide() {
     "translatex(150vw)";
 }
 
-// get screening by movie id
-
 // show all movies in a card view
-function showAllMovies(movies, screenings) {
+ function showAllMovies(movies) {
   const card = document.getElementById("cellphone-container");
   card.innerHTML = "";
   movies.forEach((movie) => {
     const divMovie = document.createElement("div");
     divMovie.className = "movie";
-    screenings.forEach((screening) => {
-      // For each movie, get all available times
-
-      if (movie.id === screening.movieId) {
-        // get all screenings for each movie
-        const divScreening = document.createElement("ul");
-        divScreening.className = "movie-gen";
-        divScreening.innerHTML = `
-                <li class="screening-time">${screening.startTime}</li>
-
-               
-                `;
-              
-        divMovie.appendChild(divScreening);
+    console.log(movie);
 
         divMovie.innerHTML = ` 
     <div class="movie-img">
@@ -73,6 +57,7 @@ function showAllMovies(movies, screenings) {
             <li>${movie.ageLimit}</li>
             <li>${movie.duration}</li>
             <li>${movie.genre}</li>   
+            
           </ul >
             
         </div>
@@ -121,17 +106,45 @@ function showAllMovies(movies, screenings) {
           </div>
 
         </div>
+      
       </div>
             
             
       `;
-      
-        divMovie.appendChild(divScreening);
-        card.appendChild(divMovie);
-      }
-    });
+    card.appendChild(divMovie);
+
+    const div = document.createElement("div");
+    div.className = "screenings-container";
+    const ul = document.createElement("ul");
+    ul.className = "screenings";
+
+    divMovie.appendChild(div);
+
+    const screeningResponseSize = movie.screeningResponse;
+    let count = Object.keys(screeningResponseSize);
+
+    for (let i = 0; i < count.length; i++) {
+      console.log(movie.screeningResponse[i].startTime);
+      const divScreening = document.createElement("li");
+      const link = document.createElement("a");
+      link.id = "screening-link";
+      link.href = "#/screening?id=" + movie.screeningResponse[i].id;
+
+      link.innerHTML = movie.screeningResponse[i].startTime;
+
+      divScreening.className = "screening";
+
+      ul.appendChild(divScreening);
+      divScreening.appendChild(link);
+      divMovie.appendChild(ul);
+      div.appendChild(ul);
+    }
   });
 }
+
+// navigate to specific screening page when clicking on a screening link
+
+
 
 
 
