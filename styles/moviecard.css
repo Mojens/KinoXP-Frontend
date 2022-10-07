@@ -26,9 +26,9 @@
   position: relative;
 }
 .movie-img-big{
-    width: 575px !important;
+    width: 500px !important;
   height: 480px !important;
-  max-width: 575px !important;
+  max-width: 500px !important;
   max-height: 480px !important;
   background-repeat: no-repeat;
   -o-object-fit: cover;
@@ -60,7 +60,7 @@
   background-size: contain;
   background-size: cover;
   z-index: 1 !important;
-  width: 575px;
+  width: 500px;
   height: 760px;
   display: block;
   border-radius: 4px;
