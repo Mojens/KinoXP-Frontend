@@ -1,5 +1,10 @@
 export function checkSession1() {
+
     if (sessionStorage.getItem("user1") !== null) {
+        document.getElementById("movieAdminNav").style.display = "inline-block";
+        document.getElementById("screeningsAdminNav").style.display = "inline-block";
+        document.getElementById("theatersAdminNav").style.display = "inline-block";
+        document.getElementById("reservationsBothNav").style.display = "inline-block";
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
             box.style.display = "inline-block";
@@ -10,7 +15,10 @@ export function checkSession1() {
 
         });
     } else if (sessionStorage.getItem("user1") === null) {
-
+        document.getElementById("movieAdminNav").style.display = "none";
+        document.getElementById("screeningsAdminNav").style.display = "none";
+        document.getElementById("theatersAdminNav").style.display = "none";
+        document.getElementById("reservationsBothNav").style.display = "none";
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
             box.style.display = "none";
@@ -68,18 +76,18 @@ export function startSession(type) {
 }
 
 export function changeLoginText() {
+    checkSession1();
+    checkSession2();
     if (sessionStorage.getItem("user1") != null || sessionStorage.getItem("user2") != null) {
         document.getElementById("loginNav1").innerText = "Logout";
-        console.log("logout")
     } else if (sessionStorage.getItem("user1") == null || sessionStorage.getItem("user2") == null) {
         document.getElementById("loginNav1").innerText = "Login";
-        console.log("login")
     }
 }
 
 export function logOut() {
     document.getElementById("loginNav1").onclick = function () {
-        removeSession()
+        removeSession();
         changeLoginText();
     }
 }
