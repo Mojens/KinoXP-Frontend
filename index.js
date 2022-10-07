@@ -235,7 +235,7 @@ window.addEventListener("load", async () => {
       "/AllShifts": () => {
         renderTemplate(templateAllShifts, "content");
         initAllShifts(router);
-      }
+      },
       //=========Shift end here=========
 
       //=========Seat start here=========
