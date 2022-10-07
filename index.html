@@ -26,7 +26,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
     <script src="dropdown.js" type="module"></script>
-
+    <script src="/pages/Shifts/shiftSettings.js" type="module"></script>
     <script src="index.js" type="module"></script>
 </head>
 
@@ -92,8 +92,13 @@
                         <a href="/specific-theater" data-navigo>Specific Theater</a>
                     </div>
                 </li>
-
-
+                <li class="navbar-dropdown">
+                  <a class="nav-link" href="/AllShifts" data-navigo>All Shifts</a>
+                  <div class="dropdown">
+                    <a href="/addShift" data-navigo>Add Shift</a>
+                    <a href="/editShift" data-navigo>Edit Shift</a>
+                  </div>
+                </li>
             </ul>
         </div>
     </div>
