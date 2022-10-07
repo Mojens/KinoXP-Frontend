@@ -95,7 +95,7 @@ ul.menu-simple li {
   margin-right: 5px;
 }
 .bg-light {
-  background-color: #1E1B26!important;
+  background-color: #262626!important;
 
 }
 .dropdown a {
@@ -137,6 +137,7 @@ a .nav-link:hover{
 
 .navbar{
   padding: 0!important;
+  z-index: 10;
 }
 
 .navbar-brand{
@@ -152,11 +153,13 @@ a .nav-link:hover{
 .active-dropdown{
   color: black!important;
   background-color: #f1f1f1;
+
    
 }
 
 .container-fluid{
   padding-left: 0!important;
+
 }
 
 /*
@@ -166,6 +169,7 @@ Dropdown links in Navbar
 .navbar-links {
   list-style-type: none;
   display: flex;
+
 }
 .navbar-links li a {
   display: block;
@@ -174,16 +178,19 @@ Dropdown links in Navbar
   padding: 20px 20px;
   font-weight: 700;
   transition: 0.4s all;
+
 }
 
 .navbar-links li.navbar-dropdown {
   position: relative;
+
 }
 
 .navbar-links li.navbar-dropdown:hover .dropdown {
   visibility: visible;
   opacity: 1;
   transform: translateY(0px);
+
 }
 
 .navbar-links li.navbar-dropdown .dropdown {
@@ -201,17 +208,21 @@ Dropdown links in Navbar
   border-bottom-right-radius: 3px;
   z-index: 111;
   transition: 0.4s all;
+
 }
 .navbar-links li.navbar-dropdown .dropdown a {
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: 400;
+
 }
 .navbar-dropdown .dropdown a:hover {
   padding-left: 30px;
+
 }
 .navbar-links li a:hover {
   color: #112844ff;
+
 }
 
 

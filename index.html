@@ -21,7 +21,12 @@
     <link rel="stylesheet" href="styles/curtains.css"/>
     <link rel="stylesheet" href="styles/meny-styles-non-responsive.css"/>
     <link rel="stylesheet" href="styles/styles.css"/>
+<<<<<<< HEAD
     <link  rel="stylesheet" href="styles/login.css"/>
+=======
+    <link rel="stylesheet" href="styles/root.css"/>
+    <link rel="stylesheet" href="styles/aboutSlider.css" />
+>>>>>>> master
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
@@ -32,8 +37,11 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo-contianer">
+        <img class="Logo" src="/images/ForzaCinemalogo.png" alt="">
+    </div>
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Kino XP</a>
+        <a class="navbar-brand" href="#"></a>
         <button
                 class="navbar-toggler"
                 type="button"
@@ -62,6 +70,7 @@
                     </div>
                 </li>
 
+<<<<<<< HEAD
                 <li class="navbar-dropdown">
                     <a class="nav-link" href="#/all-reservations" data-navigo>Reservations</a>
                     <div class="dropdown">
@@ -69,6 +78,18 @@
                         <a href="#/single-reservation" data-navigo>Find Reservation</a>
                     </div>
                 </li>
+=======
+            <li class="navbar-dropdown">
+              <a class="nav-link" href="/all-reservations" data-navigo>Reservations</a>
+              <div class="dropdown">
+               <a href="/all-reservations" data-navigo>All reservations</a>
+               <a href="/single-reservation" data-navigo>Find Reservation</a>
+               <a href="/edit-reservation" data-navigo>Edit Reservation</a>
+               <a href="/add-reservation" data-navigo>Add Reservation</a>
+               <a href="/delete-reservation" data-navigo>Delete Reservation</a>
+              </div>
+            </li>
+>>>>>>> master
 
                 <li class="navbar-dropdown">
                     <a class="nav-link" href="#/all-screenings" data-navigo>Screenings</a>
@@ -80,11 +101,19 @@
                     </div>
                 </li>
                 <li class="navbar-dropdown">
+<<<<<<< HEAD
                     <a class="nav-link" href="#/all-theaters" data-navigo>All Theaters</a>
               <div class="dropdown">
                   <a href="#/all-theaters" data-navigo>All Theaters</a>
                   <a  href="#/specific-theater" data-navigo>Specific Theater</a>
               </div>
+=======
+                    <a class="nav-link" href="/all-theaters" data-navigo>All Theaters</a>
+                    <div class="dropdown">
+                        <a href="/all-theaters" data-navigo>All Theaters</a>
+                        <a href="/specific-theater" data-navigo>Specific Theater</a>
+                    </div>
+>>>>>>> master
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#/login" ata-navigo>Login</a>
@@ -95,7 +124,6 @@
         </div>
     </div>
 </nav>
-<hr/>
 <div id="content"></div>
 
 
