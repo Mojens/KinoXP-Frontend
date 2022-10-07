@@ -1,39 +1,43 @@
 <template id="btn2-template">
-    <h1>Edit a Reservation</h1>
-    <input id="text-for-id" placeholder="id" />
-    <button id="findEdit">Find Reservation to edit</button>
-    <form>
-        <table class="table">
-            <thead>
-            <tr class="thRow">
-                <th>ID</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Employee ID</th>
-                <th>Safety ID</th>
-                <th>Screening ID</th>
-            </tr>
-            </thead>
-            <tbody id="tbody-all">
-            <tr>
-                <td id="id"></td>
-                <td id="email">
-                    <input id="if1" type="text" />
-                </td>
-                <td id="phone-number">
-                    <input id="if2" type="text" />
-                </td>
-                <td id="employee-id">
-                    <input id="if3" type="number" />
-                </td>
-                <td id="safety-id"></td>
-                <td id="screening-id"></td>
+    <div class="sessionCheck3">
+        <div class="main-container">
+            <h1>Edit a Reservation</h1>
+            <input id="text-for-id" placeholder="id" />
+            <button id="findEdit">Find Reservation to edit</button>
+            <form>
+                <table class="table">
+                    <thead>
+                        <tr class="thRow">
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Employee ID</th>
+                            <th>Safety ID</th>
+                            <th>Screening ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-all">
+                        <tr>
+                            <td id="id"></td>
+                            <td id="email">
+                                <input id="if1" type="text" />
+                            </td>
+                            <td id="phone-number">
+                                <input id="if2" type="text" />
+                            </td>
+                            <td id="employee-id">
+                                <input id="if3" type="number" />
+                            </td>
+                            <td id="safety-id"></td>
+                            <td id="screening-id"></td>
 
-            </tr>
-            <p id="error" style="color: red"></p>
-            </tbody>
-        </table>
-        <p id="edited"></p>
-        <button id="submitEdit">Save edited reservation</button>
-    </form>
+                        </tr>
+                        <p id="error" style="color: red"></p>
+                    </tbody>
+                </table>
+                <p id="edited"></p>
+                <button id="submitEdit">Save edited reservation</button>
+            </form>
+        </div>
+    </div>
 </template>

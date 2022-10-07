@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/reservations/";
 import { encode } from "../../../utils.js";
+import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
 let router;
 
 
 export function initDeleteReservation(navigoRouter) {
+    checkSessionBoth();
     document.getElementById("deleteReservation").onclick = fetchReservationData;
     router = navigoRouter
 }

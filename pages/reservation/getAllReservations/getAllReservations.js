@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/reservations";
 import { encode } from "../../../utils.js";
+import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
 let reservations = [];
 let router;
 
 export function initGetAllReservations(navigoRouter) {
+    checkSessionBoth();
     document.getElementById("btn-get-all").onclick = getAllReservations;
 
     getAllReservations();

@@ -1,6 +1,8 @@
 const url = "http://localhost:8080/api/reservations/";
+import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
 export async function initGetReservationById(match) {
+    checkSessionBoth();
     document.getElementById("singleReservation").onclick = fetchReservationData;
     if (match?.params?.id) {
         const id = match.params.id;

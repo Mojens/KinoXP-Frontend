@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/reservations/";
 import { encode } from "../../../utils.js";
+import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
 let router;
 let reservations = [];
 
 export function initEditReservation(match, navigoRouter) {
+    checkSessionBoth();
     document.getElementById("findEdit").onclick = fetchReservationData;
     const submitEdit = document.getElementById("submitEdit");
     const getEdit = document.getElementById("text-for-id");
