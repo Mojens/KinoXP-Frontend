@@ -1,5 +1,26 @@
 <template id="template">
 <div class="main-container">
+  <div>
+    <div>
+        <input type="date" id="date-to-find">
+        <button id="btn-find-shifts-by-date">View shifts</button>
+    </div>
+    <div id="adminTable">
+    <table class="table">
+        <thead>
+          <tr class="thRow">
+            <th>Employee</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th id="editRow">Edit</th>
+            <th id="deleteRow">Delete</th>
+          </tr>
+        </thead>
+            <tbody id="tbl-body-Shifts"></tbody>
+    </table>
+  </div>
+
+  <div id="EmployeeTable">
     <div>
         <input type="date" id="date-to-find">
         <button id="btn-find-shifts-by-date">View shifts</button>
@@ -10,11 +31,11 @@
             <th>Employee</th>
             <th>Start Time</th>
             <th>End Time</th>
-            <th>Edit</th>
-            <th>Delete</th>
           </tr>
         </thead>
-            <tbody id="tbl-body-Shifts"></tbody>
+            <tbody id="tbl-body-Shifts-Employee"></tbody>
     </table>
+  </div>
+  </div>
 </div>
 </template>

@@ -140,3 +140,26 @@ export function logOut() {
         changeLoginText();
     }
 }
+    export function CheckEditDeleteBtnShift(){
+        console.log(sessionStorage.getItem("user1")+"<-- DETTE ER SEESION");
+
+        if (sessionStorage.getItem("user1") != null) {
+            document.getElementById("adminTable").style.display = "inline-block";
+            document.getElementById("EmployeeTable").style.display = "none";
+    
+
+        }else if(sessionStorage.getItem("user1") == null){
+            document.getElementById("adminTable").style.display = "none";
+            document.getElementById("EmployeeTable").style.display = "inline-block";
+        
+
+            
+        }
+
+
+
+    }
+
+
+
+// Language: javascript

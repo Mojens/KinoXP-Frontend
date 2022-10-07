@@ -1,9 +1,10 @@
-import {URL_SHIFTS} from "../shiftSettings.js";
+import { URL_SHIFTS } from "../shiftSettings.js";
+import { CheckEditDeleteBtnShift } from "../../login/loginSettings.js";
 
 let router;
 
-async function getEmployeeNameById(id){
-    const employee = await fetch("http://localhost:8080/api/employees/"+id).then(r => r.json())
+async function getEmployeeNameById(id) {
+    const employee = await fetch("http://localhost:8080/api/employees/" + id).then(r => r.json())
     return employee.name
 }
 
@@ -16,18 +17,31 @@ async function getAllShifts() {
             .then(employeeName => {
                 tr.innerHTML = `
                 <td>${employeeName}</td>
-                <td>${shift.startTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
-                <td>${shift.endTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
-                <td><button id="${shift.id}-edit-btn">Edit</button></td>
-                <td><button id="${shift.id}-delete-btn">Delete</button></td>
+                <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                <td><button class="editbtnshift" id="${shift.id}-edit-btn">Edit</button></td>
+                <td><button class="deletebtnshift" id="${shift.id}-delete-btn">Delete</button></td>
                 `
             })
         document.getElementById("tbl-body-Shifts").appendChild(tr)
+
+
+        getEmployeeNameById(shift.employeeId).then(employeeName => {
+            document.getElementById("tbl-body-Shifts-Employee").innerHTML =
+                `
+                <tr>
+                <td>${employeeName}</td>
+                <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                </tr>
+                `
+        })
+
     })
 }
 
 async function getAllShiftsByDate() {
-    document.getElementById("tbl-body-Shifts").innerHTML=""
+    document.getElementById("tbl-body-Shifts").innerHTML = ""
     let requestedDate = document.getElementById("date-to-find").value.split("-").reverse().join("-")
 
     const allShifts = await fetch(URL_SHIFTS)
@@ -40,24 +54,36 @@ async function getAllShiftsByDate() {
             .then(employeeName => {
                 tr.innerHTML = `
                 <td>${employeeName}</td>
-                <td>${shift.startTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
-                <td>${shift.endTime.split(" ")[1].split(":").slice(0,2).join(":")}</td>
-                <td><button id="${shift.id}-edit-btn">Edit</button></td>
-                <td><button id="${shift.id}-delete-btn">Delete Shift</button></td>
+                <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                <td><button class="editbtnshift" id="${shift.id}-edit-btn">Edit</button></td>
+                <td><button class="deletebtnshift" id="${shift.id}-delete-btn">Delete</button></td>
                 `
             })
         document.getElementById("tbl-body-Shifts").appendChild(tr)
+
+        
+        getEmployeeNameById(shift.employeeId).then(employeeName => {
+            document.getElementById("tbl-body-Shifts-Employee").innerHTML =
+                `
+                <tr>
+                <td>${employeeName}</td>
+                <td>${shift.startTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                <td>${shift.endTime.split(" ")[1].split(":").slice(0, 2).join(":")}</td>
+                </tr>
+                `
+        })
     })
 }
 
-async function deleteShift(id){
+async function deleteShift(id) {
     let opts = {
         method: "DELETE"
     }
-    await fetch(URL_SHIFTS+id, opts);
+    await fetch(URL_SHIFTS + id, opts);
 }
 
-function toEditShift(id){
+function toEditShift(id) {
     router.navigate("editShift?id=" + id);
 }
 
@@ -66,23 +92,23 @@ function toEditShift(id){
 export function initAllShifts(navigoRouter) {
     const onClick = (event) => {
         if (event.target.nodeName === 'BUTTON') {
-          let id = event.target.id;
-          if(id.endsWith("-delete-btn")){
-              id = id.split("-")[0];
-              console.log(id);
-              deleteShift(id);
-              router.navigate(`AllShifts`);
-          }else if(id.endsWith("-edit-btn")){
-              id = id.split("-")[0];
-              toEditShift(id);
-          }
+            let id = event.target.id;
+            if (id.endsWith("-delete-btn")) {
+                id = id.split("-")[0];
+                console.log(id);
+                deleteShift(id);
+            } else if (id.endsWith("-edit-btn")) {
+                id = id.split("-")[0];
+                toEditShift(id);
+            }
 
 
         }
-      }
-      window.addEventListener('click', onClick);
+    }
+    window.addEventListener('click', onClick);
     getAllShifts()
-
+    CheckEditDeleteBtnShift();
     document.getElementById("btn-find-shifts-by-date").onclick = getAllShiftsByDate
+    CheckEditDeleteBtnShift();
     router = navigoRouter
 }
