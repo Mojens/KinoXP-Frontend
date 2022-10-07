@@ -159,6 +159,13 @@ export function logOut() {
 
     }
 
+    export function checkFindScreeningAdmin(){
+        if (localStorage.getItem("user1") != null) {
+        document.getElementById("adminInputScreening").style.display = "inline-block";
+    }else if(localStorage.getItem("user1") == null){
+        document.getElementById("adminInputScreening").style.display = "none";
+    }
+
 
 
 // Language: javascript

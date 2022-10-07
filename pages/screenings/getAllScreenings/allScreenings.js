@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/screenings";
 import { encode } from "../../../utils.js";
+import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
 let screenings = [];
 let router;
 
 export function initGetAllScreenings(navigoRouter) {
+   checkSession1();
   document.getElementById("btn-get-all").onclick = getAllScreenings;
   document.getElementById("tbody-all").onclick = showScreeningDetails;
   document.getElementById("deleteScreening").onclick = deleteScreening;
