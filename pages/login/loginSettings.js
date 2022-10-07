@@ -5,7 +5,13 @@ export function checkSession1() {
         document.getElementById("screeningsAdminNav").style.display = "inline-block";
         document.getElementById("theatersAdminNav").style.display = "inline-block";
         document.getElementById("reservationsBothNav").style.display = "inline-block";
+
         document.getElementById("ShiftAdminNavDrop").style.display = "inline-block";
+        document.getElementById("ShiftBothNav").style.display = "inline-block";
+        document.getElementById("adminDropDownNav").style.display = "inline-block";
+
+
+
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
             box.style.display = "inline-block";
@@ -20,6 +26,7 @@ export function checkSession1() {
         document.getElementById("screeningsAdminNav").style.display = "none";
         document.getElementById("theatersAdminNav").style.display = "none";
         document.getElementById("ShiftAdminNavDrop").style.display = "none";
+        document.getElementById("adminDropDownNav").style.display = "none";
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
             box.style.display = "none";
@@ -36,7 +43,8 @@ export function checkSession1() {
 export function checkSession2() {
     if (sessionStorage.getItem("user2") !== null) {
         document.getElementById("reservationsBothNav").style.display = "inline-block";
-        document.getElementById("allShiftsNav").style.display = "inline-block";
+        document.getElementById("ShiftAdminNavDrop").style.display = "inline-block";
+        document.getElementById("ShiftBothNav").style.display = "inline-block";
         const boxes = document.querySelectorAll('.sessionCheck2');
         boxes.forEach(box => {
             box.style.display = "inline-block";
@@ -48,7 +56,6 @@ export function checkSession2() {
         });
 
     } else if (sessionStorage.getItem("user2") === null) {
-        document.getElementById("allShiftsNav").style.display = "none";
 
         const boxes = document.querySelectorAll('.sessionCheck2');
         boxes.forEach(box => {
