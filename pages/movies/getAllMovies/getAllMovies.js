@@ -37,7 +37,7 @@ function slide() {
 }
 
 // show all movies in a card view
- function showAllMovies(movies) {
+function showAllMovies(movies) {
   const card = document.getElementById("cellphone-container");
   card.innerHTML = "";
   movies.forEach((movie) => {
@@ -45,7 +45,7 @@ function slide() {
     divMovie.className = "movie";
     console.log(movie);
 
-        divMovie.innerHTML = ` 
+    divMovie.innerHTML = ` 
     <div class="movie-img">
       <img class="movie-img" src="${movie.photo}"  alt="movie image ${movie.title}"/>
     </div>
@@ -130,14 +130,34 @@ function slide() {
       link.id = "screening-link";
       link.href = "#/screening?id=" + movie.screeningResponse[i].id;
 
-      link.innerHTML = movie.screeningResponse[i].startTime
-       // Dont display year
-        .split("T")[0]
-        .split("-")
-        .slice(1)
-        .join("-")
-        
-       
+      if (movie.screeningResponse[i].performance === 100) {
+        link.style.color = "red";
+        link.innerHTML = "Sold out";
+      } else if (movie.screeningResponse[i].performance >= 75) {
+        link.innerHTML = movie.screeningResponse[i].startTime
+          // Dont display year
+          .split("T")[0]
+          .split("-")
+          .slice(1)
+          .join("-");
+        link.style.color = "Orange";
+      } else if (movie.screeningResponse[i].performance >= 50) {
+        link.innerHTML = movie.screeningResponse[i].startTime
+          // Dont display year
+          .split("T")[0]
+          .split("-")
+          .slice(1)
+          .join("-");
+        link.style.color = "yellow";
+      } else {
+       link.innerHTML = movie.screeningResponse[i].startTime
+         // Dont display year
+         .split("T")[0]
+         .split("-")
+         .slice(1)
+         .join("-");
+       link.style.color = "green";
+      }
 
       divScreening.className = "screening";
 
@@ -149,11 +169,14 @@ function slide() {
   });
 }
 
-// navigate to specific screening page when clicking on a screening link
+//
 
-
-
-
+async function getScreeningPerformance(screeningId) {
+  const screening = await fetch(
+    "http://localhost:8080/api/screening/" + screeningId
+  ).then((res) => res.json());
+  return screening.performance;
+}
 
 /*
 function showAllMovies(data) {
