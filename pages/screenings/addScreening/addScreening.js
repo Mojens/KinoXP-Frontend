@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/screenings";
 import { encode } from "../../../utils.js";
+import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
 let router;
 let screening = [];
 
 export function initAddScreening(navigoRouter) {
+  checkSession1();
   document.getElementById("addScreening").onclick = addScreening;
   populateMovieSelect();
   populateTheaterSelect();

@@ -1,10 +1,12 @@
 const url = "http://localhost:8080/api/screenings/";
 import { encode } from "../../../utils.js";
+import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
 let router;
 let screenings = [];
 
 export function initEditScreening(match, navigoRouter) {
+  checkSession1();
   document.getElementById("findEdit").onclick = fetchScreeningData;
   const submitEdit = document.getElementById("submitEdit");
   const getEdit = document.getElementById("text-for-id");
