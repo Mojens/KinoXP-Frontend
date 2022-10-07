@@ -134,18 +134,12 @@ window.addEventListener("load", async () => {
     })
     .on({
       //For very simple "templates", you can just insert your HTML directly like below
-      "/": () =>
-        (document.getElementById("content").innerHTML = `<h2>Home</h2>
-      <p style='margin-top:2em'>
-      This is the content of the Home Route
-      </p>
-     `),
       "/about": () => {
         renderTemplate(templateAbout, "content");
       },
       //=========Movies start here=========
 
-      "/all-movies": () => {
+      "/": () => {
         renderTemplate(templateGetAllMovies, "content");
         initGetAllMovies(router);
       },
