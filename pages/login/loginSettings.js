@@ -3,7 +3,6 @@ export function checkSession1() {
     if (localStorage.getItem("user1") !== null) {
         document.getElementById("movieAdminNav").style.display = "inline-block";
         document.getElementById("screeningsAdminNav").style.display = "inline-block";
-        document.getElementById("theatersAdminNav").style.display = "inline-block";
         document.getElementById("reservationsBothNav").style.display = "inline-block";
 
         document.getElementById("ShiftAdminNavDrop").style.display = "inline-block";
@@ -24,7 +23,6 @@ export function checkSession1() {
     } else if (localStorage.getItem("user1") === null) {
         document.getElementById("movieAdminNav").style.display = "none";
         document.getElementById("screeningsAdminNav").style.display = "none";
-        document.getElementById("theatersAdminNav").style.display = "none";
         document.getElementById("ShiftAdminNavDrop").style.display = "none";
         document.getElementById("adminDropDownNav").style.display = "none";
         const boxes = document.querySelectorAll('.sessionCheck1');
