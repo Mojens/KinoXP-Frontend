@@ -1,7 +1,10 @@
 const url = "http://localhost:8080/api/movies/";
-
+import { checkSession2 } from "../../login/loginSettings.js";
 
 export async function initGetMovieById(match) {
+  console.log(sessionStorage.getItem("user1")+"<-- USER1");
+  console.log(sessionStorage.getItem("user2")+"<-- USER2");
+  checkSession2();
   document.getElementById("singleMovie").onclick = fetchMovieData;
   if (match?.params?.id) {
     const id = match.params.id;

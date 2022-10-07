@@ -11,8 +11,7 @@ export function initLogin(navigo) {
 }
 
 async function login() {
-    removeSession(1);
-    removeSession(2);
+    removeSession();
     const loginInfo = {
         userName: document.getElementById("userNameInput").value,
         password: document.getElementById("passwordInput").value
