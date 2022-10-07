@@ -189,9 +189,9 @@ window.addEventListener("load", async () => {
         renderTemplate(templateGetAllScreenings, "content");
         initGetAllScreenings(router);
       },
-      "/screening": (match) => {
+      "/screening": (match, router) => {
         renderTemplate(templateGetSpecificScreening, "content");
-        initGetSpecificScreening(match);
+        initGetSpecificScreening(match, router);
       },
       "/edit-screening": (match, router) => {
         renderTemplate(templateEditScreening, "content");

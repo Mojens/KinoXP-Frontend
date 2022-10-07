@@ -1,9 +1,23 @@
 const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
+let reservedSeats = []
 
-export function initGetSpecificScreening(match) {
+let router;
+
+export function initGetSpecificScreening(match, navigoRouter) {
   document.getElementById("singleScreening").onclick = fetchScreeningData;
   document.getElementById("btn-get-all").onclick = getAllMovies;
+  document.getElementById("seats").onclick = (element) =>{
+    const id = document.getElementById("text-for-id").value;
+    const x = element.target.id
+    reserveSeats(x)
+
+  }
+  document.getElementById("addReservation").onclick = addReservation;
+
+  router = navigoRouter;
+
+
   if (match?.params?.id) {
     const id = match.params.id;
     try {
@@ -48,6 +62,9 @@ async function getMovieTitle(movieId) {
 }
 
 function showAllMovies(movies) {
+  document.getElementById("if1").style.display = "inline-block"
+  document.getElementById("if2").style.display = "block"
+  document.getElementById("addReservation").style.display = "block"
   const card = document.getElementById("cellphone-container-big");
   card.innerHTML = "";
   movies.forEach((movie) => {
@@ -119,8 +136,10 @@ function showAllMovies(movies) {
          
 
         </div>
+        
       
       </div>
+     
 
       `;
 
@@ -170,6 +189,7 @@ function showAllMovies(movies) {
       }
     }
   });
+
 }
 
 async function renderScreening(id) {
@@ -205,7 +225,7 @@ async function getAllSeats(theaterId, screeningId) {
 }
 
 async function makeAllSeats(allSeats, screeningId) {
-  const main = document.getElementById("seats");
+  const seats = document.getElementById("seats");
 
   const seatResponse = await fetch(
     "http://localhost:8080/api/reservations/fromScreening/" + screeningId
@@ -217,22 +237,20 @@ async function makeAllSeats(allSeats, screeningId) {
   let lastSeat = allSeats[0];
 
   allSeats.forEach((seat) => {
+    let id = "seat-" + seat.id
     
     if (seat.rowNum === lastSeat.rowNum) {
       
       if (reservedSeats.includes(seat.id)) {
-        
-        
-        
-        divInsert += `<li class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
+
+        divInsert += `<li id="${id}" class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
       } else {
-        
-        
-        divInsert += `<li class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+
+        divInsert += `<li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
       }
     } else {
       
-      divInsert += `<br><li class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+      divInsert += `<br><li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
     }
 
     // insert row number every 12 seats
@@ -247,5 +265,88 @@ async function makeAllSeats(allSeats, screeningId) {
     lastSeat = seat;
     
   });
-  main.innerHTML = divInsert;
+  seats.innerHTML = divInsert;
 }
+
+function reserveSeats(seatId){
+  const greenColor = "rgb(241, 241, 241)"
+  const redColor = "rgb(178, 39, 39)"
+  const blueColor = "rgb(0, 0, 255)"
+  let seat = document.getElementById(seatId)
+  let seatColor = window.getComputedStyle(seat).backgroundColor;
+
+  if(!(seatId === "seats")){
+    if(seatColor === redColor){
+      return
+    }else if(reservedSeats.includes(seatId)){
+      document.getElementById(seatId).style.backgroundColor = "#3c805c";
+      reservedSeats = reservedSeats.filter(seat => !(seat.includes(seatId)))
+      return
+    }
+    else {
+      document.getElementById(seatId).style.backgroundColor = "blue";
+      reservedSeats.push(seatId)
+      return
+    }
+  }
+}
+
+async function addReservation() {
+
+  const email = document.getElementById("if1").value;
+  const phoneNumber = document.getElementById("if2").value;
+  const employeeId = 1;
+  const screeningId = document.getElementById("text-for-id").value;
+
+  const newReservation = {
+    email,
+    phoneNumber,
+    employeeId,
+    screeningId
+  };
+  const urlForReservation = "http://localhost:8080/api/reservations";
+  const answer = await fetch(urlForReservation, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newReservation),
+  })
+      .then((res) => res.json())
+
+  addSeatChoices(answer.id)
+
+
+}
+
+async function addSeatChoices(resId) {
+  const urlForSeatChoice = "http://localhost:8080/api/seatchoices/list";
+  let newSeatChoices = []
+  for (let i = 0; i < reservedSeats.length; i++) {
+    const seatChoice = reservedSeats[i]
+    const seatingsId = seatChoice.substring(seatChoice.indexOf("-") + 1);
+    const reservationId = resId
+
+    const newSeatChoice = {
+      seatingsId,
+      reservationId
+    };
+    newSeatChoices.push(newSeatChoice)
+    console.log(newSeatChoice)
+  }
+
+  console.log("All choices")
+  console.log(newSeatChoices)
+
+    const opts = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newSeatChoices)
+    }
+
+     await fetch(urlForSeatChoice, opts);
+  router.navigate(`all-screenings`);
+}
+
