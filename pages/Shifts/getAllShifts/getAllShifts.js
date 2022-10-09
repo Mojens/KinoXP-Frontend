@@ -44,8 +44,7 @@ async function getAllShiftsByDate() {
     document.getElementById("tbl-body-Shifts").innerHTML = ""
     document.getElementById("tbl-body-Shifts-Employee").innerHTML = ""
     let requestedDate = document.getElementById("date-to-find").value
-    document.getElementById("chosendateshift").innerText = ""
-    document.getElementById("chosendateshift").innerText = requestedDate.split("-").reverse().join("-")
+    document.getElementById("chosendateshift").innerText = "Shifts for "+requestedDate.split("-").reverse().join("-")
 
     const allShifts = await fetch(URL_SHIFTS)
         .then(r => r.json())
@@ -92,7 +91,6 @@ async function deleteShift(id) {
 function toEditShift(id) {
     router.navigate("editShift?id=" + id);
 }
-
 
 export function initAllShifts(navigoRouter) {
     checkSessionBoth();
