@@ -32,6 +32,7 @@ export function initGetSpecificScreening(match, navigoRouter) {
 }
 
 async function fetchScreeningData() {
+  document.getElementById("theater-container").style.display = "block"
   document.getElementById("error").innerText = "";
   const id = document.getElementById("text-for-id").value;
   if (!id) {

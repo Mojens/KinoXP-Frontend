@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="fixet småting for screening reservation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/screenings/addScreening/add-screening.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/addScreening/add-screening.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/screenings/editScreening/edit-screening.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/editScreening/edit-screening.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/screenings/getAllScreenings/all-screenings.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/getAllScreenings/all-screenings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/screenings/getAllScreenings/allScreenings.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/getAllScreenings/allScreenings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/getSpecificScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/getSpecificScreening.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/screening.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/screening.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +42,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true"
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
