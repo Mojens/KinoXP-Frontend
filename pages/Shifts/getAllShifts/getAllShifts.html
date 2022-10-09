@@ -1,39 +1,38 @@
 <template id="template">
-  <div class="main-container">
-    <div class="sessionCheck3">
-      
-        <div>
-          <input type="date" id="date-to-find">
-          <button id="btn-find-shifts-by-date">View shifts</button>
+    <div class="main-container">
+        <div class="sessionCheck3">
+            <h2>Work Schedule</h2>
+            <div class="multi-container">
+                <input class="input-big" type="date" id="date-to-find">
+                <button style="margin: 0 !important;" class="btn-red" id="btn-find-shifts-by-date">View shifts</button>
+            </div>
+            <h2 id="chosendateshift"></h2>
+            <div id="adminTable">
+                <table class="table">
+                    <thead>
+                    <tr class="thRow">
+                        <th>Employee</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbl-body-Shifts"></tbody>
+                </table>
+            </div>
+            <div id="EmployeeTable">
+                <table class="table">
+                    <thead>
+                    <tr class="thRow">
+                        <th>Employee</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbl-body-Shifts-Employee"></tbody>
+                </table>
+            </div>
         </div>
-<h2 id="chosendateshift"></h2>
-<div id="adminTable">
-        <table class="table">
-          <thead>
-            <tr class="thRow">
-              <th>Employee</th>
-              <th>Start Time</th>
-              <th>End Time</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody id="tbl-body-Shifts"></tbody>
-        </table>
-      </div>
-
-      <div id="EmployeeTable">
-        <table class="table">
-          <thead>
-            <tr class="thRow">
-              <th>Employee</th>
-              <th>Start Time</th>
-              <th>End Time</th>
-            </tr>
-          </thead>
-          <tbody id="tbl-body-Shifts-Employee"></tbody>
-        </table>
-      </div>
     </div>
-  </div>
 </template>

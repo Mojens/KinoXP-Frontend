@@ -1,16 +1,14 @@
 <template class="template">
     <div class="main-container">
         <div class="sessionCheck1">
-        <div>
-            <input class="input-big" type="datetime-local" id="startTimeInput">
-            <input class="input-big" type="datetime-local" id="endTimeInput">
+            <h2>Add shift</h2>
+            <div class="multi-container">
+                <input class="input-big" type="datetime-local" id="startTimeInput">
+                <input class="input-big" type="datetime-local" id="endTimeInput">
+                <input class="input-big" type="number" id="employeeIdInput" placeholder="Employee Id">
+                <button style="margin: 0 !important;" class="btn-red" id="addShiftbtn">Create Shift</button>
+            </div>
         </div>
-        <div>
-            <br>
-            <input class="input-big" type="number" id="employeeIdInput" placeholder="Employee Id">
-        </div>
-        <button class="btn-red" id="addShiftbtn">Create Shift</button>
-    </div>
     </div>
 
 </template>

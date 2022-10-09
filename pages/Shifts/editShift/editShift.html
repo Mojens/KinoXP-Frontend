@@ -1,16 +1,18 @@
 <template class="template">
     <div class="main-container">
         <div class="sessionCheck1">
-    <div>
-        <input type="text" id="shiftToEdit" placeholder="Shift ID">
-        <button id="findShiftToEdit">Find Shift</button>
-    </div>
-    <div>
-        <input type="datetime-local" id="editStartTimeInput">
-        <input type="datetime-local" id="editEndTimeInput" >
-        <input type="text" id="editEmployeeIdInput" placeholder="Employee Id">
-        <button id="editShiftbtn">edit Shift</button>
-    </div>
+            <h2>Edit shift</h2>
+            <div class="multi-container">
+                <input class="input-big" type="text" id="shiftToEdit" placeholder="Shift ID">
+                <button style="margin: 0 !important;" class="btn-red" id="findShiftToEdit">Find Shift</button>
+            </div>
+            <h3>New information</h3>
+            <div class="multi-container">
+                <input class="input-big" type="datetime-local" id="editStartTimeInput">
+                <input class="input-big" type="datetime-local" id="editEndTimeInput" >
+                <input class="input-big" type="text" id="editEmployeeIdInput" placeholder="Employee Id">
+                <button style="margin: 0 !important;" class="btn-red" id="editShiftbtn">Edit shift</button>
+            </div>
 </div>
     </div>
 </template>
