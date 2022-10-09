@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="roster" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
