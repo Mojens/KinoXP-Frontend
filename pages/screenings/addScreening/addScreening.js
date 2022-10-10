@@ -1,4 +1,5 @@
 const url = "http://localhost:8080/api/screenings";
+const multiURL = "http://localhost:8080/api/screenings/all";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../../pages/login/loginSettings.js";
 

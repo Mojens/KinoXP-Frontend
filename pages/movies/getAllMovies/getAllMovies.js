@@ -37,7 +37,7 @@ function slide() {
 }
 
 // show all movies in a card view
- function showAllMovies(movies) {
+function showAllMovies(movies) {
   const card = document.getElementById("cellphone-container");
   card.innerHTML = "";
   movies.forEach((movie) => {
@@ -45,7 +45,7 @@ function slide() {
     divMovie.className = "movie";
     console.log(movie);
 
-        divMovie.innerHTML = ` 
+    divMovie.innerHTML = ` 
     <div class="movie-img">
       <img class="movie-img" src="${movie.photo}"  alt="movie image ${movie.title}"/>
     </div>
@@ -97,13 +97,13 @@ function slide() {
        </a>
           </div>
           </div> 
-          <div class="col2 action-btn">
-          <h2 class="h2">${movie.price} KR</h2>
-          <i class="material-icons">&#xe54d;</i>
-            
+          <div class="col6 action-btn">
+            <i class="material-icons">&#xe54d;</i>
 
           </div>
-   
+          <div class="col6 action-btn">
+            <i class="material-icons">&#xe5cd;</i>
+          </div>
 
         </div>
       
@@ -130,9 +130,8 @@ function slide() {
       link.id = "screening-link";
       link.href = "#/screening?id=" + movie.screeningResponse[i].id;
 
-      link.innerHTML = movie.screeningResponse[i].startTime;
       if (movie.screeningResponse[i].performance === 100) {
-        link.style.color = "#B22727FF";
+        link.style.color = "red";
         link.innerHTML = "Sold out";
       } else if (movie.screeningResponse[i].performance >= 75) {
         link.innerHTML = movie.screeningResponse[i].startTime
@@ -141,7 +140,7 @@ function slide() {
           .split("-")
           .slice(1)
           .join("-");
-        link.style.color = "#EE5007";
+        link.style.color = "Orange";
       } else if (movie.screeningResponse[i].performance >= 50) {
         link.innerHTML = movie.screeningResponse[i].startTime
           // Dont display year
@@ -149,7 +148,7 @@ function slide() {
           .split("-")
           .slice(1)
           .join("-");
-        link.style.color = "#F8CB2E";
+        link.style.color = "yellow";
       } else {
        link.innerHTML = movie.screeningResponse[i].startTime
          // Dont display year
@@ -157,7 +156,7 @@ function slide() {
          .split("-")
          .slice(1)
          .join("-");
-       link.style.color = "#3c805c";
+       link.style.color = "green";
       }
 
       divScreening.className = "screening";
@@ -170,15 +169,45 @@ function slide() {
   });
 }
 
-// navigate to specific screening page when clicking on a screening link
+//
 
+async function getScreeningPerformance(screeningId) {
+  const screening = await fetch(
+    "http://localhost:8080/api/screening/" + screeningId
+  ).then((res) => res.json());
+  return screening.performance;
+}
 
+/*
+function showAllMovies(data) {
+  const tableRowsArray = data.map(
+    (movie) =>
+      `
+        <tr>
+            <td>${movie.id}</td>
+            <td>${movie.title}</td>
+            <td>${movie.description}</td>
+            <td>${movie.rating}</td>
+            <td>${movie.genre}</td>
+            <td>${movie.duration}</td>
+            <td>${movie.ageLimit}</td>
+            <td>${movie.price}</td>
+           <td><img src="${movie.photo}" alt="photo" width="100" height="100"></td>
+            <td>${movie.showStartDate}</td>
+            <td>${movie.showEndDate}</td>
+          <td>
+    <!--See https://getbootstrap.com/docs/5.0/components/modal/ for an explanation of the classes used below -->
+    <button id="${movie.id}-column-id" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button> 
+   
+    <button id="${movie.id}-column-id" type="button"  class="other-page btn btn-sm btn-secondary">Details-2</button> </td>  
+           
+        </tr>`
+  );
 
-
-
-
-
-
+  const tableRowsString = tableRowsArray.join("\n");
+  document.getElementById("tbody-all").innerHTML = tableRowsString;
+}
+*/
 /*
 async function showMovieDetails(evt) {
   const target = evt.target;
