@@ -43,6 +43,10 @@ async function fetchMovieData() {
 
 /// Placeholder text for a specific Movie for editing
 function createPlaceholderText(movie) {
+
+  if(window.location.href.includes("id")){
+    document.getElementById("text-for-id").value = movie.id;
+  }
   document.getElementById("if1").value = movie.title;
   document.getElementById("if2").value = movie.description;
   document.getElementById("if3").value = movie.rating;
@@ -52,6 +56,7 @@ function createPlaceholderText(movie) {
   document.getElementById("if7").value = movie.price;
   document.getElementById("if8").value = movie.showStartDate;
   document.getElementById("if9").value = movie.showEndDate;
+
 }
 
 /// Find Movie for editing
