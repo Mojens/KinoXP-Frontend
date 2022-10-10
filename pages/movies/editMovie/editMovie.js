@@ -56,6 +56,9 @@ function createPlaceholderText(movie) {
   document.getElementById("if7").value = movie.price;
   document.getElementById("if8").value = movie.showStartDate;
   document.getElementById("if9").value = movie.showEndDate;
+  document.getElementById("if10").value = movie.photo;
+  document.getElementById("if11").value = movie.stars;
+  document.getElementById("if12").value = movie.trailers;
 
 }
 
@@ -86,6 +89,10 @@ async function editMovie(id) {
   const price = document.getElementById("if7").value;
   const showStartDate = document.getElementById("if8").value;
   const showEndDate = document.getElementById("if9").value;
+  const photo = document.getElementById("if10").value;
+  const stars = document.getElementById("if11").value;
+  const trailer = document.getElementById("if12").value;
+
 
   const updatedMovie = {
     id: id,
@@ -96,6 +103,9 @@ async function editMovie(id) {
     duration,
     ageLimit,
     price,
+    photo,
+    stars,
+    trailer,
     showStartDate,
     showEndDate,
   };

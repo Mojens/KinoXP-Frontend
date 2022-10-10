@@ -19,6 +19,9 @@ async function addMovie() {
   const duration = document.getElementById("if5").value;
   const ageLimit = document.getElementById("if6").value;
   const price = document.getElementById("if7").value;
+  const photo = document.getElementById("if10").value;
+  const stars = document.getElementById("if11").value;
+  const trailer = document.getElementById("if12").value;
   const showStartDate = document.getElementById("if8").value;
   const showEndDate = document.getElementById("if9").value;
 
@@ -30,6 +33,9 @@ async function addMovie() {
     duration,
     ageLimit,
     price,
+    photo,
+    stars,
+    trailer,
     showStartDate,
     showEndDate,
     
