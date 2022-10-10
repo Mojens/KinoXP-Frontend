@@ -19,9 +19,10 @@ export function initGetSpecificScreening(match, navigoRouter) {
     showReservedSeats()
   }
 }
+router = navigoRouter;
   document.getElementById("addReservation").onclick = addReservation;
 
-  router = navigoRouter;
+  
 
 
   if (match?.params?.id) {
@@ -321,7 +322,7 @@ async function addReservation() {
       .then((res) => res.json())
 
   addSeatChoices(answer.id)
-
+  router.navigate(`single-reservation?id=${answer.id}`);
 
 }
 
@@ -338,7 +339,7 @@ async function addSeatChoices(resId) {
       reservationId
     };
     newSeatChoices.push(newSeatChoice)
-
+  
   }
 
 
@@ -358,7 +359,7 @@ async function addSeatChoices(resId) {
   }, 1000);
   */
 
-  router.navigate(`all-reservations`);
+
 }
 
 
