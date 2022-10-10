@@ -7,6 +7,7 @@
         const parent = this.parentElement;
         parent.children[0].classList.add("active-dropdown");
         parent.children[0].classList.add("active");
+        
          
        });
      }
@@ -19,6 +20,7 @@
                 const parent = this.parentElement;
                 parent.children[0].classList.remove("active-dropdown");
                 parent.children[0].classList.remove("active");
+                
             });
         }
       
@@ -28,6 +30,8 @@
      const parent = this.parentElement;
      
      parent.children[0].classList.remove("active-dropdown");
+      parent.children[0].classList.remove("active");
+     
        });
      }
  

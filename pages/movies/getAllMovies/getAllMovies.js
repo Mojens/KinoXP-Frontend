@@ -97,8 +97,10 @@ function slide() {
        </a>
           </div>
           </div> 
-          <div class="col6 action-btn">
-            <i class="material-icons">&#xe54d;</i>
+          <div class="col2 action-btn">
+          <h2 class="h2">${movie.price} KR</h2>
+          <i class="material-icons">&#xe54d;</i>
+            
 
           </div>
    
@@ -174,36 +176,9 @@ function slide() {
 
 
 
-/*
-function showAllMovies(data) {
-  const tableRowsArray = data.map(
-    (movie) =>
-      `
-        <tr>
-            <td>${movie.id}</td>
-            <td>${movie.title}</td>
-            <td>${movie.description}</td>
-            <td>${movie.rating}</td>
-            <td>${movie.genre}</td>
-            <td>${movie.duration}</td>
-            <td>${movie.ageLimit}</td>
-            <td>${movie.price}</td>
-           <td><img src="${movie.photo}" alt="photo" width="100" height="100"></td>
-            <td>${movie.showStartDate}</td>
-            <td>${movie.showEndDate}</td>
-          <td>
-    <!--See https://getbootstrap.com/docs/5.0/components/modal/ for an explanation of the classes used below -->
-    <button id="${movie.id}-column-id" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button> 
-   
-    <button id="${movie.id}-column-id" type="button"  class="other-page btn btn-sm btn-secondary">Details-2</button> </td>  
-           
-        </tr>`
-  );
 
-  const tableRowsString = tableRowsArray.join("\n");
-  document.getElementById("tbody-all").innerHTML = tableRowsString;
-}
-*/
+
+
 /*
 async function showMovieDetails(evt) {
   const target = evt.target;
