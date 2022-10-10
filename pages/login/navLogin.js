@@ -1,3 +1,3 @@
-import { changeLoginText, checkSession1, checkSession2, logOut } from "./loginSettings.js"
+import { changeLoginText, loggedUserName, logOut } from "./loginSettings.js"
 changeLoginText();
 logOut();

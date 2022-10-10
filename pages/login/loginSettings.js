@@ -25,6 +25,7 @@ export function checkSession1() {
         document.getElementById("screeningsAdminNav").style.display = "none";
         document.getElementById("ShiftAdminNavDrop").style.display = "none";
         document.getElementById("adminDropDownNav").style.display = "none";
+       
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
             box.style.display = "none";
@@ -54,7 +55,6 @@ export function checkSession2() {
         });
 
     } else if (localStorage.getItem("user2") === null) {
-
         const boxes = document.querySelectorAll('.sessionCheck2');
         boxes.forEach(box => {
             box.style.display = "none";
@@ -70,12 +70,14 @@ export function checkSession2() {
 
 export function checkSessionBoth() {
     if (localStorage.getItem("user2") !== null || localStorage.getItem("user1") !== null) {
+        document.getElementById("loggedInNav").style.display = "inline-block"
         const boxes = document.querySelectorAll('.sessionCheck3');
         boxes.forEach(box => {
             box.style.display = "block";
         });
     }
     else if (localStorage.getItem("user2") === null || localStorage.getItem("user1") === null) {
+        document.getElementById("loggedInNav").style.display = "none";
         document.getElementById("reservationsBothNav").style.display = "none";
         const boxes = document.querySelectorAll('.sessionCheck3');
         boxes.forEach(box => {
@@ -123,6 +125,7 @@ export function startSession(type, userObj) {
 export function changeLoginText() {
     checkSession1();
     checkSession2();
+    loggedUserName();
     checkSessionBoth();
     if (localStorage.getItem("user1") != null || localStorage.getItem("user2") != null) {
         document.getElementById("loginNav1").innerText = "Logout";
@@ -165,16 +168,28 @@ export function getUserId() {
     if (localStorage.getItem("user1") !== null && localStorage.getItem("user2") === null) {
         const user1 = JSON.stringify(localStorage.getItem("user1"));
         const user1Id = user1.split(",")[0].split(":")[1];
-        console.log("Userobject id -> " + user1Id);
         return user1Id;
     } else if (localStorage.getItem("user2") !== null && localStorage.getItem("user1") === null) {
         const user2 = JSON.stringify(localStorage.getItem("user2"));
         const user2Id = user2.split(",")[0].split(":")[1];
-        console.log("Userobject id -> " + user2Id);
         return user2Id;
     }
-
 }
+    export function loggedUserName(){
+        if (localStorage.getItem("user1") !== null && localStorage.getItem("user2") === null) {
+            const user1 = JSON.stringify(localStorage.getItem("user1"));
+            const user1userName = user1.split(",")[3].split(":")[1].split('"')[1].slice(0, -1);
+            document.getElementById("loggedInUserName").innerText = "";
+            document.getElementById("loggedInUserName").innerText = user1userName;
+            return user1userName;
+        } else if (localStorage.getItem("user2") !== null && localStorage.getItem("user1") === null) {
+            const user2 = JSON.stringify(localStorage.getItem("user2"));
+            const user2userName = user2.split(",")[3].split(":")[1].split('"')[1].slice(0, -1);
+            document.getElementById("loggedInUserName").innerText = "";
+            document.getElementById("loggedInUserName").innerText = user2userName;
+            return user2userName;
+        }
+    }
 
 
 
