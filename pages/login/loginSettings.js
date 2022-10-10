@@ -13,7 +13,7 @@ export function checkSession1() {
 
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
-            box.style.display = "inline-block";
+            box.style.display = "block";
         });
         const boxes2 = document.querySelectorAll('.sessionCheck2');
         boxes2.forEach(box2 => {
@@ -72,7 +72,7 @@ export function checkSessionBoth() {
     if (localStorage.getItem("user2") !== null || localStorage.getItem("user1") !== null) {
         const boxes = document.querySelectorAll('.sessionCheck3');
         boxes.forEach(box => {
-            box.style.display = "inline-block";
+            box.style.display = "block";
         });
     }
     else if (localStorage.getItem("user2") === null || localStorage.getItem("user1") === null) {
