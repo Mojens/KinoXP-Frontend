@@ -2,6 +2,7 @@ import { checkFindScreeningAdmin } from "../../../pages/login/loginSettings.js";
 import { getUserId } from "../../../pages/login/loginSettings.js";
 const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
+let allSeats;
 let reservedSeats = []
 let currentScreeningId;
 
@@ -15,8 +16,7 @@ export function initGetSpecificScreening(match, navigoRouter) {
   document.getElementById("seats").onclick = (element) =>{
     const x = element.target.id
     reserveSeats(x)
-    document.getElementById("selectedSeatss").innerText = ""
-    document.getElementById("selectedSeatss").innerText = "Selected seats: " + reservedSeats.toString()
+    showReservedSeats()
   }
 }
   document.getElementById("addReservation").onclick = addReservation;
@@ -218,18 +218,12 @@ async function renderScreening(id) {
       document.getElementById("movie").innerText = title;
     });
     document.getElementById("theater").innerText = screening.theaterId;
-
-    getAllSeats(screening.theaterId, id);
+    allSeats = await fetch("http://localhost:8080/api/seats/theaterid/" + screening.theaterId)
+        .then((res) => res.json());
+    makeAllSeats(allSeats, id);
   } catch (err) {
     console.log("UPS " + err.message);
   }
-}
-
-async function getAllSeats(theaterId, screeningId) {
-  const allSeats = await fetch(
-    "http://localhost:8080/api/seats/theaterid/" + theaterId
-  ).then((res) => res.json());
-  makeAllSeats(allSeats, screeningId);
 }
 
 async function makeAllSeats(allSeats, screeningId) {
@@ -358,4 +352,23 @@ async function addSeatChoices(resId) {
 
      await fetch(urlForSeatChoice, opts);
   //router.navigate(`all-screenings`);
+}
+
+
+async function showReservedSeats(){
+
+  let resNumAndRow = []
+
+  for (let i = 0; i < reservedSeats.length; i++) {
+    let tempSeat = reservedSeats[i].substring(reservedSeats[i].indexOf("-") + 1);
+    for (let j = 0; j <allSeats.length; j++) {
+        if(tempSeat == allSeats[j].id){
+          let text = allSeats[j].rowNum + "-" + allSeats[j].seatNumber
+          resNumAndRow.push(text)
+        }
+    }
+  }
+  document.getElementById("selectedSeatss").innerText = ""
+  document.getElementById("selectedSeatss").innerText = "Selected seats: " + resNumAndRow.toString()
+
 }
