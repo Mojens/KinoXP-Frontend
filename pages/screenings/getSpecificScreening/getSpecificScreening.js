@@ -1,28 +1,34 @@
+import { checkFindScreeningAdmin } from "../../../pages/login/loginSettings.js";
+import { getUserId } from "../../../pages/login/loginSettings.js";
 const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
 let reservedSeats = []
-import { checkFindScreeningAdmin } from "../../../pages/login/loginSettings.js";
 let currentScreeningId;
-console.log(currentScreeningId)
+
 let router;
 
 export function initGetSpecificScreening(match, navigoRouter) {
   checkFindScreeningAdmin();
   document.getElementById("singleScreening").onclick = fetchScreeningData;
   document.getElementById("btn-get-all").onclick = getAllMovies;
+  if (getUserId() != null) {
   document.getElementById("seats").onclick = (element) =>{
-    const id = document.getElementById("text-for-id").value;
     const x = element.target.id
     reserveSeats(x)
+    document.getElementById("selectedSeatss").innerText = ""
+    document.getElementById("selectedSeatss").innerText = "Selected seats: " + reservedSeats.toString()
 
   }
+}
   document.getElementById("addReservation").onclick = addReservation;
+
   router = navigoRouter;
 
 
   if (match?.params?.id) {
     const id = match.params.id;
     try {
+      currentScreeningId = id
       renderScreening(id);
       getAllMovies();
     } catch (error) {
@@ -33,7 +39,6 @@ export function initGetSpecificScreening(match, navigoRouter) {
 }
 
 async function fetchScreeningData() {
-  document.getElementById("theater-container").style.display = "block"
   document.getElementById("error").innerText = "";
   const id = document.getElementById("text-for-id").value;
   if (!id) {
@@ -42,8 +47,6 @@ async function fetchScreeningData() {
   }
   try {
     currentScreeningId = id
-    
-    
     renderScreening(id);
     getAllMovies();
   } catch (err) {
@@ -80,7 +83,6 @@ function showAllMovies(movies) {
     const screeningId = document.getElementById("id").innerText;
     console.log("Screening ID: " + screeningId);
     console.log("Movie ID: " + movie.id);
-   
 
     divMovie.innerHTML = ` 
     <div class="movie-img-big">
@@ -152,12 +154,6 @@ function showAllMovies(movies) {
 
     const screeningResponseSize = movie.screeningResponse;
     let count = Object.keys(screeningResponseSize);
-     if (window.location.href.includes(movie.id)) {
-       const Tcontainer = document.getElementById("theater-container");
-       Tcontainer.style.display = "block";
-       console.log("IDIDID: " + movie.id);
-       console.log(url);
-     } 
 
     for (let i = 0; i < count.length; i++) {
       if (movie.screeningResponse[i].id == screeningId) {
@@ -199,11 +195,6 @@ function showAllMovies(movies) {
         divScreening.appendChild(link);
         divMovie.appendChild(ul);
         div.appendChild(ul);
-
-       // display top class only if when url has id
-        if (currentScreeningId) {
-          document.getElementById("top").style.display = "block";
-        }
       }
     }
   });
@@ -267,8 +258,12 @@ async function makeAllSeats(allSeats, screeningId) {
         divInsert += `<li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
       }
     } else {
-      
-      divInsert += `<br><li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+      if (reservedSeats.includes(seat.id)) {
+        divInsert += `<br><li id="${id}" class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
+      } else {
+
+        divInsert += `<br><li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
+      }
     }
 
     // insert row number every 12 seats
@@ -287,9 +282,8 @@ async function makeAllSeats(allSeats, screeningId) {
 }
 
 function reserveSeats(seatId){
-  const greenColor = "rgb(241, 241, 241)"
   const redColor = "rgb(178, 39, 39)"
-  const blueColor = "rgb(0, 0, 255)"
+
   let seat = document.getElementById(seatId)
   let seatColor = window.getComputedStyle(seat).backgroundColor;
 
@@ -313,8 +307,9 @@ async function addReservation() {
 
   const email = document.getElementById("if1").value;
   const phoneNumber = document.getElementById("if2").value;
-  const employeeId = 1;
-  const screeningId = document.getElementById("text-for-id").value;
+  const employeeId = getUserId();
+  const screeningId = currentScreeningId
+  console.log(screeningId)
 
   const newReservation = {
     email,
@@ -350,11 +345,9 @@ async function addSeatChoices(resId) {
       reservationId
     };
     newSeatChoices.push(newSeatChoice)
-    console.log(newSeatChoice)
+
   }
 
-  console.log("All choices")
-  console.log(newSeatChoices)
 
     const opts = {
       method: "POST",
@@ -365,6 +358,5 @@ async function addSeatChoices(resId) {
     }
 
      await fetch(urlForSeatChoice, opts);
-  router.navigate(`all-screenings`);
+  //router.navigate(`all-screenings`);
 }
-
