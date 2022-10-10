@@ -351,7 +351,14 @@ async function addSeatChoices(resId) {
     }
 
      await fetch(urlForSeatChoice, opts);
-  //router.navigate(`all-screenings`);
+  /*
+  //Trying to redirect after adding reservation.
+  setTimeout(function(){
+    window.location.href = `/all-reservations`;
+  }, 1000);
+  */
+
+  router.navigate(`all-screenings`);
 }
 
 
