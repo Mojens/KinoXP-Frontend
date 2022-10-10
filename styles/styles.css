@@ -381,7 +381,10 @@ p#pricePrDay:before {
   max-height: 200px;
   padding: 0 20px 0 0;
 }
+.inner-content{
+  color: black!important;
 
+}
 
 .screening {
   list-style: none;
@@ -549,7 +552,7 @@ img {
   align-items: center;
   color: white;
 }
-#starttime {
+h4#starttime {
   display: flex;
   flex-direction: column;
   justify-content: center;

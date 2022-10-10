@@ -48,9 +48,9 @@ function showAllScreenings(data) {
                 <td>${screening.endTime}</td>
                 <td>${title}</td>
                 <td>${screening.theaterId}</td>
-                <button id="${screening.id}-column-id" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button> 
+                <button id="${screening.id}-column-id" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button> 
    
-    <button id="${screening.id}-column-id" type="button"  class="other-page btn btn-sm btn-secondary">Details-2</button> </td>  
+    <button id="${screening.id}-column-id" type="button"  class="other-page btn btn-sm btn-secondary">Go To</button> </td>  
             `;
     });
 

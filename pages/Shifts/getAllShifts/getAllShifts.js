@@ -105,10 +105,9 @@ export function initAllShifts(navigoRouter) {
                 id = id.split("-")[0];
                 toEditShift(id);
             }
-
-
         }
     }
+
     window.addEventListener('click', onClick);
     getAllShifts()
     CheckEditDeleteBtnShift();
