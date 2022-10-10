@@ -3,7 +3,7 @@ import { getUserId } from "../../../pages/login/loginSettings.js";
 const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
 let allSeats;
-let reservedSeats = []
+let reservedSeats = [];
 let currentScreeningId;
 
 let router;
@@ -13,22 +13,19 @@ export function initGetSpecificScreening(match, navigoRouter) {
   document.getElementById("singleScreening").onclick = fetchScreeningData;
   document.getElementById("btn-get-all").onclick = getAllMovies;
   if (getUserId() != null) {
-  document.getElementById("seats").onclick = (element) =>{
-    const x = element.target.id
-    reserveSeats(x)
-    showReservedSeats()
+    document.getElementById("seats").onclick = (element) => {
+      const x = element.target.id;
+      reserveSeats(x);
+      showReservedSeats();
+    };
   }
-}
-router = navigoRouter;
+  router = navigoRouter;
   document.getElementById("addReservation").onclick = addReservation;
-
-  
-
 
   if (match?.params?.id) {
     const id = match.params.id;
     try {
-      currentScreeningId = id
+      currentScreeningId = id;
       renderScreening(id);
       getAllMovies();
     } catch (error) {
@@ -46,7 +43,7 @@ async function fetchScreeningData() {
     return;
   }
   try {
-    currentScreeningId = id
+    currentScreeningId = id;
     renderScreening(id);
     getAllMovies();
   } catch (err) {
@@ -71,9 +68,9 @@ async function getMovieTitle(movieId) {
 }
 
 function showAllMovies(movies) {
-  document.getElementById("if1").style.display = "inline-block"
-  document.getElementById("if2").style.display = "block"
-  document.getElementById("addReservation").style.display = "block"
+  document.getElementById("if1").style.display = "inline-block";
+  document.getElementById("if2").style.display = "block";
+  document.getElementById("addReservation").style.display = "block";
   const card = document.getElementById("cellphone-container-big");
   card.innerHTML = "";
   movies.forEach((movie) => {
@@ -198,7 +195,6 @@ function showAllMovies(movies) {
       }
     }
   });
-
 }
 
 async function renderScreening(id) {
@@ -219,8 +215,9 @@ async function renderScreening(id) {
       document.getElementById("movie").innerText = title;
     });
     document.getElementById("theater").innerText = screening.theaterId;
-    allSeats = await fetch("http://localhost:8080/api/seats/theaterid/" + screening.theaterId)
-        .then((res) => res.json());
+    allSeats = await fetch(
+      "http://localhost:8080/api/seats/theaterid/" + screening.theaterId
+    ).then((res) => res.json());
     makeAllSeats(allSeats, id);
   } catch (err) {
     console.log("UPS " + err.message);
@@ -240,22 +237,18 @@ async function makeAllSeats(allSeats, screeningId) {
   let lastSeat = allSeats[0];
 
   allSeats.forEach((seat) => {
-    let id = "seat-" + seat.id
-    
-    if (seat.rowNum === lastSeat.rowNum) {
-      
-      if (reservedSeats.includes(seat.id)) {
+    let id = "seat-" + seat.id;
 
+    if (seat.rowNum === lastSeat.rowNum) {
+      if (reservedSeats.includes(seat.id)) {
         divInsert += `<li id="${id}" class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
       } else {
-
         divInsert += `<li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
       }
     } else {
       if (reservedSeats.includes(seat.id)) {
         divInsert += `<br><li id="${id}" class="seats" style="background-color: #B22727">${seat.rowNum}${seat.seatNumber} </li>`;
       } else {
-
         divInsert += `<br><li id="${id}" class="seats">${seat.rowNum}${seat.seatNumber} </li>`;
       }
     }
@@ -263,53 +256,49 @@ async function makeAllSeats(allSeats, screeningId) {
     // insert row number every 12 seats
     if (seat.seatNumber % 12 === 0 && seat.theaterId === 1) {
       divInsert += `<li class="seatsNumber">${seat.rowNum}</li>`;
-      
     } else if (seat.seatNumber % 16 === 0 && seat.theaterId === 2) {
       divInsert += `<li class="seatsNumber">${seat.rowNum}</li>`;
 
       // insert row number before the start of the row
-  }  
+    }
     lastSeat = seat;
-    
   });
   seats.innerHTML = divInsert;
 }
 
-function reserveSeats(seatId){
-  const redColor = "rgb(178, 39, 39)"
+function reserveSeats(seatId) {
+  const redColor = "rgb(178, 39, 39)";
 
-  let seat = document.getElementById(seatId)
+  let seat = document.getElementById(seatId);
   let seatColor = window.getComputedStyle(seat).backgroundColor;
 
-  if(!(seatId === "seats")){
-    if(seatColor === redColor){
-      return
-    }else if(reservedSeats.includes(seatId)){
+  if (!(seatId === "seats")) {
+    if (seatColor === redColor) {
+      return;
+    } else if (reservedSeats.includes(seatId)) {
       document.getElementById(seatId).style.backgroundColor = "#3c805c";
-      reservedSeats = reservedSeats.filter(seat => !(seat.includes(seatId)))
-      return
-    }
-    else {
+      reservedSeats = reservedSeats.filter((seat) => !seat.includes(seatId));
+      return;
+    } else {
       document.getElementById(seatId).style.backgroundColor = "blue";
-      reservedSeats.push(seatId)
-      return
+      reservedSeats.push(seatId);
+      return;
     }
   }
 }
 
 async function addReservation() {
-
   const email = document.getElementById("if1").value;
   const phoneNumber = document.getElementById("if2").value;
   const employeeId = getUserId();
-  const screeningId = currentScreeningId
-  console.log(screeningId)
+  const screeningId = currentScreeningId;
+  console.log(screeningId);
 
   const newReservation = {
     email,
     phoneNumber,
     employeeId,
-    screeningId
+    screeningId,
   };
   const urlForReservation = "http://localhost:8080/api/reservations";
   const answer = await fetch(urlForReservation, {
@@ -318,65 +307,59 @@ async function addReservation() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newReservation),
-  })
-      .then((res) => res.json())
+  }).then((res) => res.json());
 
-  addSeatChoices(answer.id)
+  addSeatChoices(answer.id);
   router.navigate(`single-reservation?id=${answer.id}`);
-
 }
 
 async function addSeatChoices(resId) {
   const urlForSeatChoice = "http://localhost:8080/api/seatchoices/list";
-  let newSeatChoices = []
+  let newSeatChoices = [];
   for (let i = 0; i < reservedSeats.length; i++) {
-    const seatChoice = reservedSeats[i]
+    const seatChoice = reservedSeats[i];
     const seatingsId = seatChoice.substring(seatChoice.indexOf("-") + 1);
-    const reservationId = resId
+    const reservationId = resId;
 
     const newSeatChoice = {
       seatingsId,
-      reservationId
+      reservationId,
     };
-    newSeatChoices.push(newSeatChoice)
-  
+    newSeatChoices.push(newSeatChoice);
   }
 
+  const opts = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newSeatChoices),
+  };
 
-    const opts = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newSeatChoices)
-    }
-
-     await fetch(urlForSeatChoice, opts);
+  await fetch(urlForSeatChoice, opts);
   /*
   //Trying to redirect after adding reservation.
   setTimeout(function(){
     window.location.href = `/all-reservations`;
   }, 1000);
   */
-
-
 }
 
-
-async function showReservedSeats(){
-
-  let resNumAndRow = []
+async function showReservedSeats() {
+  let resNumAndRow = [];
 
   for (let i = 0; i < reservedSeats.length; i++) {
-    let tempSeat = reservedSeats[i].substring(reservedSeats[i].indexOf("-") + 1);
-    for (let j = 0; j <allSeats.length; j++) {
-        if(tempSeat == allSeats[j].id){
-          let text = allSeats[j].rowNum + "-" + allSeats[j].seatNumber
-          resNumAndRow.push(text)
-        }
+    let tempSeat = reservedSeats[i].substring(
+      reservedSeats[i].indexOf("-") + 1
+    );
+    for (let j = 0; j < allSeats.length; j++) {
+      if (tempSeat == allSeats[j].id) {
+        let text = allSeats[j].rowNum + "-" + allSeats[j].seatNumber;
+        resNumAndRow.push(text);
+      }
     }
   }
-  document.getElementById("selectedSeatss").innerText = ""
-  document.getElementById("selectedSeatss").innerText = "Selected seats: " + resNumAndRow.toString()
-
+  document.getElementById("selectedSeatss").innerText = "";
+  document.getElementById("selectedSeatss").innerText =
+    "Selected seats: " + resNumAndRow.toString();
 }
