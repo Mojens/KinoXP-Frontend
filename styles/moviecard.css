@@ -67,8 +67,8 @@
 }
 
 .movie:hover {
-  transform: matrix(1.05, 0, 0, 1.05, 0, 0);
-  transition: all 0.3s ease-in-out;
+  transform: matrix(1.01, 0, 0, 1.01, 0, 0);
+  transition: all 0.2s ease-in-out;
 }
 
 .text-movie-cont {

@@ -97,13 +97,13 @@ function showAllMovies(movies) {
        </a>
           </div>
           </div> 
-          <div class="col6 action-btn">
-            <i class="material-icons">&#xe54d;</i>
+          <div class="col2 action-btn">
+          <h2 class="h2">${movie.price} KR</h2>
+          <i class="material-icons">&#xe54d;</i>
+            
 
           </div>
-          <div class="col6 action-btn">
-            <i class="material-icons">&#xe5cd;</i>
-          </div>
+        
 
         </div>
       
