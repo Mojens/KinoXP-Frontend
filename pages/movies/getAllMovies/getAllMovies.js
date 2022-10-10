@@ -131,6 +131,34 @@ function slide() {
       link.href = "#/screening?id=" + movie.screeningResponse[i].id;
 
       link.innerHTML = movie.screeningResponse[i].startTime;
+      if (movie.screeningResponse[i].performance === 100) {
+        link.style.color = "#B22727FF";
+        link.innerHTML = "Sold out";
+      } else if (movie.screeningResponse[i].performance >= 75) {
+        link.innerHTML = movie.screeningResponse[i].startTime
+          // Dont display year
+          .split("T")[0]
+          .split("-")
+          .slice(1)
+          .join("-");
+        link.style.color = "#EE5007";
+      } else if (movie.screeningResponse[i].performance >= 50) {
+        link.innerHTML = movie.screeningResponse[i].startTime
+          // Dont display year
+          .split("T")[0]
+          .split("-")
+          .slice(1)
+          .join("-");
+        link.style.color = "#F8CB2E";
+      } else {
+       link.innerHTML = movie.screeningResponse[i].startTime
+         // Dont display year
+         .split("T")[0]
+         .split("-")
+         .slice(1)
+         .join("-");
+       link.style.color = "#3c805c";
+      }
 
       divScreening.className = "screening";
 
