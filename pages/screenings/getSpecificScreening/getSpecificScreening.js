@@ -17,7 +17,6 @@ export function initGetSpecificScreening(match, navigoRouter) {
     reserveSeats(x)
     document.getElementById("selectedSeatss").innerText = ""
     document.getElementById("selectedSeatss").innerText = "Selected seats: " + reservedSeats.toString()
-
   }
 }
   document.getElementById("addReservation").onclick = addReservation;

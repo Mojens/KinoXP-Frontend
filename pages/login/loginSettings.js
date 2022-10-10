@@ -4,7 +4,7 @@ export function checkSession1() {
         document.getElementById("movieAdminNav").style.display = "inline-block";
         document.getElementById("screeningsAdminNav").style.display = "inline-block";
         document.getElementById("reservationsBothNav").style.display = "inline-block";
-
+        document.getElementById("moviesforAllNav").style.display = "none";
         document.getElementById("ShiftAdminNavDrop").style.display = "inline-block";
         document.getElementById("ShiftBothNav").style.display = "inline-block";
         document.getElementById("adminDropDownNav").style.display = "inline-block";
@@ -25,6 +25,7 @@ export function checkSession1() {
         document.getElementById("screeningsAdminNav").style.display = "none";
         document.getElementById("ShiftAdminNavDrop").style.display = "none";
         document.getElementById("adminDropDownNav").style.display = "none";
+        document.getElementById("moviesforAllNav").style.display = "inline-block";
        
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
@@ -157,9 +158,9 @@ export function CheckEditDeleteBtnShift() {
 }
 
 export function checkFindScreeningAdmin() {
-    if (localStorage.getItem("user1") !== null) {
+    if (localStorage.getItem("user1") !== null || localStorage.getItem("user2") !== null) {
         document.getElementById("adminInputScreening").style.display = "inline";
-    } else if (localStorage.getItem("user1") === null) {
+    } else if (localStorage.getItem("user1") === null || localStorage.getItem("user2") === null) {
         document.getElementById("adminInputScreening").style.display = "none";
     }
 }
