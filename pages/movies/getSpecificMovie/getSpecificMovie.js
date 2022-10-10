@@ -99,6 +99,7 @@ async function renderMovie(id) {
     </td>
     `;
       card.appendChild(tr);
+      
     }
   
 
@@ -196,3 +197,5 @@ async function updateTable(id) {
 
   tbody.removeChild(document.getElementById(id + "-column-id").parentElement);
 }
+
+// Function to sort the table by clicking on the table headers
