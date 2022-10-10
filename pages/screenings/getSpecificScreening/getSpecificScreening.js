@@ -2,6 +2,7 @@ const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
 let reservedSeats = []
 import { checkFindScreeningAdmin } from "../../../pages/login/loginSettings.js";
+let currentScreeningId;
 console.log(currentScreeningId)
 let router;
 
