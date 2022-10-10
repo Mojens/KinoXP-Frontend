@@ -188,7 +188,7 @@ Dropdown links in Navbar
   color: #444;
   padding: 20px 20px;
   font-weight: 700;
-  transition: 0.4s all;
+  transition: 0.2s ease-in;
 
 }
 
@@ -210,7 +210,6 @@ Dropdown links in Navbar
   position: absolute;
   padding: 20px 0;
   top: 100%;
-  transform: translateY(50px);
   left: 0;
   width: 250px;
   background-color: #f1f1f1;
@@ -218,7 +217,6 @@ Dropdown links in Navbar
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   z-index: 111;
-  transition: 0.2s all;
 
 }
 .navbar-links li.navbar-dropdown .dropdown a {
