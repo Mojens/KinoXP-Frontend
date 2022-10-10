@@ -479,7 +479,6 @@ img {
   position: absolute;
   top: 0;
   left: 100%;
-  z-index: 10;
   padding: 8em 1em 0;
   background-size: cover;
   background-position: 50% 50%;
@@ -488,7 +487,6 @@ img {
 
 [id^=slide]:checked + .slide {
   left: 0;
-  z-index: 100;
   transition: left 0.65s ease-out;
 }
 
