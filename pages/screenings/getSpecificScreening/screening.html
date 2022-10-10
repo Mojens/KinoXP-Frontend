@@ -1,11 +1,9 @@
 <template id="btn3-template">
   <div class="main-container">
-    <h2  >Find Screening</h2>
-    <input type="number" id="text-for-id" placeholder="Screening ID" />
-    <button style="margin:0 !important;" class="btn-red" id="singleScreening">Find Screening</button>
+    
     <table id="btn-get-all" hidden class="table">
       <thead>
-        <tr class="thRow">
+        <tr  class="thRow">
           <th>Id</th>
           <th>Performance</th>
           <th>Start Time</th>
@@ -46,14 +44,16 @@
         <p id="error" style="color: red"></p>
       </div>
     </div>
-    <div id="adminInputScreening">
-    <div>
+    <div  id="adminInputScreening">
+      <h2  >Find Screening</h2>
+    <input type="number" id="text-for-id" placeholder="Screening ID" />
+    <button style="margin:0 !important;" class="btn-red" id="singleScreening">Find Screening</button>
+    <div class="multi-container">
       <input class="input-big" placeholder="Email" type="text" id="if1" style="display: none"/>
-    </div>
-    <div>
       <input class="input-big" placeholder="Phone number" type="text" id="if2" style="display: none"/>
+          <button id="addReservation" style="display: none">Add new Reservation</button>
     </div>
-    <button id="addReservation" style="display: none">Add new Reservation</button>
+
       </div>
   </div>
 </template>
