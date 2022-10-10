@@ -358,7 +358,7 @@ async function addSeatChoices(resId) {
   }, 1000);
   */
 
-  router.navigate(`all-screenings`);
+  router.navigate(`all-reservations`);
 }
 
 

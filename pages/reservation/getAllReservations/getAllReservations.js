@@ -18,6 +18,10 @@ export function initGetAllReservations(navigoRouter) {
                 deleteReservation(x)
             }
         }
+        else if(x.endsWith("-edit")){
+            x = x.substring(0, x.indexOf('-'));
+            goToEditReservation(x);
+        }
     }
 }
 
@@ -59,10 +63,16 @@ function showAllReservations(data){
             <td>${reservation.employeeId}</td>
             <td>${reservation.safetyId}</td>
             <td>${reservation.screeningId}</td>
-            <td><button>Edit</button></td>
+            <td><button id="${reservation.id}-edit">Edit</button></td>
             <td><button id="${reservation.id}-delete">Delete</button></td>
         `
     );
     const tableRowsString = tableRowsArray.join("\n");
     document.getElementById("tbody-all").innerHTML = tableRowsString;
+}
+
+
+function goToEditReservation(id){
+    //Her skal der navigeres til edit reservation. Nedenstående virker ikke.
+    //router.navigate("edit-reservation?id=" + id);
 }
