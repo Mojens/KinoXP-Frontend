@@ -1,7 +1,9 @@
 <template id="btn3-template">
   <div class="main-container">
-    <h2 id="btn-get-all">Screening</h2>
-    <table id="singleScreening" hidden class="table">
+    <h2  >Find Screening</h2>
+    <input type="number" id="text-for-id" placeholder="Screening ID" />
+    <button style="margin:0 !important;" class="btn-red" id="singleScreening">Find Screening</button>
+    <table id="btn-get-all" hidden class="table">
       <thead>
         <tr class="thRow">
           <th>Id</th>
@@ -31,7 +33,7 @@
 
         </div>
       </div>
-      <div class="top" id="theater-container">
+      <div style="display:none" id="theater-container">
         <h4 id="starttime"></h4>
         <h4 id="theater-room"></h4>
 

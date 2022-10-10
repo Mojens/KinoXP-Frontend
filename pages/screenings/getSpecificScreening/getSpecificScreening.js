@@ -2,7 +2,7 @@ const url = "http://localhost:8080/api/screenings/";
 const movieUrl = "http://localhost:8080/api/movies";
 let reservedSeats = []
 import { checkFindScreeningAdmin } from "../../../pages/login/loginSettings.js";
-
+console.log(currentScreeningId)
 let router;
 
 export function initGetSpecificScreening(match, navigoRouter) {
@@ -40,6 +40,9 @@ async function fetchScreeningData() {
     return;
   }
   try {
+    currentScreeningId = id
+    
+    
     renderScreening(id);
     getAllMovies();
   } catch (err) {
@@ -76,6 +79,7 @@ function showAllMovies(movies) {
     const screeningId = document.getElementById("id").innerText;
     console.log("Screening ID: " + screeningId);
     console.log("Movie ID: " + movie.id);
+   
 
     divMovie.innerHTML = ` 
     <div class="movie-img-big">
@@ -147,6 +151,12 @@ function showAllMovies(movies) {
 
     const screeningResponseSize = movie.screeningResponse;
     let count = Object.keys(screeningResponseSize);
+     if (window.location.href.includes(movie.id)) {
+       const Tcontainer = document.getElementById("theater-container");
+       Tcontainer.style.display = "block";
+       console.log("IDIDID: " + movie.id);
+       console.log(url);
+     } 
 
     for (let i = 0; i < count.length; i++) {
       if (movie.screeningResponse[i].id == screeningId) {
@@ -188,6 +198,11 @@ function showAllMovies(movies) {
         divScreening.appendChild(link);
         divMovie.appendChild(ul);
         div.appendChild(ul);
+
+       // display top class only if when url has id
+        if (currentScreeningId) {
+          document.getElementById("top").style.display = "block";
+        }
       }
     }
   });

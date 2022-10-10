@@ -101,9 +101,7 @@ function slide() {
             <i class="material-icons">&#xe54d;</i>
 
           </div>
-          <div class="col6 action-btn">
-            <i class="material-icons">&#xe5cd;</i>
-          </div>
+   
 
         </div>
       
