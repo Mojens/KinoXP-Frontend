@@ -1,22 +1,24 @@
 const url = "http://localhost:8080/api/movies/";
+const screeningUrl = "http://localhost:8080/api/screenings";
 import { checkSession1 } from "../../login/loginSettings.js";
 
 let movies = [];
 let router;
+let screenings = [];
 
-export async function initGetMovieById(match,navigoRouter) {
+export async function initGetMovieById(match, navigoRouter) {
   checkSession1();
+  document.getElementById("btn-get-all").onclick = getAllMovies;
   document.getElementById("singleMovie").onclick = fetchMovieData;
-    document.getElementById("btn-get-all").onclick = getAllMovies;
-      document.getElementById("tbody-all").onclick = showMovieDetails;
-      document.getElementById("editMovie").onclick = toEditMovie;
-      document.getElementById("deleteMovie").onclick = deleteMovie;
-     router = navigoRouter;
+  document.getElementById("tbody-all").onclick = showMovieDetails;
+  document.getElementById("editMovie").onclick = toEditMovie;
+  document.getElementById("deleteMovie").onclick = deleteMovie;
+  router = navigoRouter;
   if (match?.params?.id) {
     const id = match.params.id;
     try {
-      renderMovie(id);
       getAllMovies();
+      renderMovie(id);
       
     } catch (error) {
       document.getElementById("error").innerHTML = "Could not find Car: " + id;
@@ -28,7 +30,20 @@ export async function getAllMovies() {
     const moviesFromServer = await fetch(url).then((res) => res.json());
 
     showAllMovies(moviesFromServer);
-      movies = moviesFromServer;
+
+    movies = moviesFromServer;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getAllScreenings() {
+  try {
+    const screeningsFromServer = await fetch(screeningUrl).then((res) =>
+      res.json()
+    );
+
+    screenings = screeningsFromServer;
   } catch (err) {
     console.log(err);
   }
@@ -43,7 +58,6 @@ async function fetchMovieData() {
   }
   try {
     renderMovie(id);
-    
   } catch (err) {
     console.log("UPS " + err.message);
   }
@@ -61,6 +75,7 @@ async function renderMovie(id) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
     <td>${movie.id}</td>
+    <td id=avg-performance>No Screenings Yet</td>
     <td>${movie.title}</td>
     <td id=movie-description>${movie.description}</td>
     <td>${movie.rating}</td>
@@ -74,8 +89,9 @@ async function renderMovie(id) {
      <button id="${movie.id}-column-id" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button> 
     </td>
     `;
-    card.appendChild(tr);
 
+    card.appendChild(tr);
+calculateAveragePerformance();
     // if the user clicks on find movie, only display the movie with the given id
     const movieId = document.getElementById("text-for-id").value;
     if (movieId) {
@@ -84,6 +100,7 @@ async function renderMovie(id) {
       const tr = document.createElement("tr");
       tr.innerHTML = `
   <td>${movie.id}</td>
+  <td id=avg-performance>No Screenings Yet</td>
     <td>${movie.title}</td>
     <td id=movie-description>${movie.description}</td>
     <td>${movie.rating}</td>
@@ -99,10 +116,9 @@ async function renderMovie(id) {
     </td>
     `;
       card.appendChild(tr);
+      getAllScreenings();
       
     }
-  
-
   } catch (err) {
     console.log("UPS " + err.message);
   }
@@ -118,8 +134,8 @@ function showAllMovies(data) {
   card.innerHTML = "";
   data.forEach((movie) => {
     renderMovie(movie.id);
+    calculateAveragePerformance();
   });
-  
 }
 
 async function showMovieDetails(evt) {
@@ -150,6 +166,7 @@ async function showMovieDetails(evt) {
     document.getElementById("showEndDate").innerText =
       "Show End Date: " + movie.showEndDate;
   }
+  
 }
 
 function toEditMovie() {
@@ -198,4 +215,31 @@ async function updateTable(id) {
   tbody.removeChild(document.getElementById(id + "-column-id").parentElement);
 }
 
-// Function to sort the table by clicking on the table headers
+// Calculate average performance for each movie from the screenings
+async function calculateAveragePerformance() {
+  const screeningsFromServer = await fetch(screeningUrl).then((res) =>
+    res.json()
+  );
+
+  const allScreenings = screeningsFromServer;
+  const allMovies = document.querySelectorAll("tr");
+  
+  allMovies.forEach((movie) => {
+    const movieId = movie.children[0].innerText;
+
+    const movieScreenings = allScreenings.filter(
+      (screening) => screening.movieId == movieId
+    );
+    const movieAvgPerformance = movie.querySelector("#avg-performance");
+
+    if (movieScreenings.length > 0) {
+      const sum = movieScreenings.reduce(
+        (acc, screening) => acc + screening.performance,
+        0
+      );
+      const avg = sum / movieScreenings.length;
+
+      movieAvgPerformance.innerHTML = avg.toFixed().toString() + "%";
+    }
+  });
+}
