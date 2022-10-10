@@ -38,6 +38,32 @@ async function addScreening() {
   router.navigate(`screening?id=${id}`);
 }
 
+async function addMultiScreenings() {
+  const startTime = document.getElementById("if5").value;
+  const endTime = document.getElementById("if6").value;
+  const movieId = document.getElementById("if7").value;
+  const theaterId = document.getElementById("if8").value;
+
+  const newMultiScreening = {
+    startTime,
+    endTime,
+    movieId,
+    theaterId,
+  };
+
+  // add multiple screenings
+
+  const id = await fetch(multiURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newMultiScreening),
+  })
+    .then((res) => res.json())
+    .then((data) => data.id);
+}
+
 // function for populating select options for movie and theater
 async function populateMovieSelect() {
     const url = "http://localhost:8080/api/movies";
