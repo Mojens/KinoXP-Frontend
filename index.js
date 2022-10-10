@@ -92,6 +92,19 @@ window.addEventListener("load", async () => {
   const templateAddScreening = await loadTemplate(
     "./pages/screenings/addScreening/add-screening.html"
   );
+  const templateAddEmployee = await loadTemplate(
+    "./pages/employees/addEmployee/addEmployee.html"
+  );
+  const templateAllEmployees = await loadTemplate(
+    "./pages/employees/getAllEmployees/getAllEmployees.html"
+  );
+  const templateEditEmployee = await loadTemplate(
+    "./pages/employees/editEmployee/editEmployee.html"
+  );
+  const templateDeleteEmployee = await loadTemplate(
+    "./pages/employees/deleteEmployee/deleteEmployee.html"
+  );
+  
   //=========Screening End here=========
   //=========Reservation start here=========
 
@@ -212,7 +225,18 @@ window.addEventListener("load", async () => {
       //=========Theater end here=========
 
       //=========Employee start here=========
-
+      "/addEmployees": () => {
+        renderTemplate(templateAddEmployee, "content");
+      },
+      "/allEmployees": () => {
+        renderTemplate(templateAllEmployees, "content");
+      },
+       "/deleteEmployee": () => {
+        renderTemplate(templateDeleteEmployee, "content");
+      },
+       "/editEmployee": () => {
+        renderTemplate(templateEditEmployee, "content");
+      },
       //=========Employee end here=========
 
       //=========Shift start here=========

@@ -8,6 +8,7 @@ export function checkSession1() {
         document.getElementById("ShiftAdminNavDrop").style.display = "inline-block";
         document.getElementById("ShiftBothNav").style.display = "inline-block";
         document.getElementById("adminDropDownNav").style.display = "inline-block";
+        document.getElementById("EmployeeAdminNavDrop").style.display = "inline-block";
 
 
 
@@ -26,6 +27,7 @@ export function checkSession1() {
         document.getElementById("ShiftAdminNavDrop").style.display = "none";
         document.getElementById("adminDropDownNav").style.display = "none";
         document.getElementById("moviesforAllNav").style.display = "inline-block";
+        document.getElementById("EmployeeAdminNavDrop").style.display = "none";
        
         const boxes = document.querySelectorAll('.sessionCheck1');
         boxes.forEach(box => {
