@@ -4,6 +4,12 @@ import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
 let router;
 let screening = [];
+ var options = {
+   weekday: "long",
+   year: "numeric",
+   month: "long",
+   day: "numeric",
+ };
 
 export function initAddScreening(navigoRouter) {
   checkSession1();
@@ -70,8 +76,8 @@ async function populateMovieSelect() {
     const url = "http://localhost:8080/api/movies";
     const movies = await fetch(url).then((res) => res.json());
     const select = document.getElementById("if3");
-     const selectTwo = document.getElementById("if7");
-     const fromSelectTwo = document.getElementById("show-period");
+     var selectTwo = document.getElementById("if7");
+    
     movies.forEach((movie) => {
       const option = document.createElement("option");
       option.value = movie.id;
@@ -83,14 +89,41 @@ async function populateMovieSelect() {
        optionTwo.value = movie.id;
        optionTwo.innerHTML = movie.title;
        selectTwo.appendChild(optionTwo);
-       
-       const createH2 = document.createElement("h2");
-        createH2.innerHTML = movie.showStartDate;
-        fromSelectTwo.appendChild(createH2);
-
-
-    });
-}
+       const fromSelectTwo = document.getElementById("show-period");
+       const create = document.createElement("h5");
+       create.id = "display-period";
+       var showStartDate = new Date(movie.showStartDate);
+       var showEndDate = new Date(movie.showEndDate);
+       create.innerText = `Fra ${showStartDate.toLocaleDateString(
+            "da-dk",
+            options)} Til ${showEndDate.toLocaleDateString(
+            "da-dk",
+            options)}`;
+       fromSelectTwo.appendChild(create);
+       // only show first movie element
+               if (movie.id == movies[0].id) {
+         create.style.display = "block";
+       } else {
+         create.style.display = "none";
+       }
+          /// When movie is selected, show period is shown
+        selectTwo.addEventListener("change", (e) => {
+          const movieId = e.target.value;
+          const movie = movies.find((m) => m.id == movieId);
+          const showPeriod = document.getElementById("display-period");
+          // change dateTime format to dd-mm-yyyy hh:mm
+         
+          showStartDate = new Date(movie.showStartDate);
+          showEndDate = new Date(movie.showEndDate);
+          showPeriod.innerHTML = `Fra ${showStartDate.toLocaleDateString(
+            "da-dk",
+            options
+          )} Til ${showEndDate.toLocaleDateString("da-dk", options)}`;
+        }
+        
+        );
+      });
+  }
 
 // function for populating select options for theater
 async function populateTheaterSelect() {
