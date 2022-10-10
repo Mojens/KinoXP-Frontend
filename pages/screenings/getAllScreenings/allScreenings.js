@@ -7,7 +7,6 @@ let router;
 
 export function initGetAllScreenings(navigoRouter) {
    checkSession1();
-  document.getElementById("btn-get-all").onclick = getAllScreenings;
   document.getElementById("tbody-all").onclick = showScreeningDetails;
   document.getElementById("deleteScreening").onclick = deleteScreening;
   document.getElementById("editScreening").onclick = toEditScreening;

@@ -1,8 +1,8 @@
 <template id="btn3-template">
-  <div id="btn-get-all" class="main-container">
-
-    <input hidden type="number" id="text-for-id" placeholder="id" />
-    <button hidden id="singleScreening">Find Screening</button>
+  <div class="main-container">
+    <h2 id="btn-get-all">Find Screening</h2>
+    <input type="number" id="text-for-id" placeholder="Screening ID" />
+    <button style="margin:0 !important;" class="btn-red" id="singleScreening">Find Screening</button>
     <table hidden class="table">
       <thead>
         <tr class="thRow">
@@ -33,7 +33,7 @@
 
         </div>
       </div>
-      <div class="top">
+      <div style="display: none" class="top" id="theater-container">
         <h4 id="starttime"></h4>
         <h4 id="theater-room"></h4>
 
@@ -46,14 +46,12 @@
         <p id="error" style="color: red"></p>
       </div>
     </div>
-    <div id="adminInputScreening">
-      <div>
-        <input class="input-big" placeholder="Email" type="text" id="if1" style="display: none" />
-      </div>
-      <div>
-        <input class="input-big" placeholder="Phone number" type="text" id="if2" style="display: none" />
-      </div>
-      <button id="addReservation" style="display: none">Add new Reservation</button>
+    <div>
+      <input class="input-big" placeholder="Email" type="text" id="if1" style="display: none"/>
     </div>
+    <div>
+      <input class="input-big" placeholder="Phone number" type="text" id="if2" style="display: none"/>
+    </div>
+    <button id="addReservation" style="display: none">Add new Reservation</button>
   </div>
 </template>

@@ -218,7 +218,7 @@ Dropdown links in Navbar
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   z-index: 111;
-  transition: 0.4s all;
+  transition: 0.2s all;
 
 }
 .navbar-links li.navbar-dropdown .dropdown a {

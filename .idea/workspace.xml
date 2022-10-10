@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/meny-styles-non-responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/meny-styles-non-responsive.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +40,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jensryge/Documents/Uddannelse/Dat21b - 3. semester/Projekter js/KinoXP-Frontend&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

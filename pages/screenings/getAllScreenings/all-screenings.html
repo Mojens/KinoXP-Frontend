@@ -1,52 +1,74 @@
 <template id="btn4-template">
   <div class="main-container">
-    <div class="sessionCheck1">
-      <h2>Get all Screenings</h2>
-      <button id="btn-get-all" class="btn">Get All Screenings</button>
-      <table class="table">
-        <thead>
-          <tr class="thRow">
-            <th>Id</th>
-            <th>Performance</th>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Movie</th>
-            <th>Theater</th>
-          </tr>
-        </thead>
-        <tbody id="tbody-all"></tbody>
-      </table>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div id="movie-content">
-                <p id="id"></p>
-                <p id="performance"></p>
-                <p id="starttime"></p>
-                <p id="endtime"></p>
-                <p id="movie"></p>
-                <p id="theater"></p>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="editScreening" data-bs-dismiss="modal" class="btn btn-primary">
-                Edit Screening
-              </button>
-              <button type="button" id="deleteScreening" data-bs-dismiss="modal" class="btn btn-red">
-                Delete Screening
-              </button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
-            </div>
+  <h2>All screenings</h2>
+  <table class="table">
+    <thead>
+      <tr class="thRow">
+        <th>Id</th>
+        <th>Performance</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Movie</th>
+        <th>Theater</th>
+      </tr>
+    </thead>
+    <tbody id="tbody-all"></tbody>
+  </table>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div id="movie-content">
+            <p id="id"></p>
+            <p id="performance"></p>
+            <p id="starttime"></p>
+            <p id="endtime"></p>
+            <p id="movie"></p>
+            <p id="theater"></p>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            id="editScreening"
+            data-bs-dismiss="modal"
+            class="btn btn-primary"
+          >
+            Edit Screening
+          </button>
+          <button
+            type="button"
+            id="deleteScreening"
+            data-bs-dismiss="modal"
+            class="btn btn-red"
+          >
+            Delete Screening
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
