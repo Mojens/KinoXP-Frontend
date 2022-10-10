@@ -158,7 +158,7 @@ window.addEventListener("load", async () => {
       },
       "/movie-title": (match) => {
         renderTemplate(templateGetMovieById, "content");
-        initGetMovieById(match);
+        initGetMovieById(match,router);
       },
       "/edit-movie": (match, router) => {
         renderTemplate(templateEditMovie, "content");

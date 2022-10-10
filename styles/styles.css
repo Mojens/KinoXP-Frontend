@@ -385,6 +385,16 @@ p#pricePrDay:before {
   color: black!important;
 
 }
+/* Only show max 50 characters, show on click  */
+#movie-description{
+  max-height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
+}
 
 .screening {
   list-style: none;

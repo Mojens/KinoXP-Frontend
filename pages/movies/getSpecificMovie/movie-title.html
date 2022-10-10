@@ -10,10 +10,12 @@
       <tr class="thRow">
        <th>Id</th>
         <th>Title</th>
+        <th>Description</th> 
         <th>Rating</th>
         <th>Genre</th>
         <th>Duration</th>
         <th>Age Limit</th>
+        <th>Price</th>
         <th>Show Start Date</th>
         <th>Show End Date</th>
       </tr>
@@ -22,6 +24,60 @@
  
     </tbody>
   </table>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div id="movie-content">
+            <p class="inner-content" id="id"></p>
+            <p class="inner-content" id="title"></p>
+            <p class="inner-content" id="description"></p>
+            <p class="inner-content" id="rating"></p>
+            <p class="inner-content" id="genre"></p>
+            <p class="inner-content" id="duration"></p>
+            <p class="inner-content" id="ageLimit"></p>
+            <p class="inner-content" id="price"></p>
+            <p class="inner-content" id="showStartDate"></p>
+            <p class="inner-content" id="showEndDate"></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            id="editMovie"
+            data-bs-dismiss="modal"
+            class="btn btn-primary"
+          >
+            Edit Screening
+          </button>
+          <button
+            type="button"
+            id="deleteMovie"
+            data-bs-dismiss="modal"
+            class="btn btn-red"
+          >
+            Delete Screening
+          </button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
            <p id="error" style="color:red"> </p>
            </div>
           </div>
