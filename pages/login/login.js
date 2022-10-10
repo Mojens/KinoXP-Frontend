@@ -35,14 +35,14 @@ async function login() {
     }).then(data => {
         console.log(data);
         if (data.type == 1) {
-            startSession(1);
+            startSession(1, JSON.stringify(data));
             changeLoginText();
             console.log("Redirecting now..... Type 1");
             router.navigate(`/`);
         }else if(data.type == 2){
-            console.log("Redirecting now..... Type 2");
-            startSession(2);
+            startSession(2,JSON.stringify(data));
             changeLoginText();
+            console.log("Redirecting now..... Type 2");
             router.navigate(`/`);
         }
     })

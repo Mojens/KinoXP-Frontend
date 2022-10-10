@@ -114,12 +114,10 @@ export function removeSession() {
     }
 }
 
-export function startSession(type) {
+export function startSession(type, userObj) {
     if (localStorage.getItem("user" + type) == null) {
-        localStorage.setItem("user" + type, "User Type:" + type + ", is logged in");
-        console.log(localStorage.getItem("user" + type));
+        localStorage.setItem("user" + type, userObj);
     }
-    localStorage.setItem("user" + type, "User Type:" + type + ", is logged in LOCAL")
 }
 
 export function changeLoginText() {
@@ -153,8 +151,6 @@ export function CheckEditDeleteBtnShift() {
 
     }
 
-
-
 }
 
 export function checkFindScreeningAdmin() {
@@ -164,6 +160,22 @@ export function checkFindScreeningAdmin() {
         document.getElementById("adminInputScreening").style.display = "none";
     }
 }
+
+export function getUserId() {
+    if (localStorage.getItem("user1") !== null && localStorage.getItem("user2") === null) {
+        const user1 = JSON.stringify(localStorage.getItem("user1"));
+        const user1Id = user1.split(",")[0].split(":")[1];
+        console.log("Userobject id -> " + user1Id);
+        return user1Id;
+    } else if (localStorage.getItem("user2") !== null && localStorage.getItem("user1") === null) {
+        const user2 = JSON.stringify(localStorage.getItem("user2"));
+        const user2Id = user2.split(",")[0].split(":")[1];
+        console.log("Userobject id -> " + user2Id);
+        return user2Id;
+    }
+
+}
+
 
 
 // Language: javascript
