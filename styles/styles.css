@@ -372,17 +372,22 @@ p#pricePrDay:before {
 
 .screenings {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: auto;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   margin-top: 30px;
+  overflow: auto;
+  max-height: 200px;
+  padding: 0 20px 0 0;
 }
+
 
 .screening {
   list-style: none;
   color: white;
   padding: 2px;
+
 }
 .screenings-container {
   display: flex;
@@ -390,9 +395,9 @@ p#pricePrDay:before {
   justify-content: center;
   align-items: center;
   background-color: #231f2b;
-
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 30px;
 }
 
 #deleteMe {
@@ -563,4 +568,37 @@ img {
 #seats {
   padding: 0;
   margin: 0 0 0 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 1em!important;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #fe4141!important;
+  outline: 1px solid #262626!important;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #fe4141!important;
+  outline: 1px solid #262626!important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
