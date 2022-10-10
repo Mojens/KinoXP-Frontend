@@ -22,7 +22,6 @@ import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
 import { initGetAllReservations } from "./pages/reservation/getAllReservations/getAllReservations.js";
 import { initGetReservationById } from "./pages/reservation/getSpecificReservation/singleReservation.js";
 import { initEditReservation } from "./pages/reservation/editReservation/editReservation.js";
-import { initAddReservation } from "./pages/reservation/addReservation/addReservation.js";
 import { initDeleteReservation } from "./pages/reservation/deleteReservation/deleteReservation.js";
 
 //=========Reservation end here=========
@@ -112,9 +111,6 @@ window.addEventListener("load", async () => {
   const templateEditReservation = await loadTemplate(
       "./pages/reservation/editReservation/edit-reservation.html"
   );
-  const templateAddReservation = await loadTemplate(
-      "./pages/reservation/addReservation/add-reservation.html"
-  );
   const templateDeleteReservation = await loadTemplate(
       "./pages/reservation/deleteReservation/delete-reservation.html"
   );
@@ -178,10 +174,6 @@ window.addEventListener("load", async () => {
         renderTemplate(templateEditReservation, "content");
         initEditReservation(match, router);
     },
-      "/add-reservation": () => {
-        renderTemplate(templateAddReservation, "content");
-        initAddReservation(router);
-      },
       "/delete-reservation": (router) => {
         renderTemplate(templateDeleteReservation, "content");
         initDeleteReservation(router);
