@@ -8,6 +8,7 @@ import {
 } from "./utils.js";
 //=========Login start here=========
 import { initLogin } from "./pages/login/login.js";
+import { initAddEmployee } from "./pages/employees/addEmployee/addEmployee.js";
 //=========Login end here=========
 //=========Movie start here=========
 import { initGetAllMovies } from "./pages/movies/getAllMovies/getAllMovies.js";
@@ -227,6 +228,7 @@ window.addEventListener("load", async () => {
       //=========Employee start here=========
       "/addEmployees": () => {
         renderTemplate(templateAddEmployee, "content");
+        initAddEmployee(router);
       },
       "/allEmployees": () => {
         renderTemplate(templateAllEmployees, "content");
