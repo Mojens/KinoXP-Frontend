@@ -1,5 +1,4 @@
-const url = "http://localhost:8080/api/employees/";
-
+import {URL_EMPLOYEES} from "../../../settings";
 import { checkSession1 } from "../../login/loginSettings.js";
 
 let employees = [];
@@ -28,7 +27,7 @@ export async function initGetAllEmployees(match, navigoRouter) {
 
 export async function getAllEmployees() {
   try {
-    const employeesFromServer = await fetch(url).then((res) => res.json());
+    const employeesFromServer = await fetch(URL_EMPLOYEES).then((res) => res.json());
 
     showAllEmployees(employeesFromServer);
 
@@ -53,7 +52,7 @@ async function fetchEmployeeData() {
 }
 
 async function renderEmployee(id) {
-  const employee = await fetch(url + id).then((res) => res.json());
+  const employee = await fetch(URL_EMPLOYEES + id).then((res) => res.json());
   if (!employee) {
     document.getElementById("error").innerText =
       "Could not find Employee: " + id;
@@ -118,7 +117,7 @@ async function showEmployeeDetails(evt) {
   } else {
     document.getElementById("exampleModalLabel").innerText =
       "Details for Employee: " + id;
-    const employee = await fetch(url + id).then((res) => res.json());
+    const employee = await fetch(URL_EMPLOYEES + id).then((res) => res.json());
     document.getElementById("id").innerText = employee.id;
     document.getElementById("name").innerText = "Name: " + employee.name;
     document.getElementById("username").innerText =
@@ -141,7 +140,7 @@ async function deleteEmployee(id) {
     },
   };
   try {
-    const response = await fetch(url + id, options);  
+    const response = await fetch(URL_EMPLOYEES + id, options);  
      
      updateTable(id);
    
