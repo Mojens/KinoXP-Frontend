@@ -8,6 +8,7 @@ let screenings = [];
 
 export async function initGetMovieById(match, navigoRouter) {
   checkSession1();
+  getAllMovies();
   document.getElementById("btn-get-all").onclick = getAllMovies;
   document.getElementById("singleMovie").onclick = fetchMovieData;
   document.getElementById("tbody-all").onclick = showMovieDetails;

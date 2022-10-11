@@ -7,6 +7,7 @@ let router;
 
 export async function initGetAllEmployees(match, navigoRouter) {
   checkSession1();
+  getAllEmployees();
   document.getElementById("btn-get-all").onclick = getAllEmployees;
   document.getElementById("singleEmployee").onclick = fetchEmployeeData;
   document.getElementById("tbody-all").onclick = showEmployeeDetails;
