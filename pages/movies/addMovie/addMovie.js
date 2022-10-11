@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/movies";
+import {URL_MOVIES} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../login/loginSettings.js";
 
@@ -41,7 +41,7 @@ async function addMovie() {
     
   };
 
-  const id = await fetch(url, {
+  const id = await fetch(URL_MOVIES, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,5 +1,4 @@
-const url = "http://localhost:8080/api/movies";
-
+import {URL_MOVIES, URL_SCREENINGS} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { getAllScreenings } from "../../screenings/getAllScreenings/allScreenings.js";
 
@@ -19,7 +18,7 @@ export function initGetAllMovies(navigoRouter) {
 
 export async function getAllMovies() {
   try {
-    const moviesFromServer = await fetch(url).then((res) => res.json());
+    const moviesFromServer = await fetch(URL_MOVIES).then((res) => res.json());
 
     showAllMovies(moviesFromServer);
 
@@ -185,7 +184,7 @@ function showAllMovies(movies) {
 
 async function getScreeningPerformance(screeningId) {
   const screening = await fetch(
-    "http://localhost:8080/api/screening/" + screeningId
+    URL_SCREENINGS + screeningId
   ).then((res) => res.json());
   return screening.performance;
 }

@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/movies/";
+import {URL_MOVIES} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../login/loginSettings.js";
 
@@ -64,7 +64,7 @@ function createPlaceholderText(movie) {
 
 /// Find Movie for editing
 async function findMovie(id) {
-  const movie = await fetch(url + id).then((res) => res.json());
+  const movie = await fetch(URL_MOVIES + id).then((res) => res.json());
   if (!movie) {
     document.getElementById("error").innerText = "Could not find Movie: " + id;
     return;
@@ -120,7 +120,7 @@ async function editMovie(id) {
 
   // navigate to single-car page after submit
 
-  const response = await fetch(url + id, options);
+  const response = await fetch(URL_MOVIES + id, options);
   const data = await response.json();
   let sucess = (document.getElementById("edited").innerText = "Movie edited");
   // reload page after submit
