@@ -1,4 +1,8 @@
-import {URL_MOVIES, URL_RESERVATIONS, URL_SCREENINGS} from "../../../settings.js";
+import {
+  URL_MOVIES,
+  URL_RESERVATIONS,
+  URL_SCREENINGS,
+} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
@@ -6,7 +10,7 @@ let screenings = [];
 let router;
 
 export function initGetAllScreenings(navigoRouter) {
-   checkSession1();
+  checkSession1();
   document.getElementById("tbody-all").onclick = showScreeningDetails;
   document.getElementById("deleteScreening").onclick = deleteScreening;
   document.getElementById("editScreening").onclick = toEditScreening;
@@ -16,11 +20,12 @@ export function initGetAllScreenings(navigoRouter) {
 
 export async function getAllScreenings() {
   try {
-    const screeningsFromServer = await fetch(URL_SCREENINGS).then((res) => res.json());
+    const screeningsFromServer = await fetch(URL_SCREENINGS).then((res) =>
+      res.json()
+    );
     showAllScreenings(screeningsFromServer);
 
     screenings = screeningsFromServer;
-
   } catch (err) {
     console.log(err);
   }
@@ -28,9 +33,7 @@ export async function getAllScreenings() {
 
 // get movie title from movie id
 async function getMovieTitle(movieId) {
-  const movie = await fetch(URL_MOVIES + movieId).then(
-    (res) => res.json()
-  );
+  const movie = await fetch(URL_MOVIES + movieId).then((res) => res.json());
   return movie.title;
 }
 
@@ -55,7 +58,7 @@ function showAllScreenings(data) {
     });
 
     tbody.appendChild(tr);
-    
+
     // append child only once
     if (tbody.children.length > data.length) {
       tbody.removeChild(tbody.children[0]);
@@ -74,7 +77,9 @@ async function showScreeningDetails(evt) {
   } else {
     document.getElementById("exampleModalLabel").innerText =
       "Details for Screening: " + id;
-    const screening = await fetch(URL_SCREENINGS + "/" + id).then((res) => res.json());
+    const screening = await fetch(URL_SCREENINGS + "/" + id).then((res) =>
+      res.json()
+    );
     document.getElementById("id").innerText = screening.id;
     document.getElementById("performance").innerText =
       "Performance: " + screening.performance;
@@ -107,7 +112,6 @@ async function deleteScreening(id) {
     console.log("Deleted screening with id: " + id);
     console.log(json);
     updateTable(id);
-  
   } catch (error) {
     console.log(error);
   }

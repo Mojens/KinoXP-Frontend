@@ -17,7 +17,6 @@ import { initEditMovie } from "./pages/movies/editMovie/editMovie.js";
 import { initAddMovie } from "./pages/movies/addMovie/addMovie.js";
 import { initImdbMovieTest } from "./pages/movies/imdbMovieTest/imdb.js";
 
-
 //=========Movie End here=========
 //=========Reservation start here=========
 import { initGetAllReservations } from "./pages/reservation/getAllReservations/getAllReservations.js";
@@ -41,9 +40,8 @@ import { initGetSpecificTheater } from "./pages/theater/getSpecificTheater/speci
 //=========Theater end here=========
 
 //=========Employee start here=========
-import { initEditEmployee} from "./pages/employees/editEmployee/editEmployee.js";
+import { initEditEmployee } from "./pages/employees/editEmployee/editEmployee.js";
 import { initGetAllEmployees } from "./pages/employees/getAllEmployees/getAllEmployees.js";
-
 
 //=========Employee end here=========
 
@@ -62,8 +60,7 @@ import { initAllShifts } from "./pages/Shifts/getAllShifts/getAllShifts.js";
 
 window.addEventListener("load", async () => {
   //=========Templates Start here=========
-  const templateAbout = await loadTemplate(
-      "./pages/about/about.html");
+  const templateAbout = await loadTemplate("./pages/about/about.html");
 
   //=========Movie start here=========
   const templateGetAllMovies = await loadTemplate(
@@ -108,14 +105,18 @@ window.addEventListener("load", async () => {
   const templateDeleteEmployee = await loadTemplate(
     "./pages/employees/deleteEmployee/deleteEmployee.html"
   );
-  
+
   //=========Screening End here=========
   //=========Reservation start here=========
 
-  const templateGetAllTheaters = await loadTemplate("./pages/theater/getAllTheaters/all-theaters.html");
-  const templateGetSpecificTheater = await loadTemplate("./pages/theater/getSpecificTheater/specific-theater.html");
+  const templateGetAllTheaters = await loadTemplate(
+    "./pages/theater/getAllTheaters/all-theaters.html"
+  );
+  const templateGetSpecificTheater = await loadTemplate(
+    "./pages/theater/getSpecificTheater/specific-theater.html"
+  );
 
-    adjustForMissingHash();
+  adjustForMissingHash();
   const templateGetAllReservations = await loadTemplate(
     "./pages/reservation/getAllReservations/all-reservation.html"
   );
@@ -126,15 +127,21 @@ window.addEventListener("load", async () => {
   const templateLogin = await loadTemplate("./pages/login/login.html");
 
   const templateEditReservation = await loadTemplate(
-      "./pages/reservation/editReservation/edit-reservation.html"
+    "./pages/reservation/editReservation/edit-reservation.html"
   );
   const templateDeleteReservation = await loadTemplate(
-      "./pages/reservation/deleteReservation/delete-reservation.html"
+    "./pages/reservation/deleteReservation/delete-reservation.html"
   );
   //=========Reservation end here=========
-  const templateAddShift = await loadTemplate("./pages/Shifts/addShift/addShift.html");
-  const templateEditShift = await loadTemplate("./pages/Shifts/editShift/editShift.html");
-  const templateAllShifts = await loadTemplate("./pages/Shifts/getAllShifts/getAllShifts.html");
+  const templateAddShift = await loadTemplate(
+    "./pages/Shifts/addShift/addShift.html"
+  );
+  const templateEditShift = await loadTemplate(
+    "./pages/Shifts/editShift/editShift.html"
+  );
+  const templateAllShifts = await loadTemplate(
+    "./pages/Shifts/getAllShifts/getAllShifts.html"
+  );
 
   //=========>Templates end here=========
   adjustForMissingHash();
@@ -162,7 +169,7 @@ window.addEventListener("load", async () => {
       },
       "/movie-title": (match) => {
         renderTemplate(templateGetMovieById, "content");
-        initGetMovieById(match,router);
+        initGetMovieById(match, router);
       },
       "/edit-movie": (match, router) => {
         renderTemplate(templateEditMovie, "content");
@@ -188,9 +195,9 @@ window.addEventListener("load", async () => {
         initGetReservationById(match, router);
       },
       "/edit-reservation": (match) => {
-      renderTemplate(templateEditReservation, "content");
-      initEditReservation(match);
-    },
+        renderTemplate(templateEditReservation, "content");
+        initEditReservation(match);
+      },
       "/delete-reservation": (router) => {
         renderTemplate(templateDeleteReservation, "content");
         initDeleteReservation(router);
@@ -216,14 +223,14 @@ window.addEventListener("load", async () => {
       },
 
       //=========Screening end here=========
-        "/specific-theater": (match,router) => {
-            renderTemplate(templateGetSpecificTheater, "content");
-            initGetSpecificTheater(match,router);
-        },
-        "/all-theaters": (match,router) => {
-            renderTemplate(templateGetAllTheaters, "content");
-            initGetAllTheaters(match,router);
-        },
+      "/specific-theater": (match, router) => {
+        renderTemplate(templateGetSpecificTheater, "content");
+        initGetSpecificTheater(match, router);
+      },
+      "/all-theaters": (match, router) => {
+        renderTemplate(templateGetAllTheaters, "content");
+        initGetAllTheaters(match, router);
+      },
       //=========Theater start here=========
 
       //=========Theater end here=========
@@ -235,14 +242,14 @@ window.addEventListener("load", async () => {
       },
       "/allEmployees": (match) => {
         renderTemplate(templateAllEmployees, "content");
-        initGetAllEmployees(match,router);
+        initGetAllEmployees(match, router);
       },
-       "/deleteEmployee": () => {
+      "/deleteEmployee": () => {
         renderTemplate(templateDeleteEmployee, "content");
       },
-       "/editEmployee": (match,router) => {
+      "/editEmployee": (match, router) => {
         renderTemplate(templateEditEmployee, "content");
-        initEditEmployee(match,router);
+        initEditEmployee(match, router);
       },
       //=========Employee end here=========
 
@@ -266,12 +273,12 @@ window.addEventListener("load", async () => {
       //=========Seat end here=========
       //=========SeatChoice start here=========
 
-      //=========SeatChoice end here========= 
+      //=========SeatChoice end here=========
       //=========Login start here=========
       "/login": () => {
         renderTemplate(templateLogin, "content");
         initLogin(router);
-    },
+      },
       //=========Login end here=========
     })
     .notFound(
@@ -299,8 +306,4 @@ window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
 
 // add active class to parent of dropdown when dropdown is hovered
 
-
-
 // add active class to parent of dropdown when dropdown is hovered
-
-
