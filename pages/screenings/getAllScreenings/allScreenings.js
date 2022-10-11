@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/screenings";
+import {URL_MOVIES, URL_RESERVATIONS, URL_SCREENINGS} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
@@ -16,7 +16,7 @@ export function initGetAllScreenings(navigoRouter) {
 
 export async function getAllScreenings() {
   try {
-    const screeningsFromServer = await fetch(url).then((res) => res.json());
+    const screeningsFromServer = await fetch(URL_SCREENINGS).then((res) => res.json());
     showAllScreenings(screeningsFromServer);
 
     screenings = screeningsFromServer;
@@ -28,7 +28,7 @@ export async function getAllScreenings() {
 
 // get movie title from movie id
 async function getMovieTitle(movieId) {
-  const movie = await fetch("http://localhost:8080/api/movies/" + movieId).then(
+  const movie = await fetch(URL_MOVIES + movieId).then(
     (res) => res.json()
   );
   return movie.title;
@@ -74,7 +74,7 @@ async function showScreeningDetails(evt) {
   } else {
     document.getElementById("exampleModalLabel").innerText =
       "Details for Screening: " + id;
-    const screening = await fetch(url + "/" + id).then((res) => res.json());
+    const screening = await fetch(URL_SCREENINGS + "/" + id).then((res) => res.json());
     document.getElementById("id").innerText = screening.id;
     document.getElementById("performance").innerText =
       "Performance: " + screening.performance;
@@ -102,7 +102,7 @@ async function deleteScreening(id) {
     },
   };
   try {
-    const response = await fetch(url + "/" + id, options);
+    const response = await fetch(URL_RESERVATIONS + "/" + id, options);
     const json = await response.json();
     console.log("Deleted screening with id: " + id);
     console.log(json);
