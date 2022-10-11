@@ -151,6 +151,7 @@ async function deleteEmployee(id) {
   } catch (error) {
     console.log(error);
   }
+  location.reload();
 }
 
 async function updateTable(id) {
