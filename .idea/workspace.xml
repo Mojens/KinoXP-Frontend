@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/screenings/addScreening/addScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/addScreening/addScreening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/screenings/editScreening/editScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/editScreening/editScreening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/screenings/getAllScreenings/allScreenings.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/getAllScreenings/allScreenings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/getSpecificScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/getSpecificScreening.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/settings.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,16 +38,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Git.Branch.Popup.ShowAllRemotes": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -1,4 +1,4 @@
-let URL_LOGIN = "http://localhost:8080/api/employees/login";
+import {URL_LOGIN} from "../../settings";
 let router;
 
 import { startSession } from "./loginSettings.js";
