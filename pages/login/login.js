@@ -1,4 +1,4 @@
-import {URL_LOGIN} from "../../settings";
+import {URL_LOGIN} from "../../settings.js";
 let router;
 
 import { startSession } from "./loginSettings.js";
