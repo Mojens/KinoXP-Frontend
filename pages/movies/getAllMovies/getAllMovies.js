@@ -38,14 +38,22 @@ function slide() {
 
 // show all movies in a card view
 function showAllMovies(movies) {
+  
   const card = document.getElementById("cellphone-container");
   card.innerHTML = "";
   movies.forEach((movie) => {
-    const divMovie = document.createElement("div");
-    divMovie.className = "movie";
-    console.log(movie);
+ const screeningResponseSize = movie.screeningResponse;
+ // get the size of elements in movie
+ const movieIndexSize = movie
+ let count = Object.keys(screeningResponseSize);
+    console.log("1Count"+count);
+    console.log("Size: " + JSON.stringify(screeningResponseSize) + " " + JSON.stringify(movies  ));
+ if (screeningResponseSize != null) {
+   const divMovie = document.createElement("div");
+   divMovie.className = "movie";
+   console.log(movie);
 
-    divMovie.innerHTML = ` 
+   divMovie.innerHTML = ` 
     <div class="movie-img">
       <img class="movie-img" src="${movie.photo}"  alt="movie image ${movie.title}"/>
     </div>
@@ -111,61 +119,64 @@ function showAllMovies(movies) {
             
             
       `;
-    card.appendChild(divMovie);
+   card.appendChild(divMovie);
 
-    const div = document.createElement("div");
-    div.className = "screenings-container";
-    const ul = document.createElement("ul");
-    ul.className = "screenings";
+   const div = document.createElement("div");
+   div.className = "screenings-container";
+   const ul = document.createElement("ul");
+   ul.className = "screenings";
 
-    divMovie.appendChild(div);
+   divMovie.appendChild(div);
 
-    const screeningResponseSize = movie.screeningResponse;
-    let count = Object.keys(screeningResponseSize);
+   console.log("ScreeningResponse" + movie.screeningResponse);
 
-    for (let i = 0; i < count.length; i++) {
-      console.log(movie.screeningResponse[i].startTime);
-      const divScreening = document.createElement("li");
-      const link = document.createElement("a");
-      link.id = "screening-link";
-      link.href = "#/screening?id=" + movie.screeningResponse[i].id;
+   console.log("COUNT: " + count.length);
+   for (let i = 0; i < count.length; i++) {
+     console.log(movie.screeningResponse[i].startTime);
+     const divScreening = document.createElement("li");
+     const link = document.createElement("a");
+     link.id = "screening-link";
+     link.href = "#/screening?id=" + movie.screeningResponse[i].id;
+     // only show movies with screenings
 
-      if (movie.screeningResponse[i].performance === 100) {
-        link.style.color = "red";
-        link.innerHTML = "Sold out";
-      } else if (movie.screeningResponse[i].performance >= 75) {
-        link.innerHTML = movie.screeningResponse[i].startTime
-          // Dont display year
-          .split("T")[0]
-          .split("-")
-          .slice(1)
-          .join("-");
-        link.style.color = "Orange";
-      } else if (movie.screeningResponse[i].performance >= 50) {
-        link.innerHTML = movie.screeningResponse[i].startTime
-          // Dont display year
-          .split("T")[0]
-          .split("-")
-          .slice(1)
-          .join("-");
-        link.style.color = "yellow";
-      } else {
+     console.log("screening response size: " + screeningResponseSize[count[i]]);
+     if (movie.screeningResponse[i].performance === 100) {
+       link.className = "red";
+       link.innerHTML = "Sold out";
+     } else if (movie.screeningResponse[i].performance >= 75) {
        link.innerHTML = movie.screeningResponse[i].startTime
          // Dont display year
          .split("T")[0]
          .split("-")
          .slice(1)
          .join("-");
-       link.style.color = "green";
-      }
+       link.className = "orange";
+     } else if (movie.screeningResponse[i].performance >= 50) {
+       link.innerHTML = movie.screeningResponse[i].startTime
+         // Dont display year
+         .split("T")[0]
+         .split("-")
+         .slice(1)
+         .join("-");
+       link.className = "yellow";
+     } else {
+       link.innerHTML = movie.screeningResponse[i].startTime
+         // Dont display year
+         .split("T")[0]
+         .split("-")
+         .slice(1)
+         .join("-");
+       link.className= "white";
+     }
 
-      divScreening.className = "screening";
+     divScreening.className = "screening";
 
-      ul.appendChild(divScreening);
-      divScreening.appendChild(link);
-      divMovie.appendChild(ul);
-      div.appendChild(ul);
-    }
+     ul.appendChild(divScreening);
+     divScreening.appendChild(link);
+     divMovie.appendChild(ul);
+     div.appendChild(ul);
+   }
+ }
   });
 }
 
