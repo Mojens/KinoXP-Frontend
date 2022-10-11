@@ -11,7 +11,7 @@ export function initEditEmployee(match, navigoRouter) {
   const submitEdit = document.getElementById("submitEdit");
   const getEdit = document.getElementById("text-for-id");
   router = navigoRouter;
-  submitEdit.addEventListener("click", (e) => {
+  submitEdit.addEventListener("submit", (e) => {
     e.preventDefault();
     editEmployee(getEdit.value);
   });
@@ -43,11 +43,11 @@ async function fetchEmployeeData() {
 function createPlaceholderText(employee) {
   if (window.location.href.includes("id")) {
     document.getElementById("text-for-id").value = employee.id;
-  }
+  } 
   document.getElementById("if1").value = employee.name;
   document.getElementById("if2").value = employee.userName;
   document.getElementById("if3").value = employee.type;
-  document.getElementById("if4").value = employee.password;
+ 
 
 }
 

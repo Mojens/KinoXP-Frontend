@@ -59,7 +59,6 @@ async function renderEmployee(id) {
     return;
   }
   try {
-
     const card = document.getElementById("tbody-all");
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -73,7 +72,7 @@ async function renderEmployee(id) {
     `;
 
     card.appendChild(tr);
-    
+
     const employeeId = document.getElementById("text-for-id").value;
     if (employeeId) {
       const card = document.getElementById("tbody-all");
@@ -104,7 +103,6 @@ function showAllEmployees(data) {
   card.innerHTML = "";
   data.forEach((employee) => {
     renderEmployee(employee.id);
-
   });
 }
 
@@ -125,7 +123,6 @@ async function showEmployeeDetails(evt) {
     document.getElementById("username").innerText =
       "UserName: " + employee.userName;
     document.getElementById("type").innerText = "Type: " + employee.type;
-   
   }
 }
 
@@ -146,7 +143,6 @@ async function deleteEmployee(id) {
     const response = await fetch(url + id, options);
     const json = await response.json();
     console.log("Deleted employee with id: " + id);
-    console.log(json);
     updateTable(id);
   } catch (error) {
     console.log(error);
@@ -159,10 +155,9 @@ async function updateTable(id) {
   const tr = document.createElement("tr");
   tr.innerHTML = `
     
-    <td ></td>
-    <td  id=deleteMe>Deleted Employee: ${id}</td>
-    <td ></td>
-  
+    <td></td>
+    <td id=deleteMe>Deleted Employee: ${id}</td>
+    <td></td>
     `;
 
   tbody.appendChild(tr);
