@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/movies/";
+import {URL_MOVIES, URL_SCREENINGS} from "../../../settings.js";
 const screeningUrl = "http://localhost:8080/api/screenings";
 import { checkSession1 } from "../../login/loginSettings.js";
 
@@ -28,7 +28,7 @@ export async function initGetMovieById(match, navigoRouter) {
 }
 export async function getAllMovies() {
   try {
-    const moviesFromServer = await fetch(url).then((res) => res.json());
+    const moviesFromServer = await fetch(URL_MOVIES).then((res) => res.json());
 
     showAllMovies(moviesFromServer);
 
@@ -40,7 +40,7 @@ export async function getAllMovies() {
 
 async function getAllScreenings() {
   try {
-    const screeningsFromServer = await fetch(screeningUrl).then((res) =>
+    const screeningsFromServer = await fetch(URL_SCREENINGS).then((res) =>
       res.json()
     );
 
@@ -65,7 +65,7 @@ async function fetchMovieData() {
 }
 
 async function renderMovie(id) {
-  const movie = await fetch(url + id).then((res) => res.json());
+  const movie = await fetch(URL_MOVIES + id).then((res) => res.json());
   if (!movie) {
     document.getElementById("error").innerText = "Could not find Movie: " + id;
     return;
@@ -150,7 +150,7 @@ async function showMovieDetails(evt) {
   } else {
     document.getElementById("exampleModalLabel").innerText =
       "Details for Movie: " + id;
-    const movie = await fetch(url + id).then((res) => res.json());
+    const movie = await fetch(URL_MOVIES + id).then((res) => res.json());
     document.getElementById("id").innerText = movie.id;
     document.getElementById("title").innerText = "Title: " + movie.title;
     document.getElementById("description").innerText =
@@ -184,7 +184,7 @@ async function deleteMovie(id) {
     },
   };
   try {
-    const response = await fetch(url + id, options);
+    const response = await fetch(URL_MOVIES + id, options);
     const json = await response.json();
     console.log("Deleted car with id: " + id);
     console.log(json);
@@ -218,7 +218,7 @@ async function updateTable(id) {
 
 // Calculate average performance for each movie from the screenings
 async function calculateAveragePerformance() {
-  const screeningsFromServer = await fetch(screeningUrl).then((res) =>
+  const screeningsFromServer = await fetch(URL_SCREENINGS).then((res) =>
     res.json()
   );
 

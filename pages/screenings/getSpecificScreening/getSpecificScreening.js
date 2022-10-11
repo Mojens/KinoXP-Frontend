@@ -1,7 +1,7 @@
+import { URL_SCREENINGS, URL_MOVIES, URL_SEATS_THEATER_ID, URL_RESERVATIONS_FROM_SCREENING,
+  URL_RESERVATIONS, URL_SEAT_CHOICES_LIST } from "../../../settings.js";
 import { checkFindScreeningAdmin } from "../../../pages/login/loginSettings.js";
 import { getUserId } from "../../../pages/login/loginSettings.js";
-const url = "http://localhost:8080/api/screenings/";
-const movieUrl = "http://localhost:8080/api/movies";
 let allSeats;
 let reservedSeats = [];
 let currentScreeningId;
@@ -52,7 +52,7 @@ async function fetchScreeningData() {
 }
 export async function getAllMovies() {
   try {
-    const moviesFromServer = await fetch(movieUrl).then((res) => res.json());
+    const moviesFromServer = await fetch(URL_MOVIES).then((res) => res.json());
 
     showAllMovies(moviesFromServer);
   } catch (err) {
@@ -61,7 +61,7 @@ export async function getAllMovies() {
 }
 
 async function getMovieTitle(movieId) {
-  const movie = await fetch("http://localhost:8080/api/movies/" + movieId).then(
+  const movie = await fetch(URL_MOVIES + movieId).then(
     (res) => res.json()
   );
   return movie.title;
@@ -198,7 +198,7 @@ function showAllMovies(movies) {
 }
 
 async function renderScreening(id) {
-  const screening = await fetch(url + id).then((res) => res.json());
+  const screening = await fetch(URL_SCREENINGS + id).then((res) => res.json());
 
   if (!screening) {
     document.getElementById("error").innerText =
@@ -216,7 +216,7 @@ async function renderScreening(id) {
     });
     document.getElementById("theater").innerText = screening.theaterId;
     allSeats = await fetch(
-      "http://localhost:8080/api/seats/theaterid/" + screening.theaterId
+      URL_SEATS_THEATER_ID + screening.theaterId
     ).then((res) => res.json());
     makeAllSeats(allSeats, id);
   } catch (err) {
@@ -228,7 +228,7 @@ async function makeAllSeats(allSeats, screeningId) {
   const seats = document.getElementById("seats");
 
   const seatResponse = await fetch(
-    "http://localhost:8080/api/reservations/fromScreening/" + screeningId
+    URL_RESERVATIONS_FROM_SCREENING + screeningId
   ).then((res) => res.json());
   const reservedSeats = seatResponse.map((seat) => seat.id);
   console.log(reservedSeats);
@@ -300,8 +300,7 @@ async function addReservation() {
     employeeId,
     screeningId,
   };
-  const urlForReservation = "http://localhost:8080/api/reservations";
-  const answer = await fetch(urlForReservation, {
+  const answer = await fetch(URL_RESERVATIONS, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -314,7 +313,6 @@ async function addReservation() {
 }
 
 async function addSeatChoices(resId) {
-  const urlForSeatChoice = "http://localhost:8080/api/seatchoices/list";
   let newSeatChoices = [];
   for (let i = 0; i < reservedSeats.length; i++) {
     const seatChoice = reservedSeats[i];
@@ -336,7 +334,7 @@ async function addSeatChoices(resId) {
     body: JSON.stringify(newSeatChoices),
   };
 
-  await fetch(urlForSeatChoice, opts)
+  await fetch(URL_SEAT_CHOICES_LIST, opts)
       .then((res) => res.json());
 
   router.navigate(`single-reservation?id=${resId}`);

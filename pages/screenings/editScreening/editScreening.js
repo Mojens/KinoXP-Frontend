@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/screenings/";
+import {URL_MOVIES, URL_SCREENINGS} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
@@ -27,7 +27,7 @@ export function initEditScreening(match, navigoRouter) {
 }
 
 async function getMovieTitle(movieId) {
-  const movie = await fetch("http://localhost:8080/api/movies/" + movieId).then(
+  const movie = await fetch(URL_MOVIES + movieId).then(
     (res) => res.json()
   );
   return movie.title;
@@ -53,7 +53,7 @@ function createPlaceholderText(screening) {
 }
 
 async function findScreening(id) {
-  const screening = await fetch(url + id).then((res) => res.json());
+  const screening = await fetch(URL_SCREENINGS + id).then((res) => res.json());
   if (!screening) {
     document.getElementById("error").innerText = "Could not find Screening: " + id;
     return;
@@ -98,7 +98,7 @@ async function editScreening(id) {
 
   // navigate to single-car page after submit
 
-  const response = await fetch(url + id, options);
+  const response = await fetch(URL_SCREENINGS + id, options);
   const data = await response.json();
   let sucess = (document.getElementById("edited").innerText = "Screening edited");
   // reload page after submit

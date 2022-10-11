@@ -1,5 +1,4 @@
-const url = "http://localhost:8080/api/screenings";
-const multiURL = "http://localhost:8080/api/screenings/all";
+import {URL_MOVIES, URL_SCREENINGS, URL_SCREENINGS_ALL, URL_THEATERS} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../../pages/login/loginSettings.js";
 
@@ -34,7 +33,7 @@ async function addScreening() {
     theaterId,
   };
 
-  const id = await fetch(url, {
+  const id = await fetch(URL_SCREENINGS, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -61,7 +60,7 @@ async function addMultiScreenings() {
 
   // add multiple screenings
 
-  const id = await fetch(multiURL, {
+  const id = await fetch(URL_SCREENINGS_ALL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -74,8 +73,7 @@ async function addMultiScreenings() {
 
 // function for populating select options for movie and theater
 async function populateMovieSelect() {
-    const url = "http://localhost:8080/api/movies";
-    const movies = await fetch(url).then((res) => res.json());
+    const movies = await fetch(URL_MOVIES).then((res) => res.json());
     const select = document.getElementById("if3");
      var selectTwo = document.getElementById("if7");
     
@@ -128,8 +126,7 @@ async function populateMovieSelect() {
 
 // function for populating select options for theater
 async function populateTheaterSelect() {
-    const url = "http://localhost:8080/api/theaters";
-    const theaters = await fetch(url).then((res) => res.json());
+    const theaters = await fetch(URL_THEATERS).then((res) => res.json());
     const select = document.getElementById("if4");
     const selectTwo = document.getElementById("if8");
     theaters.forEach((theater) => {

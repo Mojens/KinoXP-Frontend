@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/reservations/";
+import {URL_RESERVATIONS} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
@@ -53,7 +53,7 @@ function createPlaceholderText(reservation) {
 
 /// Find Reservation for editing
 async function findReservation(id) {
-    const reservation = await fetch(url + id).then((res) => res.json());
+    const reservation = await fetch(URL_RESERVATIONS + id).then((res) => res.json());
     if (!reservation) {
         document.getElementById("error").innerText = "Could not find Reservation with ID: " + id;
         return;
@@ -91,7 +91,7 @@ async function editReservation(id) {
 
     // navigate to single-car page after submit
 
-    const response = await fetch(url + id, options);
+    const response = await fetch(URL_RESERVATIONS + id, options);
     const data = await response.json();
     let sucess = (document.getElementById("edited").innerText = "Reservation edited");
     // reload page after submit

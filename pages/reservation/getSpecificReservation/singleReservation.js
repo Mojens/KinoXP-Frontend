@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/reservations/";
+import {URL_RESERVATIONS} from "../../../settings.js";
 import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
 let router;
@@ -36,7 +36,7 @@ async function fetchReservationData() {
 }
 
 async function renderReservation(id) {
-    const reservation = await fetch(url + id).then((res) => res.json());
+    const reservation = await fetch(URL_RESERVATIONS + id).then((res) => res.json());
     if (!reservation) {
         document.getElementById("error").innerText = "Could not find reservation with this id: " + id;
         return;
@@ -70,8 +70,8 @@ function editOrDelete(id){
 }
 
 async function deleteReservation(reservationId) {
-    console.log("Url is: " + url + reservationId)
-    await fetch(url + reservationId, {
+    console.log("Url is: " + URL_RESERVATIONS + reservationId)
+    await fetch(URL_RESERVATIONS + reservationId, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
