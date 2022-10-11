@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="added js">
+      <change beforePath="$PROJECT_DIR$/pages/employees/addEmployee/addEmployee.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/employees/addEmployee/addEmployee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/employees/editEmployee/editEmployee.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/employees/editEmployee/editEmployee.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/employees/getAllEmployees/getAllEmployees.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/employees/getAllEmployees/getAllEmployees.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/employees/";
+import {URL_EMPLOYEES} from "../../../settings";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../login/loginSettings.js";
 
@@ -52,7 +52,7 @@ function createPlaceholderText(employee) {
 }
 
 async function findEmployee(id) {
-  const employee = await fetch(url + id).then((res) => res.json());
+  const employee = await fetch( URL_EMPLOYEES + id).then((res) => res.json());
   if (!employee) {
     document.getElementById("error").innerText =
       "Could not find Employee: " + id;
@@ -91,7 +91,7 @@ async function editEmployee(id) {
 
   // navigate to single-car page after submit
 
-  const response = await fetch(url + id, options);
+  const response = await fetch(URL_EMPLOYEES + id, options);
   const data = await response.json();
   let sucess = (document.getElementById("edited").innerText = "Employee edited");
   // reload page after submit

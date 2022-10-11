@@ -52,7 +52,7 @@ async function fetchEmployeeData() {
 }
 
 async function renderEmployee(id) {
-  const employee = await fetch(URL_EMPLOYEES + id).then((res) => res.json());
+  const employee = await fetch(URL_EMPLOYEES+id).then((res) => res.json());
   if (!employee) {
     document.getElementById("error").innerText =
       "Could not find Employee: " + id;
