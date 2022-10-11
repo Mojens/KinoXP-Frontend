@@ -1,4 +1,4 @@
-import { URL_SHIFTS } from "../shiftSettings.js";
+import {URL_SHIFTS} from "../../../settings.js";
 import { checkSession1 } from "../../login/loginSettings.js";
 let router;
 

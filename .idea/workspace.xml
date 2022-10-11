@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="commit for pull">
+    <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/screening.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/screenings/getSpecificScreening/screening.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/addShift/addShift.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/editShift/editShift.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Shifts/getAllShifts/getAllShifts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Shifts/shiftSettings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/settings.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +46,9 @@
     "Git.Branch.Popup.ShowAllRemotes": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -59,6 +65,7 @@
       <workItem from="1664888514644" duration="8055000" />
       <workItem from="1665041843301" duration="1242000" />
       <workItem from="1665058423788" duration="17404000" />
+      <workItem from="1665488199098" duration="3751000" />
     </task>
     <servers />
   </component>

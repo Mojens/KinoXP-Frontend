@@ -1,11 +1,12 @@
-import { URL_SHIFTS } from "../shiftSettings.js";
+import {URL_SHIFTS} from "../../../settings.js";
+import {URL_EMPLOYEES} from "../../../settings.js";
 import { CheckEditDeleteBtnShift } from "../../login/loginSettings.js";
 import { checkSessionBoth } from "../../login/loginSettings.js";
 
 let router;
 
 async function getEmployeeNameById(id) {
-    const employee = await fetch("http://localhost:8080/api/employees/" + id).then(r => r.json())
+    const employee = await fetch(URL_EMPLOYEES + id).then(r => r.json())
     return employee.name
 }
 

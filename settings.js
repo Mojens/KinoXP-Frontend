@@ -1,0 +1,7 @@
+export let URL_EMPLOYEES = "https://forzacinema.azurewebsites.net/api/employees/"
+export let URL_LOGIN = "https://forzacinema.azurewebsites.net/api/employees/login/"
+export let URL_MOVIES = "https://forzacinema.azurewebsites.net/api/movies/"
+export let URL_RESERVATIONS = "https://forzacinema.azurewebsites.net/api/reservations/"
+export let URL_SCREENINGS = "https://forzacinema.azurewebsites.net/api/screenings/"
+export let URL_SHIFTS = "https://forzacinema.azurewebsites.net/api/shifts/"
+export let URL_THEATER = "https://forzacinema.azurewebsites.net/api/theater/"
