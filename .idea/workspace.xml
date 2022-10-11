@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e1b39f1-c061-4554-ab13-25839615a0be" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/movies/addMovie/addMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/movies/addMovie/addMovie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/movies/editMovie/editMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/movies/editMovie/editMovie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/movies/getAllMovies/getAllMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/movies/getAllMovies/getAllMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/movies/getSpecificMovie/getSpecificMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/movies/getSpecificMovie/getSpecificMovie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reservation/addReservation/addReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reservation/addReservation/addReservation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reservation/deleteReservation/deleteReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reservation/deleteReservation/deleteReservation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reservation/editReservation/editReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reservation/editReservation/editReservation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reservation/getAllReservations/getAllReservations.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reservation/getAllReservations/getAllReservations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reservation/getSpecificReservation/singleReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reservation/getSpecificReservation/singleReservation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
       <workItem from="1664888514644" duration="8055000" />
       <workItem from="1665041843301" duration="1242000" />
       <workItem from="1665058423788" duration="17404000" />
-      <workItem from="1665488199098" duration="4208000" />
+      <workItem from="1665488199098" duration="4960000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/reservations/";
+import {URL_RESERVATIONS} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
@@ -35,8 +35,8 @@ async function editOrDelete(id){
 
 
 async function deleteReservation(reservationId) {
-    console.log("Url is: " + url + reservationId)
-    await fetch(url + reservationId, {
+    console.log("Url is: " + URL_RESERVATIONS + reservationId)
+    await fetch(URL_RESERVATIONS + reservationId, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -53,7 +53,7 @@ async function deleteReservation(reservationId) {
 
 export async function getAllReservations() {
     try{
-        const reservationsFromServer = await fetch(url).then(res => res.json());
+        const reservationsFromServer = await fetch(URL_RESERVATIONS).then(res => res.json());
         showAllReservations(reservationsFromServer);
         reservations = reservationsFromServer;
     } catch(err) {

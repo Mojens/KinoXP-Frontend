@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/reservations";
+import {URL_RESERVATIONS} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
@@ -24,7 +24,7 @@ async function addReservation() {
         screeningId
     };
 
-    const id = await fetch(url, {
+    const id = await fetch(URL_RESERVATIONS, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
