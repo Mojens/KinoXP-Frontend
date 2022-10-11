@@ -73,7 +73,7 @@ export function checkSession2() {
 
 export function checkSessionBoth() {
     if (localStorage.getItem("user2") !== null || localStorage.getItem("user1") !== null) {
-        document.getElementById("loggedInNav").style.display = "inline-block"
+        document.getElementById("loggedInNav").style.display = "flex"
         const boxes = document.querySelectorAll('.sessionCheck3');
         boxes.forEach(box => {
             box.style.display = "block";
