@@ -44,11 +44,12 @@ function showAllMovies(movies) {
   movies.forEach((movie) => {
  const screeningResponseSize = movie.screeningResponse;
  // get the size of elements in movie
- const movieIndexSize = movie
+    console.log("ScSize: " +screeningResponseSize);
  let count = Object.keys(screeningResponseSize);
     console.log("1Count"+count);
-    console.log("Size: " + JSON.stringify(screeningResponseSize) + " " + JSON.stringify(movies  ));
- if (screeningResponseSize != null) {
+
+ if (movie.screeningResponse[0] != null) {
+  console.log("ScSize: " + screeningResponseSize.length);
    const divMovie = document.createElement("div");
    divMovie.className = "movie";
    console.log(movie);
