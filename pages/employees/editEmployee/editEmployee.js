@@ -1,4 +1,4 @@
-import {URL_EMPLOYEES} from "../../../settings";
+import {URL_EMPLOYEES} from "../../../settings.js";
 import { encode } from "../../../utils.js";
 import { checkSession1 } from "../../login/loginSettings.js";
 
