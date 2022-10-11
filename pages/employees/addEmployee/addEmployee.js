@@ -1,4 +1,4 @@
-let Employee_Url = "http://localhost:8080/api/employees";
+import {URL_EMPLOYEES} from "../../../settings";
 import { checkSession1 } from "../../login/loginSettings.js";
 let router;
 
@@ -22,7 +22,7 @@ async function addEmployee() {
     opts.headers = { "Content-type": "application/json" }
     opts.body = JSON.stringify(employeeInfo)
 
-    await fetch(Employee_Url, opts).then(response => {
+    await fetch(URL_EMPLOYEES, opts).then(response => {
         if (response.status == 200) {
             alert("Employee added successfully!");
         } else {
