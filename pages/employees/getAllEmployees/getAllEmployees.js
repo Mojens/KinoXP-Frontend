@@ -141,31 +141,39 @@ async function deleteEmployee(id) {
     },
   };
   try {
-    const response = await fetch(url + id, options);
+    const response = await fetch(url + id, options);  
+     updateTable(id);
+   
     const json = await response.json();
     console.log("Deleted employee with id: " + id);
-    updateTable(id);
+    console.log(json);
+     
+   
   } catch (error) {
     console.log(error);
   }
-  location.reload();
+
 }
 
 async function updateTable(id) {
   const tbody = document.getElementById("tbody-all");
   const tr = document.createElement("tr");
   tr.innerHTML = `
-    
-    <td></td>
-    <td id=deleteMe>Deleted Employee: ${id}</td>
-    <td></td>
+
+    <td ></td>
+    <td ></td>
+    <td  id=deleteMe>Deleted Screening: ${id}</td>
+    <td ></td>
+ 
     `;
 
   tbody.appendChild(tr);
   tr.classList.add("deleteRow");
   setTimeout(() => {
     tbody.removeChild(tbody.lastChild);
+      getAllEmployees();
   }, 3000);
 
   tbody.removeChild(document.getElementById(id + "-column-id").parentElement);
+
 }
