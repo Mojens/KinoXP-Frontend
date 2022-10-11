@@ -1,9 +1,16 @@
 const url = "http://localhost:8080/api/reservations/";
 import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
-export async function initGetReservationById(match) {
+let router;
+export async function initGetReservationById(match, navigoRouter) {
     checkSessionBoth();
     document.getElementById("singleReservation").onclick = fetchReservationData;
+    document.getElementById("table").onclick = (element) =>{
+        let id = element.target.id
+        editOrDelete(id)
+    }
+    router = navigoRouter;
+
     if (match?.params?.id) {
         const id = match.params.id;
         try {
@@ -41,8 +48,39 @@ async function renderReservation(id) {
         document.getElementById("employee-id").innerText = reservation.employeeId;
         document.getElementById("safety-id").innerText = reservation.safetyId;
         document.getElementById("screening-id").innerText = reservation.screeningId;
+        document.getElementById("edit").innerHTML = `<button id="${reservation.id}-edit">Edit</button>`;
+        document.getElementById("delete").innerHTML = `<button id="${reservation.id}-delete">Delete</button>`;
 
     } catch (err) {
         console.log("UPS " + err.message);
     }
+}
+
+function editOrDelete(id){
+    if(id.endsWith("-delete")){
+        if (confirm('Are you sure you want to delete this reservation?')) {
+            id = id.substring(0, id.indexOf('-'));
+            deleteReservation(id)
+        }
+    }
+    else if(id.endsWith("-edit")){
+        id = id.substring(0, id.indexOf('-'));
+        router.navigate(`edit-reservation?id=${id}`);
+    }
+}
+
+async function deleteReservation(reservationId) {
+    console.log("Url is: " + url + reservationId)
+    await fetch(url + reservationId, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: "",
+    }).then(response => {
+        if (response.status>1){
+            location.reload();
+        }
+    })
+
 }

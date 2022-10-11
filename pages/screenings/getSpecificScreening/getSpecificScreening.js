@@ -310,7 +310,7 @@ async function addReservation() {
   }).then((res) => res.json());
 
   addSeatChoices(answer.id);
-  router.navigate(`single-reservation?id=${answer.id}`);
+
 }
 
 async function addSeatChoices(resId) {
@@ -336,13 +336,11 @@ async function addSeatChoices(resId) {
     body: JSON.stringify(newSeatChoices),
   };
 
-  await fetch(urlForSeatChoice, opts);
-  /*
-  //Trying to redirect after adding reservation.
-  setTimeout(function(){
-    window.location.href = `/all-reservations`;
-  }, 1000);
-  */
+  await fetch(urlForSeatChoice, opts)
+      .then((res) => res.json());
+
+  router.navigate(`single-reservation?id=${resId}`);
+
 }
 
 async function showReservedSeats() {

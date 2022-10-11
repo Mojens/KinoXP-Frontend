@@ -11,19 +11,28 @@ export function initGetAllReservations(navigoRouter) {
     getAllReservations();
     router = navigoRouter;
     document.getElementById("table").onclick = (element) =>{
-        let x = element.target.id
-        if(x.endsWith("-delete")){
-            if (confirm('Are you sure you want to delete this reservation?')) {
-                x = x.substring(0, x.indexOf('-'));
-                deleteReservation(x)
-            }
-        }
-        else if(x.endsWith("-edit")){
-            x = x.substring(0, x.indexOf('-'));
-            goToEditReservation(x);
-        }
+        let id = element.target.id
+        editOrDelete(id)
     }
 }
+
+
+async function editOrDelete(id){
+    if(id.endsWith("-delete")){
+        if (confirm('Are you sure you want to delete this reservation?')) {
+            id = id.substring(0, id.indexOf('-'));
+            deleteReservation(id)
+        }
+    }
+    else if(id.endsWith("-edit")){
+        id = id.substring(0, id.indexOf('-'));
+        console.log("id is: " + id)
+        console.log(router)
+        router.navigate(`edit-reservation?id=${id}`);
+    }
+}
+
+
 
 async function deleteReservation(reservationId) {
     console.log("Url is: " + url + reservationId)
@@ -53,7 +62,7 @@ export async function getAllReservations() {
 }
 
 function showAllReservations(data){
-    const tableRowsArray = data.map(
+     const tableRowsArray = data.map(
         (reservation) =>
             `
         <tr>
@@ -63,7 +72,7 @@ function showAllReservations(data){
             <td>${reservation.employeeId}</td>
             <td>${reservation.safetyId}</td>
             <td>${reservation.screeningId}</td>
-            <td><button id="${reservation.id}-edit">Edit</button></td>
+            <td><button id="${reservation.id}-edit" >Edit</button></td>
             <td><button id="${reservation.id}-delete">Delete</button></td>
         `
     );
@@ -71,8 +80,3 @@ function showAllReservations(data){
     document.getElementById("tbody-all").innerHTML = tableRowsString;
 }
 
-
-function goToEditReservation(id){
-    //Her skal der navigeres til edit reservation. Nedenstående virker ikke.
-    //router.navigate("edit-reservation?id=" + id);
-}

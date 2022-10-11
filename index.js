@@ -174,18 +174,18 @@ window.addEventListener("load", async () => {
       },
       //=========Movies End here=========
       //=========Reservations start here=========
-      "/all-reservations": (router) => {
+      "/all-reservation": () => {
         renderTemplate(templateGetAllReservations, "content");
         initGetAllReservations(router);
       },
 
       "/single-reservation": (match) => {
         renderTemplate(templateGetReservationById, "content");
-        initGetReservationById(match);
+        initGetReservationById(match, router);
       },
-        "/edit-reservation": (match, router) => {
-        renderTemplate(templateEditReservation, "content");
-        initEditReservation(match, router);
+      "/edit-reservation": (match) => {
+      renderTemplate(templateEditReservation, "content");
+      initEditReservation(match);
     },
       "/delete-reservation": (router) => {
         renderTemplate(templateDeleteReservation, "content");

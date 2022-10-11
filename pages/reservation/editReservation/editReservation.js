@@ -4,22 +4,24 @@ import { checkSessionBoth } from "../../../pages/login/loginSettings.js";
 
 let router;
 let reservations = [];
-
-export function initEditReservation(match, navigoRouter) {
+let currentId;
+export function initEditReservation(match) {
     checkSessionBoth();
     document.getElementById("findEdit").onclick = fetchReservationData;
     const submitEdit = document.getElementById("submitEdit");
-    const getEdit = document.getElementById("text-for-id");
-    router = navigoRouter;
+    const getEdit = document.getElementById("text-for-id").value;
     submitEdit.addEventListener("click", (e) => {
         e.preventDefault();
-        editReservation(getEdit.value);
+        if (getEdit.value){
+            currentId = getEdit.value;
+        }
+        editReservation(currentId);
     });
     if (match?.params?.id) {
-        const id = match.params.id;
+        currentId = match.params.id;
 
         try {
-            findReservation(id);
+            findReservation(currentId);
         } catch (error) {
             document.getElementById("error").innerHTML = "Could not find Reservation with ID: " + id;
         }
