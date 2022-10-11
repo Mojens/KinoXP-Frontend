@@ -20,7 +20,6 @@ export async function initGetMovieById(match, navigoRouter) {
     try {
       getAllMovies();
       renderMovie(id);
-      
     } catch (error) {
       document.getElementById("error").innerHTML = "Could not find Car: " + id;
     }
@@ -92,7 +91,7 @@ async function renderMovie(id) {
     `;
 
     card.appendChild(tr);
-calculateAveragePerformance();
+    calculateAveragePerformance();
     // if the user clicks on find movie, only display the movie with the given id
     const movieId = document.getElementById("text-for-id").value;
     if (movieId) {
@@ -118,7 +117,6 @@ calculateAveragePerformance();
     `;
       card.appendChild(tr);
       getAllScreenings();
-      
     }
   } catch (err) {
     console.log("UPS " + err.message);
@@ -167,7 +165,6 @@ async function showMovieDetails(evt) {
     document.getElementById("showEndDate").innerText =
       "Show End Date: " + movie.showEndDate;
   }
-  
 }
 
 function toEditMovie() {
@@ -185,10 +182,10 @@ async function deleteMovie(id) {
   };
   try {
     const response = await fetch(url + id, options);
+    updateTable(id);
     const json = await response.json();
     console.log("Deleted car with id: " + id);
     console.log(json);
-    updateTable(id);
   } catch (error) {
     console.log(error);
   }
@@ -201,6 +198,8 @@ async function updateTable(id) {
     <td ></td>
     <td ></td>
     <td ></td>
+      <td ></td>
+        <td ></td>
     <td  id=deleteMe>Deleted Screening: ${id}</td>
     <td ></td>
     <td ></td>
@@ -211,7 +210,8 @@ async function updateTable(id) {
   tr.classList.add("deleteRow");
   setTimeout(() => {
     tbody.removeChild(tbody.lastChild);
-  }, 3000);
+    getAllMovies();
+  }, 1500);
 
   tbody.removeChild(document.getElementById(id + "-column-id").parentElement);
 }
@@ -224,7 +224,7 @@ async function calculateAveragePerformance() {
 
   const allScreenings = screeningsFromServer;
   const allMovies = document.querySelectorAll("tr");
-  
+
   allMovies.forEach((movie) => {
     const movieId = movie.children[0].innerText;
 
