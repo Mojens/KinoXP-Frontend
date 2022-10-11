@@ -1,8 +1,42 @@
-<template>
-    <div class="main-container">
-        <div class="sessionCheck1">
-
-        </div>
-
+<template id="btn1-template">
+  <div class="main-container">
+    <div class="sessionCheck1">
+      <h1>Edit Employee</h1>
+      <input id="text-for-id" placeholder="id" />
+      <button id="findEdit">Find Employee to edit</button>
+      <form>
+        <table class="table">
+          <thead>
+            <tr class="thRow">
+              <th>Id</th>
+              <th>Name</th>
+              <th>UserName</th>
+              <th>Type</th>
+              <th>Password</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-all">
+            <tr>
+              <td id="id"></td>
+              <td id="name">
+                <input id="if1" type="text" />
+              </td>
+              <td id="username">
+                <input id="if2" type="text" />
+              </td>
+              <td id="type">
+                <input id="if3" type="number" />
+              </td>
+              <td id="password">
+                <input id="if4" type="text" />
+              </td>
+            </tr>
+            <p id="error" style="color: red"></p>
+          </tbody>
+        </table>
+        <p id="edited"></p>
+        <button id="submitEdit">Gem Opdateret Medarbejder</button>
+      </form>
     </div>
+  </div>
 </template>

@@ -1,8 +1,70 @@
-<template>
+<template id="btn3-template">
+  <div class="sessionCheck1">
     <div class="main-container">
-        <div class="sessionCheck1">
+      <h2>Find Employee</h2>
+      <input type="number" id="text-for-id" placeholder="id" />
+      <button id="singleEmployee">Find Employee</button>
+      <button id="btn-get-all">Get All Employees</button>
 
+      <table class="table">
+        <thead>
+          <tr class="thRow">
+            <th>Id</th>
+            <th>Name</th>
+            <th>UserName</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-all"></tbody>
+      </table>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="movie-content">
+                <p class="inner-content" id="id"></p>
+                <p class="inner-content" id="name"></p>
+                <p class="inner-content" id="username"></p>
+                <p class="inner-content" id="type"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="editEmployee"
+                data-bs-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Edit Employee
+              </button>
+              <button
+                type="button"
+                id="deleteEmployee"
+                data-bs-dismiss="modal"
+                class="btn btn-red"
+              >
+                Delete Employee
+              </button>
+            </div>
+          </div>
         </div>
-
+      </div>
+      <p id="error" style="color: red"></p>
     </div>
+  </div>
 </template>

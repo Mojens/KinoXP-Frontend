@@ -40,6 +40,9 @@ import { initGetSpecificTheater } from "./pages/theater/getSpecificTheater/speci
 //=========Theater end here=========
 
 //=========Employee start here=========
+import { initEditEmployee} from "./pages/employees/editEmployee/editEmployee.js";
+import { initGetAllEmployees } from "./pages/employees/getAllEmployees/getAllEmployees.js";
+
 
 //=========Employee end here=========
 
@@ -228,14 +231,16 @@ window.addEventListener("load", async () => {
       "/addEmployees": () => {
         renderTemplate(templateAddEmployee, "content");
       },
-      "/allEmployees": () => {
+      "/allEmployees": (match) => {
         renderTemplate(templateAllEmployees, "content");
+        initGetAllEmployees(match,router);
       },
        "/deleteEmployee": () => {
         renderTemplate(templateDeleteEmployee, "content");
       },
-       "/editEmployee": () => {
+       "/editEmployee": (match,router) => {
         renderTemplate(templateEditEmployee, "content");
+        initEditEmployee(match,router);
       },
       //=========Employee end here=========
 
