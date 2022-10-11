@@ -18,7 +18,6 @@
   }
   /* Custom Select wrapper */
   .select {
-    width: 20em;
     height: 3em;
     border-radius: .25em;
     overflow: hidden;
