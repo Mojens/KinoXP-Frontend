@@ -142,6 +142,7 @@ async function deleteEmployee(id) {
   };
   try {
     const response = await fetch(url + id, options);  
+     
      updateTable(id);
    
     const json = await response.json();
@@ -156,7 +157,9 @@ async function deleteEmployee(id) {
 }
 
 async function updateTable(id) {
+
   const tbody = document.getElementById("tbody-all");
+
   const tr = document.createElement("tr");
   tr.innerHTML = `
 
@@ -169,11 +172,12 @@ async function updateTable(id) {
 
   tbody.appendChild(tr);
   tr.classList.add("deleteRow");
+  
   setTimeout(() => {
-    tbody.removeChild(tbody.lastChild);
-      getAllEmployees();
-  }, 3000);
+    tbody.removeChild(tbody.lastChild); 
+    getAllEmployees();
+  }, 1200);
 
   tbody.removeChild(document.getElementById(id + "-column-id").parentElement);
-
+  
 }
