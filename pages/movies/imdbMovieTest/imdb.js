@@ -1,3 +1,5 @@
+import {URL_MOVIES} from "../../../settings";
+
 const url = "https://imdb-api.com/da/API/Title/k_bdxy7ojz/";
 import { encode } from "../../../utils.js";
 
@@ -65,7 +67,7 @@ async function addMovie() {
         showEndDate,
         
     };
-    const myUrl = "http://localhost:8080/api/movies";
+    const myUrl = URL_MOVIES;
     const id = await fetch(myUrl, {
       method: "POST",
       headers: {
