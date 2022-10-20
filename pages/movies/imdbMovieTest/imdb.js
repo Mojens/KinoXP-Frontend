@@ -1,4 +1,4 @@
-import {URL_MOVIES} from "../../../settings";
+import {URL_MOVIES} from "../../../settings.js";
 
 const url = "https://imdb-api.com/da/API/Title/k_bdxy7ojz/";
 import { encode } from "../../../utils.js";
